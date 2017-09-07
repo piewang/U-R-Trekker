@@ -12,6 +12,18 @@
 		D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D971F5E71AC00E803CA /* Main.storyboard */; };
 		D7FA7D9B1F5E71AC00E803CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */; };
 		D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */; };
+		D7FA7DA81F5E71CF00E803CA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DA71F5E71CF00E803CA /* DataManager.swift */; };
+		D7FA7DAB1F5E71E700E803CA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DA91F5E71E700E803CA /* MainViewController.swift */; };
+		D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */; };
+		D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DAF1F5E726D00E803CA /* Work.storyboard */; };
+		D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */; };
+		D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */; };
+		D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */; };
+		D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */; };
+		D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC31F5EA35B00E803CA /* settings.png */; };
+		D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC41F5EA35B00E803CA /* explore.png */; };
+		D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC51F5EA35B00E803CA /* footprint.png */; };
+		D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DC91F5EA3CA00E803CA /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +34,20 @@
 		D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7FA7D9D1F5E71AC00E803CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7FA7D9F1F5E71AC00E803CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7FA7DA71F5E71CF00E803CA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D7FA7DA91F5E71E700E803CA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		D7FA7DAF1F5E726D00E803CA /* Work.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
+		D7FA7DB61F5E884100E803CA /* Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Bridging-Header.h"; sourceTree = "<group>"; };
+		D7FA7DB71F5E884100E803CA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecordedViewController.swift; sourceTree = "<group>"; };
+		D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizer.swift; sourceTree = "<group>"; };
+		D7FA7DC31F5EA35B00E803CA /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		D7FA7DC41F5EA35B00E803CA /* explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explore.png; sourceTree = "<group>"; };
+		D7FA7DC51F5EA35B00E803CA /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
+		D7FA7DC91F5EA3CA00E803CA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +81,67 @@
 			isa = PBXGroup;
 			children = (
 				D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */,
-				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
+				D7FA7DAD1F5E71F300E803CA /* Data */,
+				D7FA7DAE1F5E720F00E803CA /* Controller */,
+				D7FA7DBA1F5E885C00E803CA /* SWRevealViewController */,
+				D7FA7DC11F5E940000E803CA /* Methods */,
 				D7FA7D971F5E71AC00E803CA /* Main.storyboard */,
+				D7FA7DAF1F5E726D00E803CA /* Work.storyboard */,
 				D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */,
+				D7FA7DC21F5EA34B00E803CA /* IMG */,
 				D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */,
 				D7FA7D9F1F5E71AC00E803CA /* Info.plist */,
+				D7FA7DB61F5E884100E803CA /* Project-Bridging-Header.h */,
 			);
 			path = Project;
+			sourceTree = "<group>";
+		};
+		D7FA7DAD1F5E71F300E803CA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D7FA7DA71F5E71CF00E803CA /* DataManager.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		D7FA7DAE1F5E720F00E803CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D7FA7DA91F5E71E700E803CA /* MainViewController.swift */,
+				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
+				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
+				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
+				D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D7FA7DBA1F5E885C00E803CA /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D7FA7DB71F5E884100E803CA /* SWRevealViewController.h */,
+				D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		D7FA7DC11F5E940000E803CA /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
+				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
+			);
+			name = Methods;
+			sourceTree = "<group>";
+		};
+		D7FA7DC21F5EA34B00E803CA /* IMG */ = {
+			isa = PBXGroup;
+			children = (
+				D7FA7DC31F5EA35B00E803CA /* settings.png */,
+				D7FA7DC41F5EA35B00E803CA /* explore.png */,
+				D7FA7DC51F5EA35B00E803CA /* footprint.png */,
+			);
+			name = IMG;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +177,7 @@
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = XM7PE2ATP2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,9 +205,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */,
 				D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */,
+				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
+				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
 				D7FA7D9B1F5E71AC00E803CA /* Assets.xcassets in Resources */,
 				D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */,
+				D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +223,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */,
+				D7FA7DA81F5E71CF00E803CA /* DataManager.swift in Sources */,
+				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
+				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
+				D7FA7DAB1F5E71E700E803CA /* MainViewController.swift in Sources */,
+				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
+				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
+				D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */,
+				D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,11 +354,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = XM7PE2ATP2;
 				INFOPLIST_FILE = Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willy.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project/Project-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,11 +370,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = XM7PE2ATP2;
 				INFOPLIST_FILE = Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willy.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project/Project-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -302,6 +400,7 @@
 				D7FA7DA41F5E71AC00E803CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
