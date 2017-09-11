@@ -156,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="2133.5999999999999" y="-147.07646176911544"/>
         </scene>
-        <!--Add Text And PhotoVC-->
+        <!--Add Photo And Text View Controller-->
         <scene sceneID="0dn-iB-O6s">
             <objects>
-                <viewController storyboardIdentifier="addTextAndPhotoVC" id="L6e-Ur-8aP" customClass="addTextAndPhotoVC" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPhotoAndTextViewController" id="L6e-Ur-8aP" customClass="AddPhotoAndTextViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LcB-1a-E1y"/>
                         <viewControllerLayoutGuide type="bottom" id="2d2-HD-zhk"/>
@@ -177,7 +177,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="9aV-Om-Chp" appends="YES" id="UYh-BR-f0f"/>
+                                            <outletCollection property="gestureRecognizers" destination="fC4-Aq-AUR" appends="YES" id="4RI-xs-iE6"/>
                                         </connections>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wmA-WF-4o6">
@@ -200,7 +200,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
-                                            <action selector="cancelAddTextAndPhoto:" destination="L6e-Ur-8aP" eventType="touchUpInside" id="Auq-nU-isb"/>
+                                            <action selector="cancelBtnPressed:" destination="L6e-Ur-8aP" eventType="touchUpInside" id="aT3-f0-VpJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESj-mw-crw">
@@ -210,7 +210,7 @@
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="saveAndPinDown:" destination="L6e-Ur-8aP" eventType="touchUpInside" id="VRn-p2-YlZ"/>
+                                            <action selector="saveBtnPressed:" destination="L6e-Ur-8aP" eventType="touchUpInside" id="vjB-hN-FXf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -221,14 +221,14 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="askAddingPhotoLabel" destination="jar-UE-6ev" id="hgP-XW-a7j"/>
-                        <outlet property="imageView" destination="2ra-go-15A" id="3Cu-dA-V2T"/>
-                        <outlet property="tapImageToAddPhoto" destination="9aV-Om-Chp" id="CNH-kt-j8j"/>
-                        <outlet property="textView" destination="wmA-WF-4o6" id="G93-gj-zcI"/>
+                        <outlet property="askAddPhotoLabel" destination="jar-UE-6ev" id="B1t-W3-Pip"/>
+                        <outlet property="photoImageView" destination="2ra-go-15A" id="LGf-WS-reN"/>
+                        <outlet property="tapImageToCamera" destination="fC4-Aq-AUR" id="Sko-fm-A2w"/>
+                        <outlet property="textView" destination="wmA-WF-4o6" id="zWx-vS-rAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkY-7i-Oa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9aV-Om-Chp"/>
+                <tapGestureRecognizer id="fC4-Aq-AUR"/>
             </objects>
             <point key="canvasLocation" x="2861.5999999999999" y="-147.07646176911544"/>
         </scene>

@@ -620,7 +620,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
             print("add Text")
         }
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "addTextAndPhotoVC") as? addTextAndPhotoVC
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddPhotoAndTextViewController") as? AddPhotoAndTextViewController
         vc?.textEntered = textView.text
         self.navigationController?.pushViewController(vc!, animated: true)
         

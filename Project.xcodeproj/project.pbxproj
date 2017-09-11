@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E9EA71E1F663A1100A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA71D1F663A1100A76A80 /* DispatchQueue+Once.swift */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
-		8E9EA7251F66783900A76A80 /* addTextAndPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA7241F66783900A76A80 /* addTextAndPhotoVC.swift */; };
+		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
+		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */; };
 		D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D951F5E71AB00E803CA /* ViewController.swift */; };
 		D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D971F5E71AC00E803CA /* Main.storyboard */; };
@@ -31,10 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E9EA71D1F663A1100A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		8E9EA7241F66783900A76A80 /* addTextAndPhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addTextAndPhotoVC.swift; sourceTree = "<group>"; };
+		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
+		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		D7FA7D901F5E71AB00E803CA /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7FA7D951F5E71AB00E803CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 				D7FA7DA91F5E71E700E803CA /* MainViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
 				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
-				8E9EA7241F66783900A76A80 /* addTextAndPhotoVC.swift */,
+				8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */,
 				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
 				D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */,
 			);
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
-				8E9EA71D1F663A1100A76A80 /* DispatchQueue+Once.swift */,
+				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
 			);
 			name = Methods;
@@ -247,14 +247,14 @@
 				D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */,
 				D7FA7DA81F5E71CF00E803CA /* DataManager.swift in Sources */,
 				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
+				8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
-				8E9EA71E1F663A1100A76A80 /* DispatchQueue+Once.swift in Sources */,
 				D7FA7DAB1F5E71E700E803CA /* MainViewController.swift in Sources */,
 				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
+				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
 				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
 				D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */,
-				8E9EA7251F66783900A76A80 /* addTextAndPhotoVC.swift in Sources */,
 				D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
