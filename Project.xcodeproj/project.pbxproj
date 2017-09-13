@@ -11,6 +11,19 @@
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
 		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
+		D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C701F677E6000207950 /* FirebaseWorks.swift */; };
+		D7ED1C731F677E6000207950 /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C711F677E6000207950 /* AlertSetting.swift */; };
+		D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */; };
+		D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C791F6789E800207950 /* HomeViewController.swift */; };
+		D7ED1C7C1F678D4A00207950 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C7B1F678D4A00207950 /* SignInViewController.swift */; };
+		D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C7D1F678E6E00207950 /* LogInViewController.swift */; };
+		D7ED1C801F678EEB00207950 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C7F1F678EEB00207950 /* ResetPasswordViewController.swift */; };
+		D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C811F67B4AD00207950 /* Group 2.png */; };
+		D7ED1C861F67D09D00207950 /* fbLogInIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C831F67D09D00207950 /* fbLogInIcon.png */; };
+		D7ED1C871F67D09D00207950 /* googleLogInIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C841F67D09D00207950 /* googleLogInIcon.png */; };
+		D7ED1C881F67D09D00207950 /* otherLogInIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C851F67D09D00207950 /* otherLogInIcon.png */; };
+		D7ED1C8A1F67ECA600207950 /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C891F67ECA600207950 /* loginBackground.png */; };
+		D7ED1C8C1F67EE1100207950 /* HomeViewController+visualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C8B1F67EE1100207950 /* HomeViewController+visualEffectView.swift */; };
 		D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */; };
 		D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D951F5E71AB00E803CA /* ViewController.swift */; };
 		D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D971F5E71AC00E803CA /* Main.storyboard */; };
@@ -28,13 +41,30 @@
 		D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC41F5EA35B00E803CA /* explore.png */; };
 		D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC51F5EA35B00E803CA /* footprint.png */; };
 		D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DC91F5EA3CA00E803CA /* Color.swift */; };
+		DB2C61477314F1B015EAADAF /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B95F97DE0618E757218977 /* Pods_Project.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
+		87B95F97DE0618E757218977 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
+		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
+		D7ED1C701F677E6000207950 /* FirebaseWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseWorks.swift; sourceTree = "<group>"; };
+		D7ED1C711F677E6000207950 /* AlertSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
+		D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7ED1C791F6789E800207950 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D7ED1C7B1F678D4A00207950 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D7ED1C7D1F678E6E00207950 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		D7ED1C7F1F678EEB00207950 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		D7ED1C811F67B4AD00207950 /* Group 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 2.png"; sourceTree = "<group>"; };
+		D7ED1C831F67D09D00207950 /* fbLogInIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLogInIcon.png; sourceTree = "<group>"; };
+		D7ED1C841F67D09D00207950 /* googleLogInIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleLogInIcon.png; sourceTree = "<group>"; };
+		D7ED1C851F67D09D00207950 /* otherLogInIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherLogInIcon.png; sourceTree = "<group>"; };
+		D7ED1C891F67ECA600207950 /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
+		D7ED1C8B1F67EE1100207950 /* HomeViewController+visualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+visualEffectView.swift"; sourceTree = "<group>"; };
 		D7FA7D901F5E71AB00E803CA /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7FA7D951F5E71AB00E803CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,19 +95,41 @@
 			files = (
 				8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */,
 				8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */,
+				DB2C61477314F1B015EAADAF /* Pods_Project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501F544586E6F4282675317D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */,
+				98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8E9EA71F1F663A7100A76A80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				8E9EA7221F663A7A00A76A80 /* MapKit.framework */,
 				8E9EA7201F663A7100A76A80 /* CoreLocation.framework */,
+				87B95F97DE0618E757218977 /* Pods_Project.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7ED1C781F67862100207950 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				D7ED1C791F6789E800207950 /* HomeViewController.swift */,
+				D7ED1C7B1F678D4A00207950 /* SignInViewController.swift */,
+				D7ED1C7D1F678E6E00207950 /* LogInViewController.swift */,
+				D7ED1C7F1F678EEB00207950 /* ResetPasswordViewController.swift */,
+			);
+			name = SignIn;
 			sourceTree = "<group>";
 		};
 		D7FA7D871F5E71AB00E803CA = {
@@ -86,6 +138,7 @@
 				D7FA7D921F5E71AB00E803CA /* Project */,
 				D7FA7D911F5E71AB00E803CA /* Products */,
 				8E9EA71F1F663A7100A76A80 /* Frameworks */,
+				501F544586E6F4282675317D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +163,7 @@
 				D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */,
 				D7FA7DC21F5EA34B00E803CA /* IMG */,
 				D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */,
+				D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */,
 				D7FA7D9F1F5E71AC00E803CA /* Info.plist */,
 				D7FA7DB61F5E884100E803CA /* Project-Bridging-Header.h */,
 			);
@@ -133,6 +187,7 @@
 				8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */,
 				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
 				D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */,
+				D7ED1C781F67862100207950 /* SignIn */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -149,6 +204,9 @@
 		D7FA7DC11F5E940000E803CA /* Methods */ = {
 			isa = PBXGroup;
 			children = (
+				D7ED1C701F677E6000207950 /* FirebaseWorks.swift */,
+				D7ED1C8B1F67EE1100207950 /* HomeViewController+visualEffectView.swift */,
+				D7ED1C711F677E6000207950 /* AlertSetting.swift */,
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
@@ -159,6 +217,11 @@
 		D7FA7DC21F5EA34B00E803CA /* IMG */ = {
 			isa = PBXGroup;
 			children = (
+				D7ED1C891F67ECA600207950 /* loginBackground.png */,
+				D7ED1C831F67D09D00207950 /* fbLogInIcon.png */,
+				D7ED1C841F67D09D00207950 /* googleLogInIcon.png */,
+				D7ED1C851F67D09D00207950 /* otherLogInIcon.png */,
+				D7ED1C811F67B4AD00207950 /* Group 2.png */,
 				D7FA7DC31F5EA35B00E803CA /* settings.png */,
 				D7FA7DC41F5EA35B00E803CA /* explore.png */,
 				D7FA7DC51F5EA35B00E803CA /* footprint.png */,
@@ -173,9 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7FA7DA21F5E71AC00E803CA /* Build configuration list for PBXNativeTarget "Project" */;
 			buildPhases = (
+				48EE8BA88B2C42B8527E4EA7 /* [CP] Check Pods Manifest.lock */,
 				D7FA7D8C1F5E71AB00E803CA /* Sources */,
 				D7FA7D8D1F5E71AB00E803CA /* Frameworks */,
 				D7FA7D8E1F5E71AB00E803CA /* Resources */,
+				5857CC1B4C6F5BE06B6BC435 /* [CP] Embed Pods Frameworks */,
+				D45FEDAF9A8FEEDC21326315 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,7 +264,7 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = QTJ3HA9CQD;
+						DevelopmentTeam = XM7PE2ATP2;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -228,32 +294,93 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */,
+				D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */,
 				D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */,
+				D7ED1C871F67D09D00207950 /* googleLogInIcon.png in Resources */,
+				D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */,
+				D7ED1C881F67D09D00207950 /* otherLogInIcon.png in Resources */,
 				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
 				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
+				D7ED1C8A1F67ECA600207950 /* loginBackground.png in Resources */,
 				D7FA7D9B1F5E71AC00E803CA /* Assets.xcassets in Resources */,
 				D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */,
+				D7ED1C861F67D09D00207950 /* fbLogInIcon.png in Resources */,
 				D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48EE8BA88B2C42B8527E4EA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5857CC1B4C6F5BE06B6BC435 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project/Pods-Project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D45FEDAF9A8FEEDC21326315 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project/Pods-Project-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D7FA7D8C1F5E71AB00E803CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7ED1C8C1F67EE1100207950 /* HomeViewController+visualEffectView.swift in Sources */,
 				D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */,
 				D7FA7DA81F5E71CF00E803CA /* DataManager.swift in Sources */,
 				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
 				8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */,
+				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
+				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
+				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
+				D7ED1C801F678EEB00207950 /* ResetPasswordViewController.swift in Sources */,
 				D7FA7DAB1F5E71E700E803CA /* MainViewController.swift in Sources */,
 				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
 				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
 				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
+				D7ED1C7C1F678D4A00207950 /* SignInViewController.swift in Sources */,
+				D7ED1C731F677E6000207950 /* AlertSetting.swift in Sources */,
 				D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */,
 				D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */,
 			);
@@ -376,11 +503,13 @@
 		};
 		D7FA7DA31F5E71AC00E803CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = XM7PE2ATP2;
 				INFOPLIST_FILE = Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willy.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -392,12 +521,15 @@
 		};
 		D7FA7DA41F5E71AC00E803CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = XM7PE2ATP2;
 				INFOPLIST_FILE = Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willy.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/Project-Bridging-Header.h";
