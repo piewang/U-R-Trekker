@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FBSDKLoginKit
+import GoogleSignIn
 
 class MainViewController: UIViewController {
 
@@ -25,6 +29,23 @@ class MainViewController: UIViewController {
 
     @IBAction func goHome(_ sender:UIStoryboardSegue){
         //
+    }
+    
+    @IBAction func logOut(_ sender: Any) {
+        
+        FBSDKLoginManager().logOut()
+        GIDSignIn.sharedInstance().signOut()
+        
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
     /*
     // MARK: - Navigation

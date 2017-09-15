@@ -16,10 +16,46 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb701516223385289</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.805187035919-t7hgm2na3scrnoj93qqfjnbocb95vgsb</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>701516223385289</string>
+	<key>FacebookDisplayName</key>
+	<string>Tracker</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Access camera to take photo</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location will display on map and use for tracking your loctaions</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Access microphone to take video</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access photo library to pick a Photo</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -34,13 +70,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location will display on map and use for tracking your loctaions</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Access microphone to take video</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Access camera to take photo</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Access photo library to pick a Photo</string>
 </dict>
 </plist>
