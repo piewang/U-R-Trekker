@@ -386,7 +386,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NjD-Nd-TOb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3p8-2r-6Zm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3p8-2r-6Zm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -404,7 +404,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xh9-An-No7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e4f-Uw-aNZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="e4f-Uw-aNZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -422,7 +422,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c2i-cb-RIH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cpy-Cb-w8x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Cpy-Cb-w8x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -596,7 +596,7 @@
         <scene sceneID="GET-Zj-wFo">
             <objects>
                 <collectionViewController id="CFF-T3-s29" customClass="MyRecordViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nck-8w-I5q">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="nck-8w-I5q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92540901900000005" green="0.92554211620000004" blue="0.92537993190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -672,6 +672,6 @@
         <image name="start" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WMC-gT-D2t"/>
+        <segue reference="fH2-Sv-Iqm"/>
     </inferredMetricsTieBreakers>
 </document>

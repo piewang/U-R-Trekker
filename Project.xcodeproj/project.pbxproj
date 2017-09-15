@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E34178D1F698B90000D943D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
+		8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
 		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
@@ -67,9 +67,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E34178C1F698B90000D943D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		87B95F97DE0618E757218977 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E34178C1F698B90000D943D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
@@ -405,13 +405,13 @@
 				D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */,
 				D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */,
 				D7ED1C871F67D09D00207950 /* googleLogInIcon.png in Resources */,
+				8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */,
 				D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */,
 				D7ED1C881F67D09D00207950 /* otherLogInIcon.png in Resources */,
 				EFC1CBC21F66AF20008D0E1A /* 1.plist in Resources */,
 				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
 				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
 				D7ED1C8A1F67ECA600207950 /* loginBackground.png in Resources */,
-				D7FA7D9B1F5E71AC00E803CA /* Assets.xcassets in Resources */,
 				D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */,
 				D7ED1C861F67D09D00207950 /* fbLogInIcon.png in Resources */,
 				D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */,
