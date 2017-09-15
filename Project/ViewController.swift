@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
@@ -37,10 +37,13 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
     var addedRedFlag = false
     var addedGreenAnnotation = false
     var addedEndFlag = false
+    var isKeyboardShown = false
     
     var containerView = UIView()
-    let textView = UITextView()
+    var textView = UITextView()
     var photoImageView = UIImageView()
+    
+    
     
     
     // MARK: viewDidLoad
@@ -70,12 +73,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
             
             mapView.add(MKCircle(center: mapView.centerCoordinate, radius: fullRadius))
         }
-        
-        // 點擊空白處收鍵盤
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToHideKeyboard))
-//        self.view.addGestureRecognizer(tapGesture)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -224,45 +221,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
         }
         // 隱藏 recordInfoBar
         // recordInfoBar.isHidden = true
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddPhotoAndTextViewController") as? AddPhotoAndTextViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
         
-        // 設定編輯頁面的 View
-        containerView = UIView(frame: self.mapView.frame)
-        containerView.backgroundColor = UIColor.clear
-        self.mapView.addSubview(containerView)
-        
-        // 加入 textView
-        
-        textView.frame = CGRect(x: 16, y: 104, width: 343, height: 250)
-        textView.contentInset = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 2)
-        textView.font = UIFont.systemFont(ofSize: 22)
-        textView.layer.cornerRadius = 6
-        view.layer.masksToBounds = true
-        self.mapView.addSubview(textView)
-        
-        // 加入按鈕
-        let saveBtn = UIButton(frame: CGRect(x: 303, y: 362, width: 56, height: 30))
-        saveBtn.setBackgroundImage(UIImage(named:"saveBtn"), for: .normal)
-        // 設定儲存 function
-        saveBtn.addTarget(self, action: #selector(saveAddText), for: .touchUpInside)
-        
-        
-        let cancelBtn = UIButton(frame: CGRect(x: 235, y: 362, width: 56, height: 30))
-        cancelBtn.setBackgroundImage(UIImage(named:"cancelBtn"), for: .normal)
-        // 設定取消 function
-        cancelBtn.addTarget(self, action: #selector(cancelAddText), for: .touchUpInside)
-        
-        containerView.addSubview(textView)
-        containerView.addSubview(saveBtn)
-        containerView.addSubview(cancelBtn)
-        
-        // 設定在按下 勾勾 或 叉叉 以前其他按鈕不能使用
-        btnAnimatedBtn.isEnabled = false
-        startRecordBtn.isEnabled = false
-        userTrackinBtn.isEnabled = false
-        addTextBtn.isHidden = true
-        addPhotoBtn.isHidden = true
-        
-        
+                
     }
     
     
@@ -443,7 +405,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
             
             let view = MKCircleRenderer(overlay: overlay)
             
-            view.fillColor = UIColor.lightGray.withAlphaComponent(0.4)
+            view.fillColor = UIColor.white.withAlphaComponent(0.4)
             return view
         }
         // 路線
@@ -521,6 +483,13 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
         //        self.photoImageView.frame = CGRect(x: Int, y: Int, width: Int, height: Int)
         //
         //        self.photoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddPhotoAndTextViewController") as? AddPhotoAndTextViewController
+        vc?.photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        
+        
+        
     }
     
     
@@ -624,6 +593,15 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
         vc?.textEntered = textView.text
         self.navigationController?.pushViewController(vc!, animated: true)
         
+        textView.text = ""
+        containerView.removeFromSuperview()
+        
+        
+        btnAnimatedBtn.isEnabled = true
+        startRecordBtn.isEnabled = true
+        userTrackinBtn.isEnabled = true
+        addTextBtn.isHidden = false
+        addPhotoBtn.isHidden = false
         
         
         
@@ -632,12 +610,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
     }
     func cancelAddText() {
         
-        
-        if containerView.subviews.count > 0 {
-            for i in containerView.subviews {
-                i.removeFromSuperview()
-            }
-        }
+        textView.text = ""
+        containerView.removeFromSuperview()
         btnAnimatedBtn.isEnabled = true
         startRecordBtn.isEnabled = true
         userTrackinBtn.isEnabled = true
@@ -647,9 +621,40 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
     
     
     
+    // MARK: KeyboardAnimation textViewAnimation
+    func keyboardWillShow(_ note: Notification) {
+        if isKeyboardShown {
+            return
+        }
+        
+        let keyboardAnimationDetail = note.userInfo as! [String: AnyObject]
+        let duration = TimeInterval(keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
+        let keyboardFrameValue = keyboardAnimationDetail[UIKeyboardFrameBeginUserInfoKey]! as! NSValue
+        let keyboardFrame = keyboardFrameValue.cgRectValue
+        
+        UIView.animate(withDuration: duration, animations: { () -> Void in
+            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -keyboardFrame.size.height)
+        })
+        isKeyboardShown = true
+    }
+    
+    func keyboardWillHide(_ note: Notification) {
+        let keyboardAnimationDetail = note.userInfo as! [String: AnyObject]
+        let duration = TimeInterval(keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
+        UIView.animate(withDuration: duration, animations: { () -> Void in
+            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -self.view.frame.origin.y)
+        })
+        isKeyboardShown = false
+    }
+    
+    
+    
+    
+    
+    
     
     func tapToHideKeyboard() {
-        self.mapView.endEditing(true)
+        
     }
     
     /// END

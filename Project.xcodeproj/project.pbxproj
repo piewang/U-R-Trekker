@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E34178D1F698B90000D943D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
 		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
+		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
 		D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */; };
 		D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D951F5E71AB00E803CA /* ViewController.swift */; };
 		D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D971F5E71AC00E803CA /* Main.storyboard */; };
-		D7FA7D9B1F5E71AC00E803CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */; };
 		D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */; };
 		D7FA7DA81F5E71CF00E803CA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DA71F5E71CF00E803CA /* DataManager.swift */; };
 		D7FA7DAB1F5E71E700E803CA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DA91F5E71E700E803CA /* MainViewController.swift */; };
@@ -31,15 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E34178C1F698B90000D943D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
+		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		D7FA7D901F5E71AB00E803CA /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7FA7D951F5E71AB00E803CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7FA7D981F5E71AC00E803CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7FA7D9D1F5E71AC00E803CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7FA7D9F1F5E71AC00E803CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7FA7DA71F5E71CF00E803CA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 				D7FA7DC11F5E940000E803CA /* Methods */,
 				D7FA7D971F5E71AC00E803CA /* Main.storyboard */,
 				D7FA7DAF1F5E726D00E803CA /* Work.storyboard */,
-				D7FA7D9A1F5E71AC00E803CA /* Assets.xcassets */,
+				8E34178C1F698B90000D943D /* Assets.xcassets */,
 				D7FA7DC21F5EA34B00E803CA /* IMG */,
 				D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */,
 				D7FA7D9F1F5E71AC00E803CA /* Info.plist */,
@@ -152,6 +154,7 @@
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
+				8EE2965C1F67B2E8004A493B /* Keyboard.swift */,
 			);
 			name = Methods;
 			sourceTree = "<group>";
@@ -231,7 +234,7 @@
 				D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */,
 				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
 				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
-				D7FA7D9B1F5E71AC00E803CA /* Assets.xcassets in Resources */,
+				8E34178D1F698B90000D943D /* Assets.xcassets in Resources */,
 				D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */,
 				D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */,
 			);
@@ -249,6 +252,7 @@
 				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
 				8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
+				8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
 				D7FA7DAB1F5E71E700E803CA /* MainViewController.swift in Sources */,
 				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
