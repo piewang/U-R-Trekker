@@ -163,34 +163,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsC-pJ-QJT">
-                                <rect key="frame" x="47.5" y="512.5" width="280" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="PBJ-vj-uEF"/>
-                                    <constraint firstAttribute="width" constant="280" id="lZS-0X-0Bb"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="fbLogInIcon.png"/>
+                                <rect key="frame" x="54.5" y="499.5" width="334" height="48"/>
+                                <state key="normal" title="Button" image="loginFB.png"/>
                                 <connections>
                                     <action selector="fbLogIn:" destination="Owc-hv-4AY" eventType="touchUpInside" id="sDA-QR-1LT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwq-jI-Xjb">
-                                <rect key="frame" x="47.5" y="462.5" width="280" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="TQ3-bd-y7h"/>
-                                    <constraint firstAttribute="height" constant="42" id="hfy-4z-neV"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="googleLogInIcon.png"/>
+                                <rect key="frame" x="54.5" y="443" width="334" height="48"/>
+                                <state key="normal" title="Button" image="logInGoogle.png"/>
                                 <connections>
                                     <action selector="googleLogIn:" destination="Owc-hv-4AY" eventType="touchUpInside" id="Ld9-OS-ZsG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr6-xe-CGU">
-                                <rect key="frame" x="47" y="562.5" width="280" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="DeY-sk-LAA"/>
-                                    <constraint firstAttribute="height" constant="42" id="bTK-TI-sb4"/>
-                                </constraints>
-                                <state key="normal" title="創建帳號" image="otherLogInIcon.png"/>
+                                <rect key="frame" x="54.5" y="554.5" width="354" height="48"/>
+                                <state key="normal" title="創建帳號" image="logInAcct.png"/>
                                 <connections>
                                     <segue destination="zNN-6U-ujb" kind="presentation" id="rwu-Av-4MW"/>
                                 </connections>
@@ -199,15 +187,23 @@
                                 <rect key="frame" x="169" y="98" width="36" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URTrekker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnl-ju-EtT">
+                                <rect key="frame" x="102" y="209.5" width="172.5" height="48.5"/>
+                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xwq-jI-Xjb" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" id="4IC-be-vPc"/>
-                            <constraint firstItem="XsC-pJ-QJT" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.6" id="Ltv-0j-UKE"/>
-                            <constraint firstItem="mr6-xe-CGU" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.75" id="bWZ-KO-I4L"/>
-                            <constraint firstItem="XsC-pJ-QJT" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" id="hdU-nj-fYl"/>
-                            <constraint firstItem="Xwq-jI-Xjb" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.45" id="mPR-aW-Ax0"/>
-                            <constraint firstItem="mr6-xe-CGU" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" id="obB-0f-PxM"/>
+                            <constraint firstItem="Xwq-jI-Xjb" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.4" id="4vZ-Av-BRI"/>
+                            <constraint firstItem="mr6-xe-CGU" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.735" id="8Ov-d9-49j"/>
+                            <constraint firstItem="mr6-xe-CGU" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" multiplier="1.235" id="DuR-Yh-ZNZ"/>
+                            <constraint firstItem="lnl-ju-EtT" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="0.7" id="XyS-wh-fOn"/>
+                            <constraint firstItem="XsC-pJ-QJT" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.57" id="lcP-vp-KkE"/>
+                            <constraint firstItem="Xwq-jI-Xjb" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" multiplier="1.18" id="uUf-hm-kEF"/>
+                            <constraint firstItem="lnl-ju-EtT" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" id="uqw-J7-t4e"/>
+                            <constraint firstItem="XsC-pJ-QJT" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" multiplier="1.18" id="yJf-R1-a7F"/>
                         </constraints>
                     </view>
                     <connections>
@@ -365,8 +361,8 @@
     </scenes>
     <resources>
         <image name="Group 2.png" width="36" height="36"/>
-        <image name="fbLogInIcon.png" width="525" height="96"/>
-        <image name="googleLogInIcon.png" width="525" height="96"/>
-        <image name="otherLogInIcon.png" width="525" height="96"/>
+        <image name="logInAcct.png" width="280" height="48"/>
+        <image name="logInGoogle.png" width="280" height="48"/>
+        <image name="loginFB.png" width="280" height="48"/>
     </resources>
 </document>

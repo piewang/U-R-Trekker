@@ -40,7 +40,6 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
         
         backgroundColor.colorSetting2(target: containerView)
 
-        
         photoImageView.layer.cornerRadius = 10
         photoImageView.layer.masksToBounds = true
         
@@ -60,8 +59,6 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
         
         textView.text = textEntered
         
-        
-        
         // MARK: NotificaitonCenter
         NotificationCenter.default.addObserver(
             self,
@@ -73,8 +70,6 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
             selector: #selector(keyboardWillHide(_:)),
             name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
-        
-        
         
     }
 
@@ -135,7 +130,6 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
         
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         picker.dismiss(animated: true, completion: nil)
@@ -144,9 +138,7 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
         photoImageView.image = photoImage
         askAddPhotoLabel.text = "You picked a image."
         
-      
     }
-    
     
     
     // MARK: Keboard Show And Hide

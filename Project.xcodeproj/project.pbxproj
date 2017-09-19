@@ -13,6 +13,11 @@
 		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
+		D7CA65401F6BC81D0032D541 /* HomeViewController+CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA653F1F6BC81D0032D541 /* HomeViewController+CIFilter.swift */; };
+		D7CA65421F6BD37A0032D541 /* backColor.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65411F6BD37A0032D541 /* backColor.png */; };
+		D7CA65461F6BDB300032D541 /* logInAcct.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65431F6BDB300032D541 /* logInAcct.png */; };
+		D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65441F6BDB300032D541 /* logInGoogle.png */; };
+		D7CA65481F6BDB300032D541 /* loginFB.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65451F6BDB300032D541 /* loginFB.png */; };
 		D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C701F677E6000207950 /* FirebaseWorks.swift */; };
 		D7ED1C731F677E6000207950 /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C711F677E6000207950 /* AlertSetting.swift */; };
 		D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */; };
@@ -24,7 +29,6 @@
 		D7ED1C861F67D09D00207950 /* fbLogInIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C831F67D09D00207950 /* fbLogInIcon.png */; };
 		D7ED1C871F67D09D00207950 /* googleLogInIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C841F67D09D00207950 /* googleLogInIcon.png */; };
 		D7ED1C881F67D09D00207950 /* otherLogInIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C851F67D09D00207950 /* otherLogInIcon.png */; };
-		D7ED1C8A1F67ECA600207950 /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C891F67ECA600207950 /* loginBackground.png */; };
 		D7ED1C8C1F67EE1100207950 /* HomeViewController+visualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C8B1F67EE1100207950 /* HomeViewController+visualEffectView.swift */; };
 		D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */; };
 		D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7D951F5E71AB00E803CA /* ViewController.swift */; };
@@ -76,6 +80,11 @@
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
+		D7CA653F1F6BC81D0032D541 /* HomeViewController+CIFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CIFilter.swift"; sourceTree = "<group>"; };
+		D7CA65411F6BD37A0032D541 /* backColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backColor.png; sourceTree = "<group>"; };
+		D7CA65431F6BDB300032D541 /* logInAcct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInAcct.png; sourceTree = "<group>"; };
+		D7CA65441F6BDB300032D541 /* logInGoogle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInGoogle.png; sourceTree = "<group>"; };
+		D7CA65451F6BDB300032D541 /* loginFB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginFB.png; sourceTree = "<group>"; };
 		D7ED1C701F677E6000207950 /* FirebaseWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseWorks.swift; sourceTree = "<group>"; };
 		D7ED1C711F677E6000207950 /* AlertSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
 		D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -87,7 +96,6 @@
 		D7ED1C831F67D09D00207950 /* fbLogInIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLogInIcon.png; sourceTree = "<group>"; };
 		D7ED1C841F67D09D00207950 /* googleLogInIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleLogInIcon.png; sourceTree = "<group>"; };
 		D7ED1C851F67D09D00207950 /* otherLogInIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherLogInIcon.png; sourceTree = "<group>"; };
-		D7ED1C891F67ECA600207950 /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
 		D7ED1C8B1F67EE1100207950 /* HomeViewController+visualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+visualEffectView.swift"; sourceTree = "<group>"; };
 		D7FA7D901F5E71AB00E803CA /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FA7D931F5E71AB00E803CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +281,7 @@
 			children = (
 				D7ED1C701F677E6000207950 /* FirebaseWorks.swift */,
 				D7ED1C8B1F67EE1100207950 /* HomeViewController+visualEffectView.swift */,
+				D7CA653F1F6BC81D0032D541 /* HomeViewController+CIFilter.swift */,
 				D7ED1C711F677E6000207950 /* AlertSetting.swift */,
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
@@ -285,7 +294,10 @@
 		D7FA7DC21F5EA34B00E803CA /* IMG */ = {
 			isa = PBXGroup;
 			children = (
-				D7ED1C891F67ECA600207950 /* loginBackground.png */,
+				D7CA65431F6BDB300032D541 /* logInAcct.png */,
+				D7CA65441F6BDB300032D541 /* logInGoogle.png */,
+				D7CA65451F6BDB300032D541 /* loginFB.png */,
+				D7CA65411F6BD37A0032D541 /* backColor.png */,
 				D7ED1C831F67D09D00207950 /* fbLogInIcon.png */,
 				D7ED1C841F67D09D00207950 /* googleLogInIcon.png */,
 				D7ED1C851F67D09D00207950 /* otherLogInIcon.png */,
@@ -402,16 +414,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */,
+				D7CA65481F6BDB300032D541 /* loginFB.png in Resources */,
 				D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */,
 				D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */,
 				D7ED1C871F67D09D00207950 /* googleLogInIcon.png in Resources */,
+				D7CA65461F6BDB300032D541 /* logInAcct.png in Resources */,
 				8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */,
 				D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */,
 				D7ED1C881F67D09D00207950 /* otherLogInIcon.png in Resources */,
 				EFC1CBC21F66AF20008D0E1A /* 1.plist in Resources */,
 				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
 				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
-				D7ED1C8A1F67ECA600207950 /* loginBackground.png in Resources */,
+				D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */,
+				D7CA65421F6BD37A0032D541 /* backColor.png in Resources */,
 				D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */,
 				D7ED1C861F67D09D00207950 /* fbLogInIcon.png in Resources */,
 				D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */,
@@ -486,6 +501,7 @@
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
 				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,
 				EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */,
+				D7CA65401F6BC81D0032D541 /* HomeViewController+CIFilter.swift in Sources */,
 				EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
 				8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */,

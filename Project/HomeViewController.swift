@@ -12,6 +12,8 @@ import GoogleSignIn
 
 class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var googleLogIn: GIDSignInButton!
     
     let alert = AlertSetting()
@@ -20,8 +22,6 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createFrostBackground(img: "loginBackground.png")
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
