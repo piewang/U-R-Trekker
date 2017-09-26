@@ -16,6 +16,11 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     let alert = AlertSetting()
+    let fireBase = FirebaseWorks()
+    
+    override func viewDidLoad() {
+        usersDataManager = UsersManager.shared
+    }
     
     @IBAction func goToSignInPage(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -47,6 +52,8 @@ class LogInViewController: UIViewController {
                             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") else {
                                 return
                             }
+                            //用firebase物件呼叫Login來登入coredata
+                            self.fireBase.Login(email: self.emailTextField.text!)
                             
                             self.present(vc, animated: true, completion: nil)
                             

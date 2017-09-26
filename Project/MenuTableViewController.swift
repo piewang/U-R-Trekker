@@ -12,18 +12,19 @@ class MenuTableViewController: UITableViewController {
     
     let backgroundColor = Color()
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         let a = UIImageView(frame: CGRect(x: 0, y: -20, width: self.view.frame.width, height: self.view.frame.height + 20))
-        a.image = UIImage(named: "backColor.png")
-        view.insertSubview(a, at: 0)
         
-//        backgroundColor.colorSetting(target: a)
+        self.tableView.insertSubview(a, at: 0)
+
+        backgroundColor.colorSetting(target: a)
         
     }
     

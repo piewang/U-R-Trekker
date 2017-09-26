@@ -394,7 +394,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
         }
     }
     
-    func buttonTapped(sender:Any) {
+    @objc func buttonTapped(sender:Any) {
         NSLog("buttonTapped!")
     }
     
@@ -628,7 +628,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
         }
         
         let keyboardAnimationDetail = note.userInfo as! [String: AnyObject]
-        let duration = TimeInterval(keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
+        let duration = TimeInterval(truncating: keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
         let keyboardFrameValue = keyboardAnimationDetail[UIKeyboardFrameBeginUserInfoKey]! as! NSValue
         let keyboardFrame = keyboardFrameValue.cgRectValue
         
@@ -640,7 +640,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
     
     func keyboardWillHide(_ note: Notification) {
         let keyboardAnimationDetail = note.userInfo as! [String: AnyObject]
-        let duration = TimeInterval(keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
+        let duration = TimeInterval(truncating: keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
         UIView.animate(withDuration: duration, animations: { () -> Void in
             self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -self.view.frame.origin.y)
         })

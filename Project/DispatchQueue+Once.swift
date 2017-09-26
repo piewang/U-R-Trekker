@@ -15,7 +15,7 @@ extension DispatchQueue {
     // static 表示程式一啟動時，會為 static 配置一塊空間 直到 app 砍掉
     static var onceTokens = [String]()
     
-    class func once(token:String, job:(Void) -> Void) {
+    class func once(token:String, job:() -> Void) {
         
         objc_sync_enter(self)
         defer{

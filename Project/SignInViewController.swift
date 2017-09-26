@@ -43,19 +43,18 @@ class SignInViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    //Sign Up Action for email
+    //MARK: - Sign Up Action for email
+    //註冊帳號
     @IBAction func createAccountAction(_ sender: AnyObject) {
         if emailTextField.text == "" && passwordTextField.text == ""{
             
             alert.setting(target: self, title: "Error", message: "請輸入你的email與密碼", BTNtitle: "OK")
             
         } else {
-            //
+        
             if passwordTextField.text == passwordTextField2.text {
-                
+                //註冊到firebase裡
                 firebaseWorks.registerFirebaseByEmail(name: "", email: emailTextField.text!, password: passwordTextField.text!, alertTarget: self)
-                
-                
                 
             }else {
                 alert.setting(target: self, title: "Error", message: "密碼不一致，請重新輸入", BTNtitle: "OK")

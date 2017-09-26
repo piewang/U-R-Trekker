@@ -26,11 +26,13 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
     
     fileprivate var isKeyboardShown = false
     
-    
+    let infoManager = CoreDataManager<Info>(momdFilename: "InfoModel", entityName: "Info", sortKey: "date")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        usersDataManager = UsersManager.shared
+        
         keyboardHide.isHidden = true
         
         titleLabel.text = "新增記錄！"
@@ -80,6 +82,21 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
     
     
     @IBAction func saveBtnPressed(_ sender: Any) {
+        
+        editInfo(originalItem: nil) { (success, item) in
+            
+            guard success == true else {
+                return
+            }
+            
+            do{
+                try usersDataManager.userItem?.managedObjectContext?.save()
+            } catch {
+                let nserror = error as NSError
+                //在debug模式下會停止程式
+                assertionFailure("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
         
     }
     
@@ -142,14 +159,14 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
     
     
     // MARK: Keboard Show And Hide
-    func keyboardWillShow(_ note: Notification) {
+    @objc func keyboardWillShow(_ note: Notification) {
         if isKeyboardShown {
             return
         }
         keyboardHide.isHidden = false
         
         let keyboardAnimationDetail = note.userInfo as! [String: AnyObject]
-        let duration = TimeInterval(keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
+        let duration = TimeInterval(truncating: keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
         let keyboardFrameValue = keyboardAnimationDetail[UIKeyboardFrameBeginUserInfoKey]! as! NSValue
         let keyboardFrame = keyboardFrameValue.cgRectValue
         
@@ -162,17 +179,38 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
         isKeyboardShown = true
     }
     
-    func keyboardWillHide(_ note: Notification) {
+    @objc func keyboardWillHide(_ note: Notification) {
         
         keyboardHide.isHidden = true
         let keyboardAnimationDetail = note.userInfo as! [String: AnyObject]
-        let duration = TimeInterval(keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
+        let duration = TimeInterval(truncating: keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey]! as! NSNumber)
         UIView.animate(withDuration: duration, animations: { () -> Void in
             self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -self.view.frame.origin.y)
 
         })
         isKeyboardShown = false
     }
+    //MARK: - EdiInfo
+    typealias EditDoneHandler = (_ success:Bool,_ resultItem:Info?) -> Void
+    
+    func editInfo(originalItem:Info?,completion:@escaping EditDoneHandler) {
+        var finalItem = originalItem
+        if finalItem == nil {
+            //把Info存在與Users同一個context里
+            finalItem = infoManager.createItemTo(target: usersDataManager.userItem!)
+            finalItem?.date = NSDate() as Date
+            
+            usersDataManager.userItem?.addToInfo(finalItem!)
+        }
+        if let word = textView.text {
+            finalItem?.content = word
+        }
+        if let image = photoImageView.image {
+            finalItem?.image = UIImagePNGRepresentation(image)
+        }
+        completion(true,finalItem)
+    }
+
     
 
     

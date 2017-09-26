@@ -17,7 +17,7 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
     @IBOutlet weak var googleLogIn: GIDSignInButton!
     
     let alert = AlertSetting()
-    
+
     let fbReadPermission = ["public_profile", "email", "user_friends"]
     
     override func viewDidLoad() {
@@ -26,15 +26,16 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    // MARK: FB login
+    // MARK: - FB login
     @IBAction func fbLogIn(_ sender: Any) {
-        
+        //登入fb
         FBSDKLoginManager().logIn(withReadPermissions: fbReadPermission, from: self) { (result, error) in
             
             if error != nil{
@@ -42,13 +43,17 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
                 self.alert.setting(target: self, title: "Error", message: error?.localizedDescription, BTNtitle: "OK")
                 
                 print(error!)
+                
                 return
-            }else{
+                
+            } else {
+                
                 //確定登入fb後，用戶資料再用來登入firebase
                 firebaseWorks.signInFireBaseWithFB(completion: {
-                    (result) in
-                    if result == Result.success{
-                        
+                    (success) in
+                    
+                    if success == Result.success {
+
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") else {
                             return
                         }
@@ -58,29 +63,30 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
             }
         }
     }
-    // MARK: google login
+    //MARK: - google login
     @IBAction func googleLogIn(_ sender: Any) {
         
         GIDSignIn.sharedInstance().signIn()
         
     }
-    
+    //登入google
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if let error = error {
             print(error.localizedDescription)
             return
         }
+        //確定登入google後，用戶資料再用來登入firebase
         firebaseWorks.signInFireBaseWithGoogle(user: user) { (result) in
             
             if result == Result.success{
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                
                 self.present(vc, animated: true, completion: nil)
             }
         }
     }
-    
     /*
      // MARK: - Navigation
      

@@ -14,9 +14,13 @@ import GoogleSignIn
 
 class MainViewController: UIViewController {
 
+    var usersDataManager:UsersManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        usersDataManager = UsersManager.shared
+        print("name: \(usersDataManager.userItem?.email ?? "nil")")
         // Do any additional setup after loading the view.
     }
 

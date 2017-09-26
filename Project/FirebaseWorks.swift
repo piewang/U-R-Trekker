@@ -13,15 +13,23 @@ import GoogleSignIn
 
 let firebaseWorks = FirebaseWorks()
 
+var usersDataManager:UsersManager!
+var uuid:String? = nil
+var userName:String? = nil
+var mail:String? = nil
+var photoUrl:String? = nil
+var CDpassword:String? = nil
+
 enum Result{
     case success
     case fail
 }
 
-class FirebaseWorks{
+class FirebaseWorks {
     
     let alert = AlertSetting()
-    
+    //MARK: - SignInFireBaseWithFB or Goole
+    //產生Credentials後註冊到firebase ( 啟動firebaseSignInWithCredential() )
     func signInFireBaseWithFB(completion: @escaping (_ result: Result) -> ()){
         
         let fbAccessToken = FBSDKAccessToken.current()
@@ -33,7 +41,7 @@ class FirebaseWorks{
         
         firebaseSignInWithCredential(credential: fbCredentials, completion: completion)
     }
-    
+    //產生Credentials後註冊到firebase( 啟動firebaseSignInWithCredential() )
     func signInFireBaseWithGoogle(user: GIDGoogleUser,completion: @escaping (_ result: Result) -> ()){
         
         guard let authentication = user.authentication else {
@@ -45,7 +53,8 @@ class FirebaseWorks{
         firebaseSignInWithCredential(credential: googleCredential, completion: completion)
         
     }
-    
+    //MARK: - FirebaseSignInWithCredential
+    //註冊fb或google帳號到firebase
     func firebaseSignInWithCredential(credential: AuthCredential,completion: @escaping (_ result: Result) -> ()){
         Auth.auth().signIn(with: credential, completion: { (user, error) in
             if error != nil {
@@ -75,15 +84,22 @@ class FirebaseWorks{
                         print(error!)
                         return
                     }
+                    uuid = uid
+                    mail = email
+                    userName = name
+                    photoUrl = profileImageUrl
                     
+//                    usersDataManager = UsersManager.shared
+                    //先判斷是否已經有資料在coredata,在執行存到coreData或登入
+                    self.createOrLogin()
+                        
                     completion(Result.success)
-                    
                 })
-                
             }
         })
     }
-    
+    //MARK: - RegisterFirebaseByEmail
+    //註冊帳號到firebase
     func registerFirebaseByEmail(name: String, email: String, password: String,alertTarget:UIViewController){
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
@@ -108,6 +124,13 @@ class FirebaseWorks{
                     print(error!)
                     return
                 }
+                
+                mail = email
+                CDpassword = password
+                
+//                usersDataManager = UsersManager.shared
+                //因為Auth已經幫我們判斷好是否有相同帳號，所以這邊直接存擋
+                self.extractedFunc()
                 
                 user?.sendEmailVerification() { error in
                     self.alert.settingWithAct2(target: alertTarget, title: "帳號認證", message: "請在您的信箱裡驗證帳號", BTNtitle: "OK")
