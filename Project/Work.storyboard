@@ -30,13 +30,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="sKm-5O-9r8"/>
                     <connections>
-                        <segue destination="mIn-yJ-Fmx" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="bP8-4S-0Cs"/>
                         <segue destination="c2i-cb-RIH" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="fH2-Sv-Iqm"/>
+                        <segue destination="N7O-Pb-leh" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="H9R-MU-xG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6Q-sS-QA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-286" y="304"/>
+            <point key="canvasLocation" x="-1020" y="237"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0VH-IW-CR3">
@@ -445,9 +445,9 @@
             <objects>
                 <tableViewController id="mIn-yJ-Fmx" customClass="MenuTableViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jgL-aC-4mu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="Kny-Xb-qAj">
                                 <cells>
@@ -483,10 +483,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explore.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Ha-vZ-1P7">
-                                                    <rect key="frame" x="8" y="2" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="74V-vY-fSx"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="10" y="4" width="36" height="36"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="探索" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bni-A8-BF7">
                                                     <rect key="frame" x="69.5" y="7.5" width="49" height="29"/>
@@ -498,10 +495,8 @@
                                             <constraints>
                                                 <constraint firstItem="Bni-A8-BF7" firstAttribute="centerX" secondItem="A7Q-EB-iBl" secondAttribute="centerX" multiplier="0.5" id="3UL-qs-Qe8"/>
                                                 <constraint firstItem="Bni-A8-BF7" firstAttribute="centerY" secondItem="A7Q-EB-iBl" secondAttribute="centerY" id="6wA-hb-gDC"/>
-                                                <constraint firstItem="7Ha-vZ-1P7" firstAttribute="top" secondItem="A7Q-EB-iBl" secondAttribute="topMargin" constant="-6" id="8s6-AK-gvZ"/>
-                                                <constraint firstItem="7Ha-vZ-1P7" firstAttribute="leading" secondItem="A7Q-EB-iBl" secondAttribute="leadingMargin" id="9VZ-mq-tOh"/>
-                                                <constraint firstItem="7Ha-vZ-1P7" firstAttribute="top" secondItem="A7Q-EB-iBl" secondAttribute="top" constant="2" id="EF6-YA-n9E"/>
-                                                <constraint firstItem="7Ha-vZ-1P7" firstAttribute="centerY" secondItem="A7Q-EB-iBl" secondAttribute="centerY" id="G0e-Lj-n1Z"/>
+                                                <constraint firstItem="7Ha-vZ-1P7" firstAttribute="centerY" secondItem="A7Q-EB-iBl" secondAttribute="centerY" id="qNL-0m-xkv"/>
+                                                <constraint firstItem="7Ha-vZ-1P7" firstAttribute="centerX" secondItem="A7Q-EB-iBl" secondAttribute="centerX" multiplier="0.15" id="xVt-PN-ar0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -581,7 +576,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8OY-Fj-qT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501.60000000000002" y="303.59820089955025"/>
+            <point key="canvasLocation" x="495" y="319"/>
         </scene>
         <!--My Record View Controller-->
         <scene sceneID="GET-Zj-wFo">
@@ -634,6 +629,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3x7-Eb-Eje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2861.5999999999999" y="633.28335832083962"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="3mQ-wW-b7C">
+            <objects>
+                <viewController id="N7O-Pb-leh" customClass="ContainerViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hq8-lV-9W5"/>
+                        <viewControllerLayoutGuide type="bottom" id="g4V-8a-Bcq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lMy-xH-kCP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6El-7D-f0M">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="mIn-yJ-Fmx" kind="embed" id="TWm-0y-gBv"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEG-La-JVt" userLabel="controlView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="6lI-rk-AmY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tEG-La-JVt" firstAttribute="height" secondItem="lMy-xH-kCP" secondAttribute="height" multiplier="0.15" id="6HJ-qD-04Y"/>
+                            <constraint firstAttribute="trailing" secondItem="6El-7D-f0M" secondAttribute="trailing" id="9hM-ez-Lb1"/>
+                            <constraint firstItem="6El-7D-f0M" firstAttribute="leading" secondItem="lMy-xH-kCP" secondAttribute="leading" id="DGT-fB-PXd"/>
+                            <constraint firstItem="tEG-La-JVt" firstAttribute="top" secondItem="lMy-xH-kCP" secondAttribute="top" id="UDn-Om-kxD"/>
+                            <constraint firstItem="g4V-8a-Bcq" firstAttribute="top" secondItem="6El-7D-f0M" secondAttribute="bottom" id="WZg-YM-5D8"/>
+                            <constraint firstItem="6El-7D-f0M" firstAttribute="top" secondItem="tEG-La-JVt" secondAttribute="bottom" id="ZWQ-jY-Knr"/>
+                            <constraint firstItem="tEG-La-JVt" firstAttribute="leading" secondItem="lMy-xH-kCP" secondAttribute="leading" id="riC-V3-dXR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMn-TA-n7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-263" y="236"/>
         </scene>
     </scenes>
     <resources>

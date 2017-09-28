@@ -20,6 +20,7 @@
 		D7CA65461F6BDB300032D541 /* logInAcct.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65431F6BDB300032D541 /* logInAcct.png */; };
 		D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65441F6BDB300032D541 /* logInGoogle.png */; };
 		D7CA65481F6BDB300032D541 /* loginFB.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65451F6BDB300032D541 /* loginFB.png */; };
+		D7ECC6241F7D0AD800C558CE /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */; };
 		D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C701F677E6000207950 /* FirebaseWorks.swift */; };
 		D7ED1C731F677E6000207950 /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED1C711F677E6000207950 /* AlertSetting.swift */; };
 		D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */; };
@@ -83,6 +84,7 @@
 		D7CA65431F6BDB300032D541 /* logInAcct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInAcct.png; sourceTree = "<group>"; };
 		D7CA65441F6BDB300032D541 /* logInGoogle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInGoogle.png; sourceTree = "<group>"; };
 		D7CA65451F6BDB300032D541 /* loginFB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginFB.png; sourceTree = "<group>"; };
+		D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D7ED1C701F677E6000207950 /* FirebaseWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseWorks.swift; sourceTree = "<group>"; };
 		D7ED1C711F677E6000207950 /* AlertSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
 		D7ED1C761F6783FD00207950 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				D7FA7DA91F5E71E700E803CA /* MainViewController.swift */,
+				D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
 				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
 				8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */,
@@ -490,6 +493,7 @@
 				8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */,
 				D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */,
 				EFC1CBB51F66AF12008D0E1A /* SDWebImageDecoder.m in Sources */,
+				D7ECC6241F7D0AD800C558CE /* ContainerViewController.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
 				D7ED1C801F678EEB00207950 /* ResetPasswordViewController.swift in Sources */,
 				EFC1CBBE1F66AF12008D0E1A /* UIImageView+HighlightedWebCache.m in Sources */,

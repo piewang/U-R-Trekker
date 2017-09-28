@@ -22,7 +22,7 @@ class Color: NSObject {
         gradient.startPoint = CGPoint(x: 0, y: 1)
         gradient.endPoint = CGPoint(x: 1, y: 0)
         
-        target.layer.addSublayer(gradient)
+        target.layer.insertSublayer(gradient, at: 0)
     }
     
     func colorSetting2(target:UIView){
