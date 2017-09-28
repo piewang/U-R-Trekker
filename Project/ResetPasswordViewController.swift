@@ -13,8 +13,19 @@ import FirebaseAuth
 class ResetPasswordViewController: UIViewController {
     
     let alert = AlertSetting()
-    // Outlets
+    
     @IBOutlet weak var emailTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func tap() {
+        self.view.endEditing(true)
+    }
     
     @IBAction func goToLogInPage(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

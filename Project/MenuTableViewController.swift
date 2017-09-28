@@ -22,9 +22,9 @@ class MenuTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         let a = UIImageView(frame: CGRect(x: 0, y: -20, width: self.view.frame.width, height: self.view.frame.height + 20))
         
-        self.tableView.insertSubview(a, at: 0)
-
-        backgroundColor.colorSetting(target: a)
+//        self.tableView.insertSubview(a, at: 0)
+//
+//        backgroundColor.colorSetting(target: a)
         
     }
     

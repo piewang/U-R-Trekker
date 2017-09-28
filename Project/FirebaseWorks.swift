@@ -89,9 +89,8 @@ class FirebaseWorks {
                     userName = name
                     photoUrl = profileImageUrl
                     
-//                    usersDataManager = UsersManager.shared
                     //先判斷是否已經有資料在coredata,在執行存到coreData或登入
-                    self.createOrLogin()
+                    usersDataManager.createOrLogin()
                         
                     completion(Result.success)
                 })
@@ -128,9 +127,8 @@ class FirebaseWorks {
                 mail = email
                 CDpassword = password
                 
-//                usersDataManager = UsersManager.shared
                 //因為Auth已經幫我們判斷好是否有相同帳號，所以這邊直接存擋
-                self.extractedFunc()
+                usersDataManager.extractedFunc()
                 
                 user?.sendEmailVerification() { error in
                     self.alert.settingWithAct2(target: alertTarget, title: "帳號認證", message: "請在您的信箱裡驗證帳號", BTNtitle: "OK")

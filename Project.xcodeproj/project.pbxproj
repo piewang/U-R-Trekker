@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */; };
-		65E2561E1F7122DC003EFFDC /* InfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561C1F7122DC003EFFDC /* InfoManager.swift */; };
 		65E256211F712309003EFFDC /* InfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561F1F712309003EFFDC /* InfoModel.xcdatamodeld */; };
 		8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
@@ -17,7 +16,6 @@
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
 		D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D21F79E8D500B513DF /* UsersManager.swift */; };
-		D70613D81F79F4F900B513DF /* FirebaseWorks+UsersEdite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D71F79F4F900B513DF /* FirebaseWorks+UsersEdite.swift */; };
 		D7CA65421F6BD37A0032D541 /* backColor.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65411F6BD37A0032D541 /* backColor.png */; };
 		D7CA65461F6BDB300032D541 /* logInAcct.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65431F6BDB300032D541 /* logInAcct.png */; };
 		D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65441F6BDB300032D541 /* logInGoogle.png */; };
@@ -70,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		65E2561C1F7122DC003EFFDC /* InfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoManager.swift; sourceTree = "<group>"; };
 		65E256201F712309003EFFDC /* InfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InfoModel.xcdatamodel; sourceTree = "<group>"; };
 		8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		87B95F97DE0618E757218977 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +79,6 @@
 		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		D70613D21F79E8D500B513DF /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
-		D70613D71F79F4F900B513DF /* FirebaseWorks+UsersEdite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseWorks+UsersEdite.swift"; sourceTree = "<group>"; };
 		D7CA65411F6BD37A0032D541 /* backColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backColor.png; sourceTree = "<group>"; };
 		D7CA65431F6BDB300032D541 /* logInAcct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInAcct.png; sourceTree = "<group>"; };
 		D7CA65441F6BDB300032D541 /* logInGoogle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInGoogle.png; sourceTree = "<group>"; };
@@ -186,14 +182,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D70613D91F79F99600B513DF /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				D70613D71F79F4F900B513DF /* FirebaseWorks+UsersEdite.swift */,
-			);
-			name = Extension;
-			sourceTree = "<group>";
-		};
 		D7ED1C781F67862100207950 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +220,6 @@
 				D7FA7DAE1F5E720F00E803CA /* Controller */,
 				D7FA7DBA1F5E885C00E803CA /* SWRevealViewController */,
 				D7FA7DC11F5E940000E803CA /* Methods */,
-				D70613D91F79F99600B513DF /* Extension */,
 				D7FA7D971F5E71AC00E803CA /* Main.storyboard */,
 				D7FA7DAF1F5E726D00E803CA /* Work.storyboard */,
 				8E34178C1F698B90000D943D /* Assets.xcassets */,
@@ -251,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */,
-				65E2561C1F7122DC003EFFDC /* InfoManager.swift */,
 				D70613D21F79E8D500B513DF /* UsersManager.swift */,
 			);
 			name = Data;
@@ -487,7 +473,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D70613D81F79F4F900B513DF /* FirebaseWorks+UsersEdite.swift in Sources */,
 				D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */,
 				EFC1CBC51F66AF35008D0E1A /* CollectionViewFlowLayout.swift in Sources */,
 				EFC1CBBD1F66AF12008D0E1A /* UIImage+WebP.m in Sources */,
@@ -518,7 +503,6 @@
 				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
 				EFC1CBB91F66AF12008D0E1A /* SDWebImagePrefetcher.m in Sources */,
 				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
-				65E2561E1F7122DC003EFFDC /* InfoManager.swift in Sources */,
 				D7ED1C7C1F678D4A00207950 /* SignInViewController.swift in Sources */,
 				D7ED1C731F677E6000207950 /* AlertSetting.swift in Sources */,
 				EFC1CBB11F66AF12008D0E1A /* MKAnnotationView+WebCache.m in Sources */,

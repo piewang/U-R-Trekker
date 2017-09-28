@@ -19,7 +19,14 @@ class LogInViewController: UIViewController {
     let fireBase = FirebaseWorks()
     
     override func viewDidLoad() {
-        usersDataManager = UsersManager.shared
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func tap() {
+        self.view.endEditing(true)
     }
     
     @IBAction func goToSignInPage(_ sender: Any) {
@@ -52,8 +59,8 @@ class LogInViewController: UIViewController {
                             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") else {
                                 return
                             }
-                            //用firebase物件呼叫Login來登入coredata
-                            self.fireBase.Login(email: self.emailTextField.text!)
+                            //用usersDataManager呼叫Login來登入coredata
+                            usersDataManager.Login(email: self.emailTextField.text!)
                             
                             self.present(vc, animated: true, completion: nil)
                             

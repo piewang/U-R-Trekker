@@ -22,9 +22,13 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        self.view.addGestureRecognizer(tapGesture)
+        
     }
-    deinit{
-        print("========================done===============================")
+    
+    @objc func tap() {
+        self.view.endEditing(true)
     }
     
     @IBAction func goToLogInPage(_ sender: Any) {
