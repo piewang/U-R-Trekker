@@ -19,8 +19,6 @@ class MyRecordViewController: UICollectionViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.collectionView?.backgroundColor = UIColor.white
-        
         makeGoodArray()
         print(goodlist.count)
         flowLayout.goodlist = goodlist
@@ -49,6 +47,8 @@ class MyRecordViewController: UICollectionViewController {
             }
         }
     }
+
+    
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1;
@@ -65,10 +65,18 @@ class MyRecordViewController: UICollectionViewController {
             cell.imageView.image = UIImage(data: image as Data)
         }
         
+        cell.caption.text = goodlist[indexPath.row].content
+        
         //        if let text = goodlist[indexPath.row].content {
         //            cell.titleName.text = text
         //        }
         return cell;
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc2 = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc2.info = goodlist[indexPath.row]
+        navigationController?.pushViewController(vc2, animated: true)
     }
 }
 

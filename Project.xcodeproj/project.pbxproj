@@ -45,6 +45,7 @@
 		D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC51F5EA35B00E803CA /* footprint.png */; };
 		D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DC91F5EA3CA00E803CA /* Color.swift */; };
 		DB2C61477314F1B015EAADAF /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B95F97DE0618E757218977 /* Pods_Project.framework */; };
+		EF16E1521F821A6F007625C5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16E1511F821A6F007625C5 /* DetailViewController.swift */; };
 		EFC1CBB11F66AF12008D0E1A /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB911F66AF12008D0E1A /* MKAnnotationView+WebCache.m */; };
 		EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB931F66AF12008D0E1A /* NSData+ImageContentType.m */; };
 		EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB951F66AF12008D0E1A /* SDImageCache.m */; };
@@ -112,6 +113,7 @@
 		D7FA7DC41F5EA35B00E803CA /* explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explore.png; sourceTree = "<group>"; };
 		D7FA7DC51F5EA35B00E803CA /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
 		D7FA7DC91F5EA3CA00E803CA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EF16E1511F821A6F007625C5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EFC1CB901F66AF12008D0E1A /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		EFC1CB911F66AF12008D0E1A /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		EFC1CB921F66AF12008D0E1A /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */,
 				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
 				EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */,
+				EF16E1511F821A6F007625C5 /* DetailViewController.swift */,
 				D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */,
 				EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */,
 				EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */,
@@ -375,7 +378,7 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = XM7PE2ATP2;
+						DevelopmentTeam = 7588T3DZY6;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -503,6 +506,7 @@
 				EFC1CBB41F66AF12008D0E1A /* SDWebImageCompat.m in Sources */,
 				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
 				EFC1CBBB1F66AF12008D0E1A /* UIImage+GIF.m in Sources */,
+				EF16E1521F821A6F007625C5 /* DetailViewController.swift in Sources */,
 				EFC1CBBC1F66AF12008D0E1A /* UIImage+MultiFormat.m in Sources */,
 				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
 				EFC1CBB91F66AF12008D0E1A /* SDWebImagePrefetcher.m in Sources */,
@@ -653,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = XM7PE2ATP2;
+				DEVELOPMENT_TEAM = 7588T3DZY6;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -672,7 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = XM7PE2ATP2;
+				DEVELOPMENT_TEAM = 7588T3DZY6;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

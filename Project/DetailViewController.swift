@@ -1,29 +1,28 @@
 //
-//  MyRecordedViewController.swift
+//  DetailViewController.swift
 //  Project
 //
-//  Created by Willy on 2017/9/5.
+//  Created by Champion on 2017/10/2.
 //  Copyright © 2017年 Willy. All rights reserved.
 //
 
 import UIKit
 
+class DetailViewController: UIViewController {
 
-class MyRecordedViewController: UIViewController{
-
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var text: UITextView!
     
-    let gesture = GestureRecognizer()
+    var info = Info()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imgView.image = UIImage(data: info.image as! Data)
+        text.text = info.content
         // Do any additional setup after loading the view.
-        
-        gesture.turnOnMenu(target: menuButton, VCtarget: self)
-        
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

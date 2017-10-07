@@ -37,7 +37,7 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
         var index = 0
         for good in self.goodlist {
 
-            let good = UIImage(data: good.image! as Data)
+            let pic = UIImage(data: good.image! as Data)
 
             let indexPath = IndexPath.init(item: index, section: 0)
             let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
@@ -49,10 +49,10 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
             let itemX = (itemWidth + self.minimumInteritemSpacing) * CGFloat(column!) + self.sectionInset.left
             let itemY = minHeight
             // 等比例缩放 計算item的高度
-            guard let good1 = good else {
+            guard let pic1 = pic else {
                 return
             }
-            let itemH = good1.size.height * itemWidth / good1.size.width
+            let itemH = (pic1.size.height * itemWidth / pic1.size.width)
             // 設置frame
             attributes.frame = CGRect(x: itemX, y: itemY, width: itemWidth, height: CGFloat(itemH))
 
