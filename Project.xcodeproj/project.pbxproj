@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */; };
 		65E256211F712309003EFFDC /* InfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561F1F712309003EFFDC /* InfoModel.xcdatamodeld */; };
+		8E08E7411F82354300AB9131 /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08E7401F82354300AB9131 /* RunManager.swift */; };
+		8E08E7451F8283F200AB9131 /* InsertStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */; };
+		8E703EF21F7F963900BEA612 /* UnitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E703EF11F7F963900BEA612 /* UnitExtension.swift */; };
+		8E703EF41F7F967700BEA612 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E703EF31F7F967700BEA612 /* FormatDisplay.swift */; };
+		8E703EF61F7F969500BEA612 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E703EF51F7F969500BEA612 /* LocationManager.swift */; };
 		8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
 		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
+		8EAE8B0D1F8793BA0049C8F5 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */; };
 		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
 		D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D21F79E8D500B513DF /* UsersManager.swift */; };
 		D7CA65421F6BD37A0032D541 /* backColor.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65411F6BD37A0032D541 /* backColor.png */; };
@@ -72,11 +78,17 @@
 		65E256201F712309003EFFDC /* InfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InfoModel.xcdatamodel; sourceTree = "<group>"; };
 		8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		87B95F97DE0618E757218977 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E08E7401F82354300AB9131 /* RunManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
+		8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertStopViewController.swift; sourceTree = "<group>"; };
 		8E34178C1F698B90000D943D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E703EF11F7F963900BEA612 /* UnitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtension.swift; sourceTree = "<group>"; };
+		8E703EF31F7F967700BEA612 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		8E703EF51F7F969500BEA612 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
+		8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		D70613D21F79E8D500B513DF /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
@@ -240,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */,
+				8E08E7401F82354300AB9131 /* RunManager.swift */,
 				D70613D21F79E8D500B513DF /* UsersManager.swift */,
 			);
 			name = Data;
@@ -248,6 +261,7 @@
 		D7FA7DAE1F5E720F00E803CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */,
 				D7FA7DA91F5E71E700E803CA /* MainViewController.swift */,
 				D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
@@ -275,9 +289,13 @@
 		D7FA7DC11F5E940000E803CA /* Methods */ = {
 			isa = PBXGroup;
 			children = (
+				8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */,
 				D7ED1C701F677E6000207950 /* FirebaseWorks.swift */,
 				D7ED1C711F677E6000207950 /* AlertSetting.swift */,
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
+				8E703EF11F7F963900BEA612 /* UnitExtension.swift */,
+				8E703EF31F7F967700BEA612 /* FormatDisplay.swift */,
+				8E703EF51F7F969500BEA612 /* LocationManager.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
 				8EE2965C1F67B2E8004A493B /* Keyboard.swift */,
@@ -375,9 +393,14 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = XM7PE2ATP2;
+						DevelopmentTeam = QTJ3HA9CQD;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -488,6 +511,7 @@
 				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,
 				65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */,
 				EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */,
+				8E08E7451F8283F200AB9131 /* InsertStopViewController.swift in Sources */,
 				EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
 				8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */,
@@ -505,17 +529,22 @@
 				EFC1CBBB1F66AF12008D0E1A /* UIImage+GIF.m in Sources */,
 				EFC1CBBC1F66AF12008D0E1A /* UIImage+MultiFormat.m in Sources */,
 				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
+				8E703EF21F7F963900BEA612 /* UnitExtension.swift in Sources */,
 				EFC1CBB91F66AF12008D0E1A /* SDWebImagePrefetcher.m in Sources */,
 				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
 				D7ED1C7C1F678D4A00207950 /* SignInViewController.swift in Sources */,
 				D7ED1C731F677E6000207950 /* AlertSetting.swift in Sources */,
 				EFC1CBB11F66AF12008D0E1A /* MKAnnotationView+WebCache.m in Sources */,
 				EFC1CBBF1F66AF12008D0E1A /* UIImageView+WebCache.m in Sources */,
+				8E703EF61F7F969500BEA612 /* LocationManager.swift in Sources */,
+				8EAE8B0D1F8793BA0049C8F5 /* UITextViewPlaceholder.swift in Sources */,
+				8E703EF41F7F967700BEA612 /* FormatDisplay.swift in Sources */,
 				EFC1CBCA1F66AF55008D0E1A /* MyRecordViewController.swift in Sources */,
 				EFC1CBC01F66AF12008D0E1A /* UIView+WebCacheOperation.m in Sources */,
 				EFC1CBB81F66AF12008D0E1A /* SDWebImageManager.m in Sources */,
 				D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */,
 				D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */,
+				8E08E7411F82354300AB9131 /* RunManager.swift in Sources */,
 				65E256211F712309003EFFDC /* InfoModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,7 +682,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = XM7PE2ATP2;
+				DEVELOPMENT_TEAM = QTJ3HA9CQD;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -663,6 +692,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -672,7 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = XM7PE2ATP2;
+				DEVELOPMENT_TEAM = QTJ3HA9CQD;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -682,6 +712,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/Project-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

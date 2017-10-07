@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import MapKit
 
 class MyRecordedViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    @IBOutlet weak var mapView2: MKMapView!
+    
+    var run: Run!
+    
+    
     
     let gesture = GestureRecognizer()
     
@@ -29,14 +36,38 @@ class MyRecordedViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func mapRegion() -> MKCoordinateRegion? {
+        guard
+            let locations = run.locations,
+            locations.count > 0
+            else {
+                return nil
+        }
+        
+        let latitudes = locations.map { location -> Double in
+            let location = location as! Location
+            return location.latitude
+        }
+        
+        let longitudes = locations.map { location -> Double in
+            let location = location as! Location
+            return location.longitude
+        }
+        
+        let maxLat = latitudes.max()!
+        let minLat = latitudes.min()!
+        let maxLong = longitudes.max()!
+        let minLong = longitudes.min()!
+        
+        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2,
+                                            longitude: (minLong + maxLong) / 2)
+        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3,
+                                    longitudeDelta: (maxLong - minLong) * 1.3)
+        return MKCoordinateRegion(center: center, span: span)
     }
-    */
+    
+    
+    
+    
 
 }

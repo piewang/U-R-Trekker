@@ -25,12 +25,14 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
     let backgroundColor = Color()
     
     fileprivate var isKeyboardShown = false
-    
+    /////////////
     let infoManager = CoreDataManager<Info>(momdFilename: "InfoModel", entityName: "Info", sortKey: "date")
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /////////////
         usersDataManager = UsersManager.shared
         
         keyboardHide.isHidden = true

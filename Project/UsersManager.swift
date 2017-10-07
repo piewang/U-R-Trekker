@@ -11,6 +11,7 @@ import Foundation
 class UsersManager:CoreDataManager<Users> {
     
     private(set) var userItem:Users?
+    private(set) var runItem:Run?
     
     static private(set) var shared:UsersManager?
     
@@ -20,6 +21,9 @@ class UsersManager:CoreDataManager<Users> {
     
     func giveValue(toUserItem:Users) {
         userItem = toUserItem
+    }
+    func giveRunValue(toRunItem:Run) {
+        runItem = toRunItem
     }
     
     //MARK: - Determine

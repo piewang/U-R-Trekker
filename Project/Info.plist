@@ -50,12 +50,20 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Access camera to take photo</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your location will display on map and use for tracking your loctaions</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location will display on map and use for tracking your loctaions</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location will display on map and use for tracking your loctaions</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Access microphone to take video</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access photo library to pick a Photo</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

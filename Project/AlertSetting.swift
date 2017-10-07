@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import CoreLocation
+import MapKit
 
 class AlertSetting: UIViewController {
     
@@ -51,5 +53,18 @@ class AlertSetting: UIViewController {
         
         target.present(alertController, animated: true, completion: nil)
     }
+    
+//    func pauseRecAlert(target:UIViewController, user:User, locationList:[CLLocation], mapView: MKMapView) {
+//        let alertController = UIAlertController(title: "暫停記錄", message: "您可選擇「繼續」、「刪除」或「儲存", preferredStyle: .alert)
+//        let savBtn = UIAlertAction(title: "儲存記錄", style: .default) { _ in
+//            ///....
+//        }
+//        let discardBtn =  UIAlertAction(title: "刪除", style: .default, handler: { _ in
+//            locationList.removeAll()
+//            
+//        })
+//    }
+    
+    
 }
 

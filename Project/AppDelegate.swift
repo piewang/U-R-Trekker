@@ -11,6 +11,7 @@ import Firebase
 import FBSDKCoreKit
 import GoogleSignIn
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,9 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let userManager = UsersManager(momdFilename: "InfoModel", entityName: "Users", sortKey: "name")
-        
         UsersManager.setAsSingleton(instance: userManager)
         usersDataManager = UsersManager.shared
+        
+        
         
         FirebaseApp.configure()
         
