@@ -16,6 +16,9 @@
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
 		D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D21F79E8D500B513DF /* UsersManager.swift */; };
+		D7C951221F8C9C7500FCD770 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951201F8C9C6E00FCD770 /* signIn.png */; };
+		D7C951231F8C9C7900FCD770 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951211F8C9C7200FCD770 /* Login.png */; };
+		D7C951251F8C9F9A00FCD770 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951241F8C9F9800FCD770 /* reset.png */; };
 		D7CA65421F6BD37A0032D541 /* backColor.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65411F6BD37A0032D541 /* backColor.png */; };
 		D7CA65461F6BDB300032D541 /* logInAcct.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65431F6BDB300032D541 /* logInAcct.png */; };
 		D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CA65441F6BDB300032D541 /* logInGoogle.png */; };
@@ -81,6 +84,9 @@
 		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		D70613D21F79E8D500B513DF /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		D7C951201F8C9C6E00FCD770 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signIn.png; sourceTree = "<group>"; };
+		D7C951211F8C9C7200FCD770 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
+		D7C951241F8C9F9800FCD770 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
 		D7CA65411F6BD37A0032D541 /* backColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backColor.png; sourceTree = "<group>"; };
 		D7CA65431F6BDB300032D541 /* logInAcct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInAcct.png; sourceTree = "<group>"; };
 		D7CA65441F6BDB300032D541 /* logInGoogle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logInGoogle.png; sourceTree = "<group>"; };
@@ -292,6 +298,9 @@
 			isa = PBXGroup;
 			children = (
 				D7CA65431F6BDB300032D541 /* logInAcct.png */,
+				D7C951241F8C9F9800FCD770 /* reset.png */,
+				D7C951201F8C9C6E00FCD770 /* signIn.png */,
+				D7C951211F8C9C7200FCD770 /* Login.png */,
 				D7CA65441F6BDB300032D541 /* logInGoogle.png */,
 				D7CA65451F6BDB300032D541 /* loginFB.png */,
 				D7CA65411F6BD37A0032D541 /* backColor.png */,
@@ -412,6 +421,8 @@
 				D7ED1C771F6783FD00207950 /* GoogleService-Info.plist in Resources */,
 				D7FA7D9E1F5E71AC00E803CA /* LaunchScreen.storyboard in Resources */,
 				D7CA65461F6BDB300032D541 /* logInAcct.png in Resources */,
+				D7C951231F8C9C7900FCD770 /* Login.png in Resources */,
+				D7C951251F8C9F9A00FCD770 /* reset.png in Resources */,
 				8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */,
 				D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */,
 				EFC1CBC21F66AF20008D0E1A /* 1.plist in Resources */,
@@ -421,6 +432,7 @@
 				D7CA65421F6BD37A0032D541 /* backColor.png in Resources */,
 				D7FA7D991F5E71AC00E803CA /* Main.storyboard in Resources */,
 				D7FA7DC71F5EA35B00E803CA /* explore.png in Resources */,
+				D7C951221F8C9C7500FCD770 /* signIn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
