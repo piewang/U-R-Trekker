@@ -606,15 +606,27 @@
                                     <constraint firstAttribute="width" constant="240" id="6lI-rk-AmY"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZJ-Ce-yim">
+                                <rect key="frame" x="119.5" y="576.5" width="61" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="登出">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="N7O-Pb-leh" eventType="touchUpInside" id="rQy-Md-X0b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tEG-La-JVt" firstAttribute="height" secondItem="lMy-xH-kCP" secondAttribute="height" multiplier="0.15" id="6HJ-qD-04Y"/>
                             <constraint firstAttribute="trailing" secondItem="6El-7D-f0M" secondAttribute="trailing" id="9hM-ez-Lb1"/>
                             <constraint firstItem="6El-7D-f0M" firstAttribute="leading" secondItem="lMy-xH-kCP" secondAttribute="leading" id="DGT-fB-PXd"/>
+                            <constraint firstItem="JZJ-Ce-yim" firstAttribute="centerX" secondItem="lMy-xH-kCP" secondAttribute="centerX" multiplier="0.8" id="SL0-bw-sn4"/>
                             <constraint firstItem="tEG-La-JVt" firstAttribute="top" secondItem="lMy-xH-kCP" secondAttribute="top" id="UDn-Om-kxD"/>
                             <constraint firstItem="g4V-8a-Bcq" firstAttribute="top" secondItem="6El-7D-f0M" secondAttribute="bottom" id="WZg-YM-5D8"/>
                             <constraint firstItem="6El-7D-f0M" firstAttribute="top" secondItem="tEG-La-JVt" secondAttribute="bottom" id="ZWQ-jY-Knr"/>
+                            <constraint firstItem="JZJ-Ce-yim" firstAttribute="centerY" secondItem="lMy-xH-kCP" secondAttribute="centerY" multiplier="1.8" id="khP-Tx-0hm"/>
                             <constraint firstItem="tEG-La-JVt" firstAttribute="leading" secondItem="lMy-xH-kCP" secondAttribute="leading" id="riC-V3-dXR"/>
                         </constraints>
                     </view>
