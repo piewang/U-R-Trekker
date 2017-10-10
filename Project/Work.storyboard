@@ -19,7 +19,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="p1A-MS-AIE">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="1DI-me-W3g" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWRevealViewController" id="1DI-me-W3g" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LAr-XL-9Ti"/>
                         <viewControllerLayoutGuide type="bottom" id="vs8-fr-ZBJ"/>
@@ -778,6 +778,6 @@
         <image name="start" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="j4H-HS-09z"/>
+        <segue reference="fH2-Sv-Iqm"/>
     </inferredMetricsTieBreakers>
 </document>

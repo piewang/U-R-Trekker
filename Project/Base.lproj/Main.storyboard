@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1350" y="54"/>
         </scene>
-        <!--ViewController-->
+        <!--SWRevealViewController-->
         <scene sceneID="efQ-dJ-C55">
             <objects>
-                <viewControllerPlaceholder storyboardName="Work" referencedIdentifier="ViewController" id="XEu-bH-jVb" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Work" referencedIdentifier="SWRevealViewController" id="XEu-bH-jVb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQf-IG-QkG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1927" y="-143"/>
@@ -197,23 +197,70 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwW-T8-Eme">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登入中" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="9w6-pA-pvj">
+                                        <rect key="frame" x="120" y="367.5" width="103" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <color key="textColor" red="0.4075962467" green="0.88745687689999997" blue="0.72047324030000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1jI-NB-Oox">
+                                        <rect key="frame" x="161" y="313.5" width="20" height="20"/>
+                                        <color key="color" red="0.4075962467" green="0.88745687689999997" blue="0.72047324030000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </activityIndicatorView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Ty-dG-eQl">
+                                        <rect key="frame" x="85" y="186" width="172.5" height="48.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URTrekker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ3-dL-wja">
+                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="48.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="37"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-OJ-Xvu">
+                                        <rect key="frame" x="153" y="63" width="36" height="36"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="9w6-pA-pvj" firstAttribute="centerX" secondItem="HwW-T8-Eme" secondAttribute="centerX" id="4H0-g0-Td0"/>
+                                    <constraint firstItem="IVH-OJ-Xvu" firstAttribute="centerX" secondItem="HwW-T8-Eme" secondAttribute="centerX" id="Ky8-EJ-nFK"/>
+                                    <constraint firstItem="IVH-OJ-Xvu" firstAttribute="centerY" secondItem="HwW-T8-Eme" secondAttribute="centerY" multiplier="0.25" id="UUd-pL-fBK"/>
+                                    <constraint firstItem="5Ty-dG-eQl" firstAttribute="centerY" secondItem="HwW-T8-Eme" secondAttribute="centerY" multiplier="0.65" id="hfP-Ju-oLq"/>
+                                    <constraint firstItem="9w6-pA-pvj" firstAttribute="centerY" secondItem="HwW-T8-Eme" secondAttribute="centerY" multiplier="1.2" id="jJ8-n6-3jI"/>
+                                    <constraint firstItem="5Ty-dG-eQl" firstAttribute="centerX" secondItem="HwW-T8-Eme" secondAttribute="centerX" id="ru7-1K-UeP"/>
+                                    <constraint firstItem="1jI-NB-Oox" firstAttribute="centerY" secondItem="HwW-T8-Eme" secondAttribute="centerY" id="yqM-1i-228"/>
+                                    <constraint firstItem="1jI-NB-Oox" firstAttribute="centerX" secondItem="HwW-T8-Eme" secondAttribute="centerX" id="zco-ve-0DU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Xwq-jI-Xjb" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.4" id="4vZ-Av-BRI"/>
                             <constraint firstItem="mr6-xe-CGU" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.735" id="8Ov-d9-49j"/>
                             <constraint firstItem="mr6-xe-CGU" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" multiplier="1.235" id="DuR-Yh-ZNZ"/>
+                            <constraint firstItem="HwW-T8-Eme" firstAttribute="top" secondItem="cTo-VY-SmE" secondAttribute="bottom" id="E9D-aP-GuH"/>
+                            <constraint firstItem="HwW-T8-Eme" firstAttribute="trailing" secondItem="U53-Qe-pSg" secondAttribute="trailingMargin" id="Lze-Kr-uxH"/>
                             <constraint firstItem="wYZ-yJ-QdE" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="0.3" id="OZc-hF-KUK"/>
+                            <constraint firstItem="Rq2-9H-9xo" firstAttribute="top" secondItem="HwW-T8-Eme" secondAttribute="bottom" id="Udh-Et-DVX"/>
                             <constraint firstItem="lnl-ju-EtT" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="0.7" id="XyS-wh-fOn"/>
                             <constraint firstItem="wYZ-yJ-QdE" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" id="YTL-sw-f8l"/>
                             <constraint firstItem="XsC-pJ-QJT" firstAttribute="centerY" secondItem="U53-Qe-pSg" secondAttribute="centerY" multiplier="1.57" id="lcP-vp-KkE"/>
                             <constraint firstItem="Xwq-jI-Xjb" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" multiplier="1.18" id="uUf-hm-kEF"/>
                             <constraint firstItem="lnl-ju-EtT" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" id="uqw-J7-t4e"/>
                             <constraint firstItem="XsC-pJ-QJT" firstAttribute="centerX" secondItem="U53-Qe-pSg" secondAttribute="centerX" multiplier="1.18" id="yJf-R1-a7F"/>
+                            <constraint firstItem="HwW-T8-Eme" firstAttribute="leading" secondItem="U53-Qe-pSg" secondAttribute="leadingMargin" id="zFT-H9-Yp0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fakeView" destination="HwW-T8-Eme" id="WPc-Zd-pZw"/>
                         <outlet property="googleLogIn" destination="Xwq-jI-Xjb" id="540-f1-NdA"/>
+                        <outlet property="logInActiveView" destination="1jI-NB-Oox" id="4tc-rg-KsK"/>
+                        <outlet property="logInLabel" destination="9w6-pA-pvj" id="BC9-2t-BWt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vd-KG-XQj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,10 @@ import GoogleSignIn
 
 class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate {
     
+    @IBOutlet weak var fakeView: UIView!
+    @IBOutlet weak var logInLabel: UILabel!
+    @IBOutlet weak var logInActiveView: UIActivityIndicatorView!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var googleLogIn: GIDSignInButton!
@@ -26,6 +30,10 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         
+        fakeView.isHidden = true
+        logInLabel.isHidden = true
+        logInActiveView.isHidden = true
+        
         
     }
     
@@ -36,28 +44,37 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
     // MARK: - FB login
     @IBAction func fbLogIn(_ sender: Any) {
         //登入fb
-        FBSDKLoginManager().logIn(withReadPermissions: fbReadPermission, from: self) { (result, error) in
+        FBSDKLoginManager().logIn(withReadPermissions: fbReadPermission, from: self) { [weak self](result, error) in
             
             if error != nil{
                 
-                self.alert.setting(target: self, title: "Error", message: error?.localizedDescription, BTNtitle: "OK")
+                self?.alert.setting(target: self!, title: "Error", message: error?.localizedDescription, BTNtitle: "OK")
                 
                 print(error!)
                 
                 return
                 
             } else {
+                //打開登入中的頁面顯示
+                self?.fakeView.isHidden = false
+                self?.logInActiveView.startAnimating()
+                self?.logInLabel.isHidden = false
                 
                 //確定登入fb後，用戶資料再用來登入firebase
                 firebaseWorks.signInFireBaseWithFB(completion: {
-                    (success) in
+                    [weak self](success) in
                     
                     if success == Result.success {
 
-                        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") else {
-                            return
-                        }
-                        self.present(vc, animated: true, completion: nil)
+                        let storyboard = UIStoryboard(name: "Work", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                
+                        self?.logInActiveView.stopAnimating()
+                        self?.logInLabel.isHidden = true
+                        self?.fakeView.isHidden = true
+                        self?.present(vc, animated: true, completion: nil)
+                        
+                        
                     }
                 })
             }
@@ -76,13 +93,21 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
             print(error.localizedDescription)
             return
         }
+        //打開登入中的頁面顯示
+        self.fakeView.isHidden = false
+        self.logInActiveView.startAnimating()
+        self.logInLabel.isHidden = false
+        
         //確定登入google後，用戶資料再用來登入firebase
         firebaseWorks.signInFireBaseWithGoogle(user: user) { (result) in
             
             if result == Result.success{
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                let storyboard = UIStoryboard(name: "Work", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                 
+                self.logInActiveView.stopAnimating()
+                self.logInLabel.isHidden = true
+                self.fakeView.isHidden = true
                 self.present(vc, animated: true, completion: nil)
             }
         }
