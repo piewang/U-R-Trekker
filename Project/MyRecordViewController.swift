@@ -66,10 +66,9 @@ class MyRecordViewController: UICollectionViewController {
         }
         
         cell.caption.text = goodlist[indexPath.row].content
+        cell.layer.cornerRadius = 4.0
+        cell.clipsToBounds = true
         
-        //        if let text = goodlist[indexPath.row].content {
-        //            cell.titleName.text = text
-        //        }
         return cell;
     }
     

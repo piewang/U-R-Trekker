@@ -10,16 +10,23 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var mainScrollView: UIScrollView!
+    
+    @IBOutlet weak var backgroundImgView: UIImageView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var text: UITextView!
+    @IBOutlet weak var contentView: UIView!
     
     var info = Info()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imgView.image = UIImage(data: info.image as! Data)
+        backgroundImgView.image = imgView.image
         text.text = info.content
+        
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.contentView.clipsToBounds = true
+        self.contentView.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
     }
 
