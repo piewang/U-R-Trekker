@@ -9,7 +9,8 @@
 import UIKit
 import MapKit
 
-class MyRecordedViewController: UIViewController {
+
+class MyRecordedViewController: UIViewController{
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     

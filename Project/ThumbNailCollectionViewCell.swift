@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ThumbNailCollectionViewCell: UICollectionViewCell {
+class ThumbNailCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
-    
-    
+    @IBOutlet weak var caption: UILabel!
 }

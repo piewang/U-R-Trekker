@@ -101,10 +101,10 @@ class FirebaseWorks {
     //註冊帳號到firebase
     func registerFirebaseByEmail(name: String, email: String, password: String,alertTarget:UIViewController){
         
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self](user: User?, error) in
             
             if error != nil{
-                self.alert.setting(target: alertTarget, title: "Error", message: error?.localizedDescription, BTNtitle: "OK")
+                self?.alert.setting(target: alertTarget, title: "Error", message: error?.localizedDescription, BTNtitle: "OK")
                 return
             }
             
@@ -131,7 +131,7 @@ class FirebaseWorks {
                 usersDataManager.extractedFunc()
                 
                 user?.sendEmailVerification() { error in
-                    self.alert.settingWithAct2(target: alertTarget, title: "帳號認證", message: "請在您的信箱裡驗證帳號", BTNtitle: "OK")
+                    self?.alert.settingWithAct2(target: alertTarget, title: "帳號認證", message: "請在您的信箱裡驗證帳號", BTNtitle: "OK")
                 }
                 
             })
