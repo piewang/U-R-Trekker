@@ -670,10 +670,7 @@
                             <constraint firstItem="gVl-U6-hNv" firstAttribute="top" secondItem="Ria-4m-fwH" secondAttribute="bottom" id="BP1-t3-ich"/>
                             <constraint firstItem="YMS-hb-ThF" firstAttribute="top" secondItem="2Iz-0m-Utm" secondAttribute="bottom" id="KHh-UW-RBM"/>
                             <constraint firstAttribute="trailing" secondItem="2Iz-0m-Utm" secondAttribute="trailing" id="WSG-IC-Vtx"/>
-                            <constraint firstItem="rvs-Tb-o5D" firstAttribute="top" secondItem="Ria-4m-fwH" secondAttribute="bottom" id="Wo5-pS-Pxo"/>
                             <constraint firstItem="2Iz-0m-Utm" firstAttribute="height" secondItem="ias-71-oQS" secondAttribute="height" multiplier="2:3" id="bi9-5N-dcn"/>
-                            <constraint firstItem="2Iz-0m-Utm" firstAttribute="top" secondItem="rvs-Tb-o5D" secondAttribute="bottom" id="dE4-Zk-EZs"/>
-                            <constraint firstAttribute="trailing" secondItem="rvs-Tb-o5D" secondAttribute="trailing" id="dtQ-kV-V1A"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s4A-mg-94t">
