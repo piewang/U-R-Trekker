@@ -268,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */,
-				D7FA7DA91F5E71E700E803CA /* MainViewController.swift */,
 				D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
 				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
@@ -403,7 +402,7 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = QTJ3HA9CQD;
+						DevelopmentTeam = 7588T3DZY6;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -695,7 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = 7588T3DZY6;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -715,7 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = 7588T3DZY6;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
