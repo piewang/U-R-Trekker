@@ -10,7 +10,10 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import GoogleSignIn
+import CoreLocation
 
+var locationsManager:LocationManager? = nil
+var cLLocations:CLLocationManager? = nil
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UsersManager.setAsSingleton(instance: userManager)
         usersDataManager = UsersManager.shared
         
-        
+        locationsManager = LocationManager.shared
+        cLLocations = locationsManager?.showCLLocation()
+
         
         FirebaseApp.configure()
         

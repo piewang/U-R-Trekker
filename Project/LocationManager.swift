@@ -11,6 +11,11 @@ import Foundation
 import CoreLocation
 
 class LocationManager {
-    static let shared = CLLocationManager()
+    static let shared = LocationManager()
+    private let CLL = CLLocationManager()
+    
+    func showCLLocation() -> CLLocationManager {
+        return CLL
+    }
     private init() { }
 }
