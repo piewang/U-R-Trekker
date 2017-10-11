@@ -35,10 +35,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
 // MARK: - Global Variables
     // MainMenu
     let gesture = GestureRecognizer()
-    
     // locationManager Singleton
     private let locationManager = LocationManager.shared
-    
     // CoreData - runManager & locationCoreDataManager
     let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
     let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
@@ -50,7 +48,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     // 判斷變數
     var isRecording = false
     
-    // MARK: viewDidLoad
+// MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // 手勢滑動開啟 sideMenu
@@ -81,14 +79,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-/// MARK: - IBActions
+    // MARK: - IBActions
     @IBAction func userTrackingBtnPressed(_ sender: UIButton) {
         self.mapView.userTrackingMode = .followWithHeading
         locationManagerSetting()
     }
-    
     @IBAction func recBtnPressed(_ sender: UIButton) {
         if isRecording == false {
             isRecording = true
@@ -98,13 +93,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             pauseRec()
         }
     }
-    
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController
         self.navigationController?.pushViewController(vc!, animated: true)
         addAnnotation()
     }
-    
     @IBAction func upAndDownBtnPressed(_ sender: UIButton) {
         if heightOfInfoView.constant == 0 {
             heightOfInfoView.constant = 80
@@ -119,7 +112,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
                 
             })
             upAndDowBtn.setImage(UIImage(named:"up.png"), for: .normal)
-            
         } else if heightOfInfoView.constant == 80 {
             durationView.isHidden = true
             distanceView.isHidden = true
@@ -134,7 +126,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
     }
     
-    
+// MARK: functions
     // locationManager 初始設定
     func locationManagerSetting() {
         //locationManager.requestAlwaysAuthorization()
@@ -146,11 +138,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         locationManager.startUpdatingLocation()
         mapView.userTrackingMode = .followWithHeading
         showCity(currentLocation: locationManager.location!)
-
     }
-        
-    
-    
+    // start Record
     private func startRec() {
         // 新增 RunItem 所以 originalItem: nil
         editRun(originalItem: nil) { (success, item) in
@@ -158,12 +147,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
                 return
             }
             usersDataManager.giveRunValue(toRunItem: item!)
-            do {
-                //try usersDataManager.userItem?.managedObjectContext?.save()
-            } catch {
-                let error = error as NSError
-                assertionFailure()
-            }
         }
         // UI 狀態改變
         recBtn.setImage(UIImage(named:"pause.png"), for: .normal)
@@ -188,7 +171,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             self.durationView.isHidden = false
             self.distanceView.isHidden = false
         }
-
         // 設定 計時器 與 計算距離長度
         second = 0
         distance = Measurement(value: 0.0, unit: UnitLength.meters)
@@ -198,21 +180,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         // 預先清空 locationList
         locationList.removeAll()
         updateDisplay()
-        
     }
-    
+    // 時間顯示與距離顯示更新
     func eachSecond() {
         second += 1
         updateDisplay()
     }
-    
     private func updateDisplay() {
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedTime = FormatDisplay.time(second)
         distanceLabel.text = formattedDistance
         timeLabel.text = formattedTime
     }
-    
+    // 暫停記錄
     private func pauseRec() {
         timer?.invalidate()
         // 暫停警告視窗
@@ -266,7 +246,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         alert.addAction(saveBtn)
         present(alert, animated: true, completion: nil)
     }
-    
+    // 停止記錄
     private func stopRec() {
         // 狀態 與 UI 修正
         isRecording = false
@@ -289,7 +269,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         annotation.subtitle = "真好吃"
         mapView.addAnnotation(annotation)
     }
-    
+    // 儲存方法
     private func saveRec() {
         // 對 Run 儲存
         
@@ -297,8 +277,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
 
         
     }
-    
-    
     // 取得目前位置的地址
     typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
     
@@ -367,7 +345,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
         completion(true, finalItem)
     }
-    /// END
 }
 
 
