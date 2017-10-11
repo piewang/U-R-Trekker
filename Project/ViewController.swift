@@ -97,8 +97,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     }
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController
-        vc?.latitude = locationManager.location?.coordinate.latitude
-        vc?.longitude = locationManager.location?.coordinate.longitude
+        vc?.latitude = cLLocations?.location?.coordinate.latitude
+        vc?.longitude = cLLocations?.location?.coordinate.longitude
         print(vc?.latitude, vc?.longitude)
         self.navigationController?.pushViewController(vc!, animated: true)
     }
