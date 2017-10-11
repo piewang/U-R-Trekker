@@ -36,7 +36,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     // MainMenu
     let gesture = GestureRecognizer()
     // locationManager Singleton
-    private let locationManager = LocationManager.shared
+    let locationManager = CLLocationManager()
     // CoreData - runManager & locationCoreDataManager
     let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
     let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
@@ -97,10 +97,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     }
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController
-        vc?.latitude = locationList.last?.coordinate.latitude
-        vc?.longitude = locationList.last?.coordinate.longitude
+        vc?.latitude = locationManager.location?.coordinate.latitude
+        vc?.longitude = locationManager.location?.coordinate.longitude
+        print(vc?.latitude, vc?.longitude)
         self.navigationController?.pushViewController(vc!, animated: true)
-        addAnnotation()
     }
     @IBAction func upAndDownBtnPressed(_ sender: UIButton) {
         if heightOfInfoView.constant == 0 {
@@ -270,10 +270,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             let annotationLati = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).latitude
             let annotationLongi = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).longitude
             let annotationCoordinate = CLLocationCoordinate2D(latitude: annotationLati, longitude: annotationLongi)
+            print(annotationLati,annotationLongi)
             let annotation = MKPointAnnotation()
             annotation.coordinate = annotationCoordinate
             annotation.title = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).text
-            annotation.subtitle = "真好吃"
+            //annotation.subtitle = "真好吃"
             mapView.addAnnotation(annotation)
         }
     }
@@ -451,7 +452,7 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
             result?.annotation = annotation
         }
         result?.canShowCallout = true
-        let image = UIImage(named:"Annotation.png")
+        let image = UIImage(named:"code.png")
         result?.image = image
         
         
