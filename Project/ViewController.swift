@@ -43,18 +43,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
     let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
     
-    
     private var second = 0
     private var timer: Timer?
     private var distance = Measurement(value: 0.0, unit: UnitLength.meters)
     private var locationList = [CLLocation]()
-    
     // 判斷變數
     var isRecording = false
-    
-    
-    
-    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -165,7 +159,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             }
             usersDataManager.giveRunValue(toRunItem: item!)
             do {
-                try usersDataManager.userItem?.managedObjectContext?.save()
+                //try usersDataManager.userItem?.managedObjectContext?.save()
             } catch {
                 let error = error as NSError
                 assertionFailure()
@@ -373,12 +367,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
         completion(true, finalItem)
     }
-    
-    
-    
-    
-    
-    
     /// END
 }
 
@@ -433,6 +421,7 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                         return
                     }
                     do {
+                        // 需再測試
                         try usersDataManager.runItem?.managedObjectContext?.save()
                         try usersDataManager.userItem?.managedObjectContext?.save()
                     } catch {

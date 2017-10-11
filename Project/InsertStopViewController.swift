@@ -29,15 +29,22 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         // 顯示使用者名稱＆照片
         let name = usersDataManager.userItem?.name
         userNameLabel.text = name
-        userImageView.image = UIImage(named:"userDefaultImage.png")
-        userImageView.layer.cornerRadius = 50
+        if let userImgUserURLString = usersDataManager.userItem?.photo {
+            let userImgURL = URL(string:userImgUserURLString)
+            let userImgData = NSData(contentsOf: userImgURL! )
+            let userImage = UIImage(data: userImgData! as Data)
+            userImageView.image = userImage
+        } else {
+            userImageView.image = UIImage(named:"userDefaultImage.png")
+        }
+        userImageView.layer.cornerRadius = 25
         userImageView.layer.masksToBounds = true
-        
+   
+            
+            
         // 提示使用者可以增加照片
         addPhotoLabel.text = "增加照片！"
         // Prepare BarButtonItem
@@ -67,11 +74,12 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     
     
     @objc func done()  {
-        editRun(originalItem: nil) { (success, item) in
+        editAnnotation(originalItem: nil) { (success, item) in
             guard success == true else {
                 return
             }
             do {
+                try usersDataManager.runItem?.managedObjectContext?.save()
                 try usersDataManager.userItem?.managedObjectContext?.save()
             } catch {
                 let error = error as NSError
@@ -79,6 +87,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
             }
         }
         navigationController?.popViewController(animated: true)
+        print(usersDataManager.runItem?.annotations?.count)
         
     }
     
@@ -205,7 +214,7 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
 extension InsertStopViewController {
     typealias EditDoneHandler = (_ success:Bool, _ resultItem:Annotation?) -> Void
     
-    func editRun(originalItem: Annotation?, completion: EditDoneHandler) {
+    func editAnnotation(originalItem: Annotation?, completion: EditDoneHandler) {
         var finalItem = originalItem
         if finalItem == nil {
             finalItem = annotationManager.createItemTo(target: usersDataManager.runItem!)
