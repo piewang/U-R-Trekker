@@ -20,10 +20,15 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgView.image = UIImage(data: annotation.imageData as! Data)
-        backgroundImgView.image = imgView.image
+        let imageView = UIImage(data: annotation.imageData as! Data)
+        backgroundImgView.image = imageView
         text.text = annotation.text
-        
+        if (imageView?.size.height)!/(imageView?.size.width)! <= 1 {
+            let imageRef = pic?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: 167, height: 216))
+            imgView.image = UIImage(cgImage: imageRef!)
+        } else {
+            imgView.image = imageView
+        }
         self.navigationController?.navigationBar.isTranslucent = true
         self.contentView.clipsToBounds = true
         self.contentView.layer.cornerRadius = 5.0
