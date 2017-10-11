@@ -2,6 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Annotation" representedClassName="Annotation" syncable="YES" codeGenerationType="class">
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="run" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Run" inverseName="annotations" inverseEntity="Run" syncable="YES"/>
@@ -47,10 +49,10 @@
         <relationship name="runs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Run" inverseName="user" inverseEntity="Run" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Annotation" positionX="-99" positionY="207" width="128" height="135"/>
         <element name="Info" positionX="-45" positionY="27" width="128" height="225"/>
         <element name="Location" positionX="-126" positionY="144" width="128" height="105"/>
         <element name="Run" positionX="-135" positionY="135" width="128" height="165"/>
         <element name="Users" positionX="-270" positionY="9" width="128" height="165"/>
-        <element name="Annotation" positionX="-99" positionY="207" width="128" height="105"/>
     </elements>
 </model>

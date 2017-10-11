@@ -386,14 +386,26 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-ws-7e6">
+                                                <rect key="frame" x="194" y="45" width="173" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="S5B-5H-YaJ"/>
+                                                    <constraint firstAttribute="width" constant="173" id="zB6-lg-i2W"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="FE4-ws-7e6" secondAttribute="trailing" constant="8" id="274-bE-uSD"/>
                                             <constraint firstItem="I7l-eN-X2A" firstAttribute="centerY" secondItem="bd8-wb-au0" secondAttribute="centerY" id="I83-Q5-Qtz"/>
                                             <constraint firstAttribute="height" constant="66" id="Iu2-2i-fx7"/>
                                             <constraint firstItem="wfR-f9-gMd" firstAttribute="leading" secondItem="bd8-wb-au0" secondAttribute="leading" constant="8" id="Ndc-FK-ezB"/>
                                             <constraint firstItem="I7l-eN-X2A" firstAttribute="leading" secondItem="wfR-f9-gMd" secondAttribute="trailing" constant="8" id="ox1-Xq-zje"/>
                                             <constraint firstItem="wfR-f9-gMd" firstAttribute="centerY" secondItem="bd8-wb-au0" secondAttribute="centerY" id="wGU-nv-6Re"/>
+                                            <constraint firstAttribute="bottom" secondItem="FE4-ws-7e6" secondAttribute="bottom" id="y9Z-hs-EOC"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zz4-Kb-bso" userLabel="lineView">
@@ -458,6 +470,7 @@
                         <outlet property="addPhotoImageView" destination="ErV-5D-Bdb" id="6AX-cN-gt5"/>
                         <outlet property="addPhotoLabel" destination="2te-Kj-3c2" id="gRI-Xz-rCx"/>
                         <outlet property="boxView" destination="jZL-Me-bXw" id="7ze-bO-FCq"/>
+                        <outlet property="cityNameLabel" destination="FE4-ws-7e6" id="XfH-ss-Ld8"/>
                         <outlet property="heightOfBox" destination="2wb-iz-7oh" id="gta-37-31r"/>
                         <outlet property="heightOfMidView" destination="xY0-aa-cei" id="wDA-My-6cv"/>
                         <outlet property="imageView" destination="oEL-Qr-8YD" id="chg-TF-mWm"/>

@@ -72,6 +72,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         if let fullRadius = CLLocationDistance(exactly: MKMapRectWorld.size.height) {
             mapView.add(MKCircle(center: mapView.centerCoordinate, radius: fullRadius))
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(addAnnotation), name: NSNotification.Name(rawValue:"addAnnotation"), object: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,6 +97,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     }
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController
+        vc?.latitude = locationList.last?.coordinate.latitude
+        vc?.longitude = locationList.last?.coordinate.longitude
         self.navigationController?.pushViewController(vc!, animated: true)
         addAnnotation()
     }
@@ -137,6 +141,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         locationManager.activityType = .automotiveNavigation
         locationManager.startUpdatingLocation()
         mapView.userTrackingMode = .followWithHeading
+        guard locationManager.location != nil else {
+            return
+        }
         showCity(currentLocation: locationManager.location!)
     }
     // start Record
@@ -258,16 +265,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         locationManagerSetting()
     }
     
-    private func addAnnotation() {
-        guard let annotationCoordinate = locationList.last?.coordinate else {
-            return
+    @objc private func addAnnotation() {
+        if usersDataManager.runItem?.annotations?.count != 0 {
+            let annotationLati = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).latitude
+            let annotationLongi = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).longitude
+            let annotationCoordinate = CLLocationCoordinate2D(latitude: annotationLati, longitude: annotationLongi)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = annotationCoordinate
+            annotation.title = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).text
+            annotation.subtitle = "真好吃"
+            mapView.addAnnotation(annotation)
         }
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = annotationCoordinate
-        /// annotation 要算出是這次run 的第幾個index 配合 coredata 呈現 title與 image
-        annotation.title = "肯德基🐔"
-        annotation.subtitle = "真好吃"
-        mapView.addAnnotation(annotation)
     }
     // 儲存方法
     private func saveRec() {
@@ -403,11 +411,11 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                         try usersDataManager.userItem?.managedObjectContext?.save()
                     } catch {
                         let error = error as NSError
-                        assertionFailure("save")
+                        assertionFailure("Unresolve error\(error)")
                     }
                     
                 })
-                print(usersDataManager.runItem?.locations?.count)
+                print(usersDataManager.runItem?.locations?.count as Any)
                 
             }
         }

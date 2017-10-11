@@ -9,7 +9,6 @@
 import UIKit
 
 class InsertStopViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate  {
-
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -20,15 +19,17 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     @IBOutlet weak var heightOfBox: NSLayoutConstraint!
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var heightOfMidView: NSLayoutConstraint!
+    @IBOutlet weak var cityNameLabel: UILabel!
     
-//    let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
+    // Global Varible
+    var latitude:Double?
+    var longitude:Double?
     let annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
-    
     var photoImage: UIImage?
-    
+
+// MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 顯示使用者名稱＆照片
         let name = usersDataManager.userItem?.name
         userNameLabel.text = name
@@ -42,27 +43,21 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
         }
         userImageView.layer.cornerRadius = 25
         userImageView.layer.masksToBounds = true
-   
-            
-            
         // 提示使用者可以增加照片
         addPhotoLabel.text = "增加照片！"
         // Prepare BarButtonItem
         addBarButtonItem()
         // Prepare textView
         textViewSetting(textView: textView)
-        
         // 收起鍵盤設定
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
-        self.view .addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     /// deinit
     override func viewDidDisappear(_ animated: Bool) {
         ///...
     }
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,8 +66,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     @IBAction func addPhotoBtnPressed(_ sender: Any) {
         addPhotoAlert()
     }
-    
-    
+    // Done and Save
     @objc func done()  {
         editAnnotation(originalItem: nil) { (success, item) in
             guard success == true else {
@@ -87,26 +81,19 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
             }
         }
         navigationController?.popViewController(animated: true)
-        print(usersDataManager.runItem?.annotations?.count)
-        
+        print(usersDataManager.runItem?.annotations?.count as Any)
+        NotificationCenter.default.post(name: Notification.Name(rawValue:"addAnnotation"), object: nil)
     }
-    
+    // cancel
     @objc func cancel() {
         textView.text = ""
         imageView.image = nil
         navigationController?.popViewController(animated: true)
     }
-    
+    // keyboard dismiss
     @objc func tap(_ sender:Any) {
         self.view.endEditing(true)
     }
-    
-
-    
-    
-    
-   
-
 }
 
 extension InsertStopViewController {
@@ -225,6 +212,12 @@ extension InsertStopViewController {
         }
         if let image = imageView.image {
             finalItem?.imageData = UIImagePNGRepresentation(image)
+        }
+        if let lati = latitude {
+            finalItem?.latitude = lati
+        }
+        if let longi = longitude {
+            finalItem?.longitude = longi
         }
         completion(true, finalItem)
     }
