@@ -164,6 +164,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
                 return
             }
             usersDataManager.giveRunValue(toRunItem: item!)
+            do {
+                try usersDataManager.userItem?.managedObjectContext?.save()
+            } catch {
+                let error = error as NSError
+                assertionFailure()
+            }
         }
         // UI 狀態改變
         recBtn.setImage(UIImage(named:"pause.png"), for: .normal)
@@ -416,8 +422,10 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                     let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
                     mapView.setRegion(region, animated: true)
                 }
-                showCity(currentLocation: locationList.last!)
                 locationList.append(newLocation)
+                print(locationList.count)
+                showCity(currentLocation: locationList.last!)
+                
                 
                 /// editLocation
                 editLocation(originalItem: nil, completion: { (success, item) in
@@ -426,6 +434,7 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                     }
                     do {
                         try usersDataManager.runItem?.managedObjectContext?.save()
+                        try usersDataManager.userItem?.managedObjectContext?.save()
                     } catch {
                         let error = error as NSError
                         assertionFailure("save")
