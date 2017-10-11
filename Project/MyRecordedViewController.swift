@@ -26,7 +26,6 @@ class MyRecordedViewController: UIViewController{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
         
     }
@@ -66,9 +65,4 @@ class MyRecordedViewController: UIViewController{
                                     longitudeDelta: (maxLong - minLong) * 1.3)
         return MKCoordinateRegion(center: center, span: span)
     }
-    
-    
-    
-    
-
 }

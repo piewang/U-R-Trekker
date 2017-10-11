@@ -145,8 +145,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         locationManager.activityType = .automotiveNavigation
         locationManager.startUpdatingLocation()
         mapView.userTrackingMode = .followWithHeading
-        showCity(currentLocation: locationManager.location!)
-
+        guard let location = locationManager.location else {
+            return
+        }
+        showCity(currentLocation: location)
     }
         
     

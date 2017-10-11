@@ -71,7 +71,9 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
                 
                         self?.logInActiveView.stopAnimating()
                         self?.logInLabel.isHidden = true
-                        self?.fakeView.isHidden = true
+//                        DispatchQueue.main.async {
+                            self?.fakeView.isHidden = true
+//                        }
                         self?.present(vc, animated: true, completion: nil)
                         
                         
@@ -99,16 +101,19 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
         self.logInLabel.isHidden = false
         
         //確定登入google後，用戶資料再用來登入firebase
-        firebaseWorks.signInFireBaseWithGoogle(user: user) { (result) in
+        firebaseWorks.signInFireBaseWithGoogle(user: user) { [weak self](result) in
             
             if result == Result.success{
                 let storyboard = UIStoryboard(name: "Work", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                 
-                self.logInActiveView.stopAnimating()
-                self.logInLabel.isHidden = true
-                self.fakeView.isHidden = true
-                self.present(vc, animated: true, completion: nil)
+                self?.logInActiveView.stopAnimating()
+                self?.logInLabel.isHidden = true
+                DispatchQueue.main.async {
+                    self?.fakeView.isHidden = true
+                }
+                self?.present(vc, animated: true, completion: nil)
+                
             }
         }
     }

@@ -12,14 +12,12 @@ import CoreData
 class MyRecordViewController: UICollectionViewController {
     
     @IBOutlet weak var flowLayout: CollectionViewFlowLayout!
-    
     var goodlist = [Annotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        goodlist = usersDataManager.runItem?.annotations?.allObjects as! [Annotation]
-//        makeGoodArray()
+        makeGoodArray()
         print(goodlist.count)
         flowLayout.goodlist = goodlist
         
@@ -30,23 +28,23 @@ class MyRecordViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func makeGoodArray(){
-//        guard let totals = usersDataManager.runItem?.annotations?.allObjects else {
-//            return
-//        }
-//        guard totals != 0 else {
-//            return
-//        }
-//        let total = totals - 1
-//        for num in 0...total{
-//            if let items = usersDataManager.userItem?.info?.allObjects {
-//
-//                let item = items[num] as! Info
-//
-//                goodlist.append(item)
-//            }
-//        }
-//    }
+    func makeGoodArray(){
+        guard let totals = usersDataManager.runItem?.annotations?.allObjects.count else {
+            return
+        }
+        guard totals != 0 else {
+            return
+        }
+        let total = totals - 1
+        for num in 0...total{
+            if let items = usersDataManager.runItem?.annotations?.allObjects {
+
+                let item = items[num] as! Annotation
+
+                goodlist.append(item)
+            }
+        }
+    }
 
     
     
