@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */; };
 		65E256211F712309003EFFDC /* InfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E2561F1F712309003EFFDC /* InfoModel.xcdatamodeld */; };
-		8E08E7411F82354300AB9131 /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08E7401F82354300AB9131 /* RunManager.swift */; };
 		8E08E7451F8283F200AB9131 /* InsertStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */; };
 		8E703EF21F7F963900BEA612 /* UnitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E703EF11F7F963900BEA612 /* UnitExtension.swift */; };
 		8E703EF41F7F967700BEA612 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E703EF31F7F967700BEA612 /* FormatDisplay.swift */; };
@@ -81,7 +80,6 @@
 		65E256201F712309003EFFDC /* InfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InfoModel.xcdatamodel; sourceTree = "<group>"; };
 		8190BAB528AEA29B4EC049BF /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		87B95F97DE0618E757218977 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E08E7401F82354300AB9131 /* RunManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 		8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertStopViewController.swift; sourceTree = "<group>"; };
 		8E34178C1F698B90000D943D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E703EF11F7F963900BEA612 /* UnitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtension.swift; sourceTree = "<group>"; };
@@ -258,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */,
-				8E08E7401F82354300AB9131 /* RunManager.swift */,
+				8E703EF51F7F969500BEA612 /* LocationManager.swift */,
 				D70613D21F79E8D500B513DF /* UsersManager.swift */,
 			);
 			name = Data;
@@ -268,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				8E08E7441F8283F200AB9131 /* InsertStopViewController.swift */,
-				D7FA7DA91F5E71E700E803CA /* MainViewController.swift */,
 				D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
 				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
@@ -302,7 +299,6 @@
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E703EF11F7F963900BEA612 /* UnitExtension.swift */,
 				8E703EF31F7F967700BEA612 /* FormatDisplay.swift */,
-				8E703EF51F7F969500BEA612 /* LocationManager.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
 				8EE2965C1F67B2E8004A493B /* Keyboard.swift */,
@@ -403,7 +399,7 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = QTJ3HA9CQD;
+						DevelopmentTeam = XM7PE2ATP2;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -557,7 +553,6 @@
 				EFC1CBB81F66AF12008D0E1A /* SDWebImageManager.m in Sources */,
 				D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */,
 				D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */,
-				8E08E7411F82354300AB9131 /* RunManager.swift in Sources */,
 				65E256211F712309003EFFDC /* InfoModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,7 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = XM7PE2ATP2;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -715,7 +710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = XM7PE2ATP2;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
