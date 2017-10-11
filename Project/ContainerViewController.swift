@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FBSDKLoginKit
+import GoogleSignIn
 
 class ContainerViewController: UIViewController {
 
@@ -24,7 +27,23 @@ class ContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func logOut(_ sender: Any) {
+        
+        FBSDKLoginManager().logOut()
+        GIDSignIn.sharedInstance().signOut()
+        
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
