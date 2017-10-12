@@ -396,7 +396,11 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
+<<<<<<< HEAD
 						DevelopmentTeam = QTJ3HA9CQD;
+=======
+						DevelopmentTeam = 7588T3DZY6;
+>>>>>>> e3d8f177548f1f1d1d881635ed0f01d846c8b731
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -686,7 +690,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+=======
+				DEVELOPMENT_TEAM = 7588T3DZY6;
+>>>>>>> e3d8f177548f1f1d1d881635ed0f01d846c8b731
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -706,7 +714,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+=======
+				DEVELOPMENT_TEAM = 7588T3DZY6;
+>>>>>>> e3d8f177548f1f1d1d881635ed0f01d846c8b731
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
