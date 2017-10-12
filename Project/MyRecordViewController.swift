@@ -13,7 +13,7 @@ class MyRecordViewController: UICollectionViewController {
     
     @IBOutlet weak var flowLayout: CollectionViewFlowLayout!
     
-    var goodlist = [Info]()
+    var goodlist = [Annotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class MyRecordViewController: UICollectionViewController {
     }
     
     func makeGoodArray(){
-        guard let totals = usersDataManager.userItem?.info?.count else {
+        guard let totals = usersDataManager.runItem?.annotations?.count else {
             return
         }
         guard totals != 0 else {
@@ -39,9 +39,9 @@ class MyRecordViewController: UICollectionViewController {
         }
         let total = totals - 1
         for num in 0...total{
-            if let items = usersDataManager.userItem?.info?.allObjects {
+            if let items = usersDataManager.runItem?.annotations?.allObjects {
                 
-                let item = items[num] as! Info
+                let item = items[num] as! Annotation
                 
                 goodlist.append(item)
             }
@@ -61,11 +61,11 @@ class MyRecordViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ThumbNailCollectionViewCell
         
-        if let image = goodlist[indexPath.row].image {
+        if let image = goodlist[indexPath.row].imageData {
             cell.imageView.image = UIImage(data: image as Data)
         }
         
-        cell.caption.text = goodlist[indexPath.row].content
+        cell.caption.text = goodlist[indexPath.row].text
         cell.layer.cornerRadius = 4.0
         cell.clipsToBounds = true
         

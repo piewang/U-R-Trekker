@@ -54,16 +54,26 @@ class AlertSetting: UIViewController {
         target.present(alertController, animated: true, completion: nil)
     }
     
-//    func pauseRecAlert(target:UIViewController, user:User, locationList:[CLLocation], mapView: MKMapView) {
-//        let alertController = UIAlertController(title: "暫停記錄", message: "您可選擇「繼續」、「刪除」或「儲存", preferredStyle: .alert)
-//        let savBtn = UIAlertAction(title: "儲存記錄", style: .default) { _ in
-//            ///....
-//        }
-//        let discardBtn =  UIAlertAction(title: "刪除", style: .default, handler: { _ in
-//            locationList.removeAll()
-//            
-//        })
-//    }
+    func pauseRecAlert(target: UIViewController) {
+        
+    }
+    
+    func runNameAlert(target: UIViewController) {
+        let alert = UIAlertController(title: "記錄命名", message: "您可以為本次記錄新增名稱，或直接以記錄日期命名", preferredStyle: .alert)
+        alert.addTextField { (tf) in
+            tf.placeholder = String(describing: usersDataManager.runItem?.timestamp)
+        }
+        let ok = UIAlertAction(title: "確定", style: .default) { _ in
+            if alert.textFields?.first?.text?.isEmpty == true {
+                usersDataManager.runItem?.runname = String(describing: usersDataManager.runItem?.timestamp)
+            } else {
+                let runName = alert.textFields?.first?.text
+                usersDataManager.runItem?.runname = runName
+            }
+        }
+        alert.addAction(ok)
+        target.present(alert, animated: true, completion: nil)
+    }
     
     
 }

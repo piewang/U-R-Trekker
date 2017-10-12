@@ -16,7 +16,6 @@
 		8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
-		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		8EAE8B0D1F8793BA0049C8F5 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */; };
 		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
@@ -87,7 +86,6 @@
 		8E703EF51F7F969500BEA612 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 				D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
 				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
-				8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */,
 				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
 				EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */,
 				EF16E1511F821A6F007625C5 /* DetailViewController.swift */,
@@ -514,7 +511,6 @@
 				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
 				EFC1CBBA1F66AF12008D0E1A /* UIButton+WebCache.m in Sources */,
 				EFC1CBB71F66AF12008D0E1A /* SDWebImageDownloaderOperation.m in Sources */,
-				8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */,
 				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
 				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,

@@ -16,13 +16,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var text: UITextView!
     @IBOutlet weak var contentView: UIView!
     
-    var info = Info()
+    var info = Annotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgView.image = UIImage(data: info.image as! Data)
+        imgView.image = UIImage(data: info.imageData as! Data)
         backgroundImgView.image = imgView.image
-        text.text = info.content
+        text.text = info.text
         
         self.navigationController?.navigationBar.isTranslucent = true
         self.contentView.clipsToBounds = true

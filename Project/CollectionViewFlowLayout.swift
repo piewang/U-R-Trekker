@@ -12,7 +12,7 @@ import UIKit
 class CollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     var columnCount = 2    //總列數
-    var goodlist = [Info]()   //準備商品陣列
+    var goodlist = [Annotation]()   //準備商品陣列
     fileprivate var layoutAttributesArray = [UICollectionViewLayoutAttributes]()
     
     override func prepare() {
@@ -41,7 +41,7 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
         var index = 0
         for good in self.goodlist {
             
-            let pic = UIImage(data: good.image! as Data)
+            let pic = UIImage(data: good.imageData! as Data)
             var picture:UIImage?
             
             //判斷長寬比，若長比寬短則裁切圖片
