@@ -144,6 +144,7 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.mediaTypes = ["public.image","public.movie"]
+        picker.allowsEditing = true
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
         
@@ -151,12 +152,21 @@ class AddPhotoAndTextViewController: UIViewController,UIImagePickerControllerDel
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        picker.dismiss(animated: true, completion: nil)
+        var selectedImageFromPicker: UIImage?
         
-        photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        photoImageView.image = photoImage
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
+            selectedImageFromPicker = editedImage
+        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImg = selectedImageFromPicker{
+            photoImageView.image = selectedImg
+        }
+//        photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        photoImageView.image = photoImage
         askAddPhotoLabel.text = "You picked a image."
-        
+        dismiss(animated: true, completion: nil)
     }
     
     

@@ -143,6 +143,7 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.mediaTypes = ["public.image","public.movie"]
+        picker.allowsEditing = true
         picker.delegate = self
         self.present(picker, animated: true, completion: nil
         )
@@ -151,11 +152,20 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         boxViewAnimate()
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
+            selectedImageFromPicker = editedImage
+        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImg = selectedImageFromPicker{
+            imageView.image = selectedImg
+        }
         picker.dismiss(animated: true, completion: nil)
-        photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        imageView.image = photoImage
-        
-        
+//        photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        imageView.image = photoImage
     }
     func addPhotoAlert() {
         let alert = UIAlertController(title: "新增照片", message: nil, preferredStyle: .actionSheet)
