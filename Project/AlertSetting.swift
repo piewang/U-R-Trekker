@@ -43,7 +43,7 @@ class AlertSetting: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: BTNtitle, style: .default) { _ in
-            
+       
             guard let vc = target.storyboard?.instantiateViewController(withIdentifier: "LogInViewController") else {
                 return
             }
