@@ -12,6 +12,10 @@ import MapKit
 import CoreData
 
 class ViewController: UIViewController, UINavigationControllerDelegate{
+    //MARK: - Deinit
+    deinit {
+        cLLocations?.stopUpdatingLocation()
+    }
     
 // MARK: - IBOutlet
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -36,9 +40,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     // MainMenu
     let gesture = GestureRecognizer()
     
-    // locationManager Singleton
-    private let locationManager = LocationManager.shared
-    
     // CoreData - runManager & locationCoreDataManager
     let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
     let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
@@ -56,9 +57,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         // 手勢滑動開啟 sideMenu
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
 
-        // CoreData Singleton
-        usersDataManager = UsersManager.shared
-        
         // 剛進到畫面的 UI 設定
         upAndDowBtn.setImage(UIImage(named:"up.png"), for: .normal)
         heightOfInfoView.constant = 0 // 80
@@ -68,7 +66,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         distanceView.isHidden = true
 
         // locationManger 初始定位
-        self.locationManagerSetting()
+        locationManagerSetting()
 
         // Prepare fog
         if let fullRadius = CLLocationDistance(exactly: MKMapRectWorld.size.height) {
@@ -80,8 +78,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
 /// MARK: - IBActions
     @IBAction func userTrackingBtnPressed(_ sender: UIButton) {
@@ -134,25 +130,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
     }
     
-    
     // locationManager 初始設定
     func locationManagerSetting() {
         //locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.activityType = .automotiveNavigation
-        locationManager.startUpdatingLocation()
+        cLLocations?.requestWhenInUseAuthorization()
+        cLLocations?.delegate = self
+        cLLocations?.allowsBackgroundLocationUpdates = true
+        cLLocations?.desiredAccuracy = kCLLocationAccuracyBest
+        cLLocations?.activityType = .automotiveNavigation
+        cLLocations?.startUpdatingLocation()
         mapView.userTrackingMode = .followWithHeading
-        guard let location = locationManager.location else {
+        guard let location = cLLocations?.location else {
             return
         }
         showCity(currentLocation: location)
     }
         
-    
-    
     private func startRec() {
         // 新增 RunItem 所以 originalItem: nil
         editRun(originalItem: nil) { (success, item) in
