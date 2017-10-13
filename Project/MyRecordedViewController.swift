@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import CoreLocation
 
 class MyRecordedViewController: UIViewController{
 
@@ -18,21 +18,35 @@ class MyRecordedViewController: UIViewController{
     
     var run: Run!
     
-    
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var cityName: UILabel!
+    var runDate:String?
+    var city:String?
+    var annotation = [Annotation]()
+    var location = [CLLocationCoordinate2D]()
     
     let gesture = GestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        date.text = runDate
+        cityName.text = city
         // Do any additional setup after loading the view.
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
-        
+        print(annotation)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "EmbedView"){
+            let vc2 = segue.destination as! MyRecordViewController
+            vc2.annotation = self.annotation
+        }
     }
     
 
