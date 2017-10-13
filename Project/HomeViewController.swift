@@ -71,9 +71,9 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
                 
                         self?.logInActiveView.stopAnimating()
                         self?.logInLabel.isHidden = true
-//                        DispatchQueue.main.async {
+                        DispatchQueue.main.async {
                             self?.fakeView.isHidden = true
-//                        }
+                        }
                         self?.present(vc, animated: true, completion: nil)
                         
                         
