@@ -54,27 +54,5 @@ class AlertSetting: UIViewController {
         target.present(alertController, animated: true, completion: nil)
     }
     
-    func pauseRecAlert(target: UIViewController) {
-        
-    }
-    
-    func runNameAlert(target: UIViewController) {
-        let alert = UIAlertController(title: "記錄命名", message: "您可以為本次記錄新增名稱，或直接以記錄日期命名", preferredStyle: .alert)
-        alert.addTextField { (tf) in
-            tf.placeholder = String(describing: usersDataManager.runItem?.timestamp)
-        }
-        let ok = UIAlertAction(title: "確定", style: .default) { _ in
-            if alert.textFields?.first?.text?.isEmpty == true {
-                usersDataManager.runItem?.runname = String(describing: usersDataManager.runItem?.timestamp)
-            } else {
-                let runName = alert.textFields?.first?.text
-                usersDataManager.runItem?.runname = runName
-            }
-        }
-        alert.addAction(ok)
-        target.present(alert, animated: true, completion: nil)
-    }
-    
-    
 }
 

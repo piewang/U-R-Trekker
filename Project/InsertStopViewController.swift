@@ -9,6 +9,9 @@
 import UIKit
 
 class InsertStopViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate  {
+    //MARK: - Deinit
+    deinit {
+    }
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -54,10 +57,6 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    /// deinit
-    override func viewDidDisappear(_ animated: Bool) {
-        ///...
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -151,8 +150,6 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
             imageView.image = selectedImg
         }
         picker.dismiss(animated: true, completion: nil)
-//        photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        imageView.image = photoImage
     }
     func addPhotoAlert() {
         let alert = UIAlertController(title: "新增照片", message: nil, preferredStyle: .actionSheet)
@@ -165,12 +162,10 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         let cancel = UIAlertAction(title: "取消", style: .cancel) {_ in
             self.boxViewAnimate()
         }
-        
         alert.addAction(camera)
         alert.addAction(library)
         alert.addAction(cancel)
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     func boxViewAnimate() {
@@ -186,8 +181,6 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
                 self.midView.layoutIfNeeded()
             }, completion: {_ in
                 self.imageView.isHidden = false
-                
-                
             })
         } else {
             heightOfBox.constant = 277
@@ -202,7 +195,6 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
                 self.addPhotoImageView.isHidden = false
                 self.addPhotoLabel.isHidden = false
             })
-            
         }
     }
 }
@@ -213,8 +205,10 @@ extension InsertStopViewController {
     
     func editAnnotation(originalItem: Annotation?, completion: EditDoneHandler) {
         var finalItem = originalItem
+        
         if finalItem == nil {
             finalItem = annotationManager.createItemTo(target: usersDataManager.runItem!)
+            finalItem?.timestamp = Date()
             usersDataManager.runItem?.addToAnnotations(finalItem!)
         }
         if let text = textView.text {

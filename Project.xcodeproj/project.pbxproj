@@ -18,7 +18,9 @@
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		8EAE8B0D1F8793BA0049C8F5 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */; };
-		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
+		8EFECF941F9077ED00388A1D /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EFECF931F9077ED00388A1D /* CustomCalloutView.xib */; };
+		8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */; };
+		8EFECF9A1F90804100388A1D /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFECF991F90804100388A1D /* CustomAnnotation.swift */; };
 		D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D21F79E8D500B513DF /* UsersManager.swift */; };
 		D7C951221F8C9C7500FCD770 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951201F8C9C6E00FCD770 /* signIn.png */; };
 		D7C951231F8C9C7900FCD770 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951211F8C9C7200FCD770 /* Login.png */; };
@@ -88,7 +90,9 @@
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
-		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		8EFECF931F9077ED00388A1D /* CustomCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
+		8EFECF991F90804100388A1D /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		D70613D21F79E8D500B513DF /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		D7C951201F8C9C6E00FCD770 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signIn.png; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				D7FA7DC11F5E940000E803CA /* Methods */,
 				D7FA7D971F5E71AC00E803CA /* Main.storyboard */,
 				D7FA7DAF1F5E726D00E803CA /* Work.storyboard */,
+				8EFECF931F9077ED00388A1D /* CustomCalloutView.xib */,
 				8E34178C1F698B90000D943D /* Assets.xcassets */,
 				D7FA7DC21F5EA34B00E803CA /* IMG */,
 				D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */,
@@ -292,13 +297,14 @@
 			children = (
 				8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */,
 				D7ED1C701F677E6000207950 /* FirebaseWorks.swift */,
+				8EFECF991F90804100388A1D /* CustomAnnotation.swift */,
+				8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */,
 				D7ED1C711F677E6000207950 /* AlertSetting.swift */,
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E703EF11F7F963900BEA612 /* UnitExtension.swift */,
 				8E703EF31F7F967700BEA612 /* FormatDisplay.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
-				8EE2965C1F67B2E8004A493B /* Keyboard.swift */,
 			);
 			name = Methods;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */,
 				D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */,
 				EFC1CBC21F66AF20008D0E1A /* 1.plist in Resources */,
+				8EFECF941F9077ED00388A1D /* CustomCalloutView.xib in Resources */,
 				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
 				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
 				D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */,
@@ -513,13 +520,13 @@
 				EFC1CBB71F66AF12008D0E1A /* SDWebImageDownloaderOperation.m in Sources */,
 				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
+				8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */,
 				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,
 				65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */,
 				EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */,
 				8E08E7451F8283F200AB9131 /* InsertStopViewController.swift in Sources */,
 				EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
-				8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */,
 				D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */,
 				EFC1CBB51F66AF12008D0E1A /* SDWebImageDecoder.m in Sources */,
 				D7ECC6241F7D0AD800C558CE /* ContainerViewController.swift in Sources */,
@@ -535,6 +542,7 @@
 				EFC1CBBC1F66AF12008D0E1A /* UIImage+MultiFormat.m in Sources */,
 				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
 				8E703EF21F7F963900BEA612 /* UnitExtension.swift in Sources */,
+				8EFECF9A1F90804100388A1D /* CustomAnnotation.swift in Sources */,
 				EFC1CBB91F66AF12008D0E1A /* SDWebImagePrefetcher.m in Sources */,
 				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
 				D7ED1C7C1F678D4A00207950 /* SignInViewController.swift in Sources */,
