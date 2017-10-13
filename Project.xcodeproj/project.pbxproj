@@ -43,7 +43,6 @@
 		D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */; };
 		D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DAF1F5E726D00E803CA /* Work.storyboard */; };
 		D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */; };
-		D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */; };
 		D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */; };
 		D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */; };
 		D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC31F5EA35B00E803CA /* settings.png */; };
@@ -51,7 +50,10 @@
 		D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC51F5EA35B00E803CA /* footprint.png */; };
 		D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DC91F5EA3CA00E803CA /* Color.swift */; };
 		DB2C61477314F1B015EAADAF /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B95F97DE0618E757218977 /* Pods_Project.framework */; };
+		EF1675191F8F892C00D986E8 /* TrackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */; };
+		EF16751B1F8F898D00D986E8 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */; };
 		EF16E1521F821A6F007625C5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16E1511F821A6F007625C5 /* DetailViewController.swift */; };
+		EF4FFF1E1F8FA96300E9EE95 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */; };
 		EFC1CBB11F66AF12008D0E1A /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB911F66AF12008D0E1A /* MKAnnotationView+WebCache.m */; };
 		EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB931F66AF12008D0E1A /* NSData+ImageContentType.m */; };
 		EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB951F66AF12008D0E1A /* SDImageCache.m */; };
@@ -118,14 +120,16 @@
 		D7FA7DB61F5E884100E803CA /* Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		D7FA7DB71F5E884100E803CA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecordedViewController.swift; sourceTree = "<group>"; };
 		D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizer.swift; sourceTree = "<group>"; };
 		D7FA7DC31F5EA35B00E803CA /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		D7FA7DC41F5EA35B00E803CA /* explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explore.png; sourceTree = "<group>"; };
 		D7FA7DC51F5EA35B00E803CA /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
 		D7FA7DC91F5EA3CA00E803CA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewController.swift; sourceTree = "<group>"; };
+		EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		EF16E1511F821A6F007625C5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		EFC1CB901F66AF12008D0E1A /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		EFC1CB911F66AF12008D0E1A /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		EFC1CB921F66AF12008D0E1A /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -270,9 +274,11 @@
 				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
 				EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */,
 				EF16E1511F821A6F007625C5 /* DetailViewController.swift */,
-				D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */,
 				EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */,
 				EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */,
+				EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */,
+				EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */,
+				EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */,
 				D7ED1C781F67862100207950 /* SignIn */,
 			);
 			name = Controller;
@@ -396,7 +402,7 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = QTJ3HA9CQD;
+						DevelopmentTeam = 7588T3DZY6;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -505,11 +511,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4FFF1E1F8FA96300E9EE95 /* SettingTableViewController.swift in Sources */,
 				D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */,
 				EFC1CBC51F66AF35008D0E1A /* CollectionViewFlowLayout.swift in Sources */,
 				EFC1CBBD1F66AF12008D0E1A /* UIImage+WebP.m in Sources */,
 				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
 				EFC1CBBA1F66AF12008D0E1A /* UIButton+WebCache.m in Sources */,
+				EF1675191F8F892C00D986E8 /* TrackTableViewController.swift in Sources */,
 				EFC1CBB71F66AF12008D0E1A /* SDWebImageDownloaderOperation.m in Sources */,
 				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
@@ -526,10 +534,10 @@
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
 				D7ED1C801F678EEB00207950 /* ResetPasswordViewController.swift in Sources */,
 				EFC1CBBE1F66AF12008D0E1A /* UIImageView+HighlightedWebCache.m in Sources */,
+				EF16751B1F8F898D00D986E8 /* TrackTableViewCell.swift in Sources */,
 				EFC1CBC61F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift in Sources */,
 				EFC1CBB61F66AF12008D0E1A /* SDWebImageDownloader.m in Sources */,
 				EFC1CBB41F66AF12008D0E1A /* SDWebImageCompat.m in Sources */,
-				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
 				EFC1CBBB1F66AF12008D0E1A /* UIImage+GIF.m in Sources */,
 				EF16E1521F821A6F007625C5 /* DetailViewController.swift in Sources */,
 				EFC1CBBC1F66AF12008D0E1A /* UIImage+MultiFormat.m in Sources */,
@@ -686,7 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = 7588T3DZY6;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -706,7 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QTJ3HA9CQD;
+				DEVELOPMENT_TEAM = 7588T3DZY6;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
