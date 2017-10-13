@@ -8,10 +8,29 @@
 
 import UIKit
 
+
 extension TrackTableViewController: UISearchResultsUpdating {
+    
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if searchController.isActive {
+            var searchString: String? = searchController.searchBar.text
+            if (searchString != nil){
+                //判斷裡面有沒有字
+//                var p = NSPredicate(format: "SELF CONTAINS[cd] %@", searchString!)
+//                //上面property增加陣列搜尋後的結果
+//                searchResult = notes?.filter({ (<#String#>) -> Bool in
+//                    <#code#>
+//                })
+            }
+            else {
+                searchResult = nil
+            }
+        }
+        else {
+            searchResult = nil
+        }
+        tableView.reloadData()
     }
 }
 
@@ -19,14 +38,24 @@ class TrackTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let gesture = GestureRecognizer()
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    var searchResult:[String]?
+    var notes:[String]?
+    let formatter = DateFormatter()
+    var annotation = [Annotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        
+        var rect: CGRect = searchController.searchBar.frame
+        rect.size.height = 44.0
+        searchController.searchBar.frame = rect
+        searchController.searchBar.placeholder = "輸入關鍵字"
         self.tableView.tableHeaderView = searchController.searchBar
         self.definesPresentationContext = true
+        self.tableView.rowHeight = 128.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,24 +67,50 @@ class TrackTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (usersDataManager.userItem?.runs?.count ?? 0)
     }
     
-    /*
+    
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrackTableViewCell
+        cell.imgView?.image = UIImage(data: ((usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.first as! Annotation).imageData!)
+        cell.runName?.text = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).runname
+//        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        cell.date?.text = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
+        cell.location?.text = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
      return cell
      }
-     */
-    
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc2 = storyboard?.instantiateViewController(withIdentifier: "MyRecordedViewController") as! MyRecordedViewController
+        vc2.city = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        vc2.runDate = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
+        
+        guard let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.count else {
+            return
+        }
+        guard totals != 0 else {
+            return
+        }
+        let total = totals - 1
+        for num in 0...total{
+            if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
+                
+                let item = items[num] as! Annotation
+                
+                annotation.append(item)
+            }
+        }
+        vc2.annotation = annotation
+        navigationController?.pushViewController(vc2, animated: true)
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
