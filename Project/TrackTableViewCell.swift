@@ -12,7 +12,7 @@ class TrackTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var photoNumber: UILabel!
+    @IBOutlet weak var runName: UILabel!
     @IBOutlet weak var location: UILabel!
     
     override func awakeFromNib() {

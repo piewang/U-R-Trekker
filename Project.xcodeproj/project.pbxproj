@@ -76,6 +76,8 @@
 		EFC1CBC51F66AF35008D0E1A /* CollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */; };
 		EFC1CBC61F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */; };
 		EFC1CBCA1F66AF55008D0E1A /* MyRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */; };
+		EFF85BCD1F906F3200AFA20C /* UploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85BCC1F906F3200AFA20C /* UploadTableViewController.swift */; };
+		EFF85BD31F90730B00AFA20C /* DownloadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85BD21F90730B00AFA20C /* DownloadTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +173,8 @@
 		EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbNailCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecordViewController.swift; sourceTree = "<group>"; };
+		EFF85BCC1F906F3200AFA20C /* UploadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTableViewController.swift; sourceTree = "<group>"; };
+		EFF85BD21F90730B00AFA20C /* DownloadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +288,8 @@
 				EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */,
 				EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */,
 				EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */,
+				EFF85BCC1F906F3200AFA20C /* UploadTableViewController.swift */,
+				EFF85BD21F90730B00AFA20C /* DownloadTableViewController.swift */,
 				D7ED1C781F67862100207950 /* SignIn */,
 			);
 			name = Controller;
@@ -526,6 +532,7 @@
 				EFC1CBBA1F66AF12008D0E1A /* UIButton+WebCache.m in Sources */,
 				EF1675191F8F892C00D986E8 /* TrackTableViewController.swift in Sources */,
 				EFC1CBB71F66AF12008D0E1A /* SDWebImageDownloaderOperation.m in Sources */,
+				EFF85BD31F90730B00AFA20C /* DownloadTableViewController.swift in Sources */,
 				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
 				8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */,
@@ -540,6 +547,7 @@
 				D7ECC6241F7D0AD800C558CE /* ContainerViewController.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
 				D7ED1C801F678EEB00207950 /* ResetPasswordViewController.swift in Sources */,
+				EFF85BCD1F906F3200AFA20C /* UploadTableViewController.swift in Sources */,
 				EFC1CBBE1F66AF12008D0E1A /* UIImageView+HighlightedWebCache.m in Sources */,
 				EF16751B1F8F898D00D986E8 /* TrackTableViewCell.swift in Sources */,
 				EFC1CBC61F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift in Sources */,
