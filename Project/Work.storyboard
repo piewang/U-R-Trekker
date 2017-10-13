@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Regular</string>
+        </array>
         <array key="Helvetica.ttc">
             <string>Helvetica-Bold</string>
         </array>
@@ -1211,8 +1214,11 @@
     </scenes>
     <resources>
         <image name="add" width="40" height="40"/>
+        <image name="cancelBtn" width="23" height="23"/>
+        <image name="defaultImage" width="527" height="357"/>
         <image name="explore.png" width="36" height="36"/>
         <image name="footprint.png" width="32" height="32"/>
+        <image name="keyboard" width="48" height="26"/>
         <image name="location" width="40" height="40"/>
         <image name="menu" width="22" height="22"/>
         <image name="pin" width="47" height="41"/>
