@@ -621,16 +621,11 @@
                             <constraint firstItem="2Iz-0m-Utm" firstAttribute="top" secondItem="gVl-U6-hNv" secondAttribute="bottom" id="nEn-bq-6jV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="s4A-mg-94t">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Ene-GH-b3Z">
-                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="s4A-mg-94t"/>
                     <connections>
                         <outlet property="cityName" destination="3gh-nS-MWE" id="8up-XT-gbl"/>
                         <outlet property="date" destination="GnN-Q7-9u9" id="FEz-5v-Gpd"/>
                         <outlet property="mapView2" destination="gVl-U6-hNv" id="CLF-Vc-lVY"/>
-                        <outlet property="menuButton" destination="Ene-GH-b3Z" id="tFS-30-jyh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPH-n5-uOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -758,6 +753,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="e4f-Uw-aNZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.4511951208114624" green="0.83673316240310669" blue="0.70227557420730591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

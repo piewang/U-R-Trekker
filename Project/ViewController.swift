@@ -506,8 +506,3 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
         }
     }
 }
-
-
-
-
-
