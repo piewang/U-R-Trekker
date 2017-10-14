@@ -45,6 +45,21 @@ class SettingTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let vc2 = storyboard?.instantiateViewController(withIdentifier: "UploadTableViewController") as! UploadTableViewController
+                navigationController?.pushViewController(vc2, animated: true)
+            } else if indexPath.row == 1 {
+                let vc2 = storyboard?.instantiateViewController(withIdentifier: "DownloadTableViewController") as! DownloadTableViewController
+                navigationController?.pushViewController(vc2, animated: true)
+            }
+        } else if indexPath.section == 1 {
+            //...
+        } else {
+            //...
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

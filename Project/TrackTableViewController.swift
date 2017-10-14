@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 extension TrackTableViewController: UISearchResultsUpdating {
     
@@ -108,6 +108,8 @@ class TrackTableViewController: UITableViewController {
             }
         }
         vc2.annotation = annotation
+        //傳送CLLocation
+        vc2.run = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run)
         navigationController?.pushViewController(vc2, animated: true)
     }
     /*

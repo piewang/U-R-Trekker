@@ -7,17 +7,31 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class UploadTableViewController: UITableViewController {
 
+    var firebaseRunArray = [String]()
+    var coreDataRunArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        checkData()
+    }
+    
+    func checkData() {
+        
+        let databaseRef = Database.database().reference().child("users").child(uuid!).child("record")
+        databaseRef.observe(.value, with: { (snapshot) in
+            if let uploadDict = snapshot.value as? [String:NSDictionary] {
+                //檢查firebase裡的資料與CoreData裡有無重複
+//                for fireKeys in uploadDict.keys {
+//                    for runName in coreDataRunArray {
+//                        //...
+//                    }
+//                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +43,7 @@ class UploadTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
