@@ -281,6 +281,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBtn" destination="6WX-dW-Vu7" id="8hx-zV-Fd5"/>
                         <outlet property="cityLabel" destination="xFw-C1-qCS" id="j5S-tt-bvq"/>
                         <outlet property="distanceLabel" destination="rXn-gT-mLt" id="bMm-vd-cVo"/>
                         <outlet property="distanceView" destination="SCb-jz-76f" id="AmB-SA-ydc"/>
@@ -313,6 +314,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-zd-CKC">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZL-Me-bXw" userLabel="BoxVIew">
                                 <rect key="frame" x="0.0" y="68" width="375" height="603"/>
                                 <subviews>

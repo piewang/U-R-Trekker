@@ -14,7 +14,7 @@ import CoreData
 class ViewController: UIViewController, UINavigationControllerDelegate{
     //MARK: - Deinit
     deinit {
-        cLLocations?.stopUpdatingLocation()
+        // cLLocations?.stopUpdatingLocation()
     }
     
 // MARK: - IBOutlet
@@ -35,8 +35,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet weak var heightOfStatusView: NSLayoutConstraint!
     @IBOutlet weak var heightOfInfoView: NSLayoutConstraint!
     @IBOutlet weak var recBtn: UIButton!
+    @IBOutlet weak var addBtn: UIButton!
     
 // MARK: - Global Variables
+    let locationManager = CLLocationManager()
     // MainMenu
     let gesture = GestureRecognizer()
     // CoreData - runManager & locationCoreDataManager
@@ -68,8 +70,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         statusView.isHidden = true
         durationView.isHidden = true
         distanceView.isHidden = true
-        // locationManger 初始定位
-        locationManagerSetting()
+        addBtn.isEnabled = false
         // Prepare fog
         if let fullRadius = CLLocationDistance(exactly: MKMapRectWorld.size.height) {
             mapView.add(MKCircle(center: mapView.centerCoordinate, radius: fullRadius))
@@ -80,6 +81,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        // locationManger 初始定位
+        locationManagerSetting()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
     }
     
     // MARK: - IBActions
@@ -97,14 +105,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
     }
     @IBAction func addBtnPressed(_ sender: UIButton) {
-        if isRecording == false {
-            startRec()
-        }
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController else {
             return
         }
-        vc.latitude = cLLocations?.location?.coordinate.latitude
-        vc.longitude = cLLocations?.location?.coordinate.longitude
+        vc.latitude = locationManager.location?.coordinate.latitude
+        vc.longitude = locationManager.location?.coordinate.longitude
         NSLog("\(vc.latitude ?? 0.0), \(vc.longitude ?? 0.0)")
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -115,14 +120,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     // locationManager 初始設定
     func locationManagerSetting() {
         //locationManager.requestAlwaysAuthorization()
-        cLLocations?.requestWhenInUseAuthorization()
-        cLLocations?.delegate = self
-        cLLocations?.allowsBackgroundLocationUpdates = true
-        cLLocations?.desiredAccuracy = kCLLocationAccuracyBest
-        cLLocations?.activityType = .automotiveNavigation
-        cLLocations?.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.activityType = .automotiveNavigation
+        locationManager.startUpdatingLocation()
         mapView.userTrackingMode = .followWithHeading
-        guard let location = cLLocations?.location else {
+        guard let location = locationManager.location else {
             return
         }
         showCity(currentLocation: location)
@@ -130,6 +135,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         
     func startRec() {
         // 新增 RunItem 所以 originalItem: nil
+        addBtn.isEnabled = true
         editRun(originalItem: nil) { (success, item) in
             guard success == true else {
                 return
@@ -183,11 +189,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     }
     
     func pauseAlert() {
-        let alert = UIAlertController(title: "暫停記錄", message: "您可選擇「繼續」、「刪除」或「儲存", preferredStyle: .alert)
+        let alert = UIAlertController(title: "暫停記錄", message: "您可選擇「繼續」、「儲存」或「刪除」", preferredStyle: .alert)
         let saveBtn = UIAlertAction(title: "儲存", style: .default) { _ in
             self.editRunNameAlert()
         }
-        let keepRecordingBtn = UIAlertAction(title: "繼續", style: .default) { _ in
+        let discardBtn = UIAlertAction(title: "刪除", style: .destructive) {_ in
+            usersDataManager.userItem?.removeFromRuns(usersDataManager.runItem!)
+            self.stopRec()
+            NSLog("\(String(describing: usersDataManager.userItem?.name))有\(String(describing: usersDataManager.userItem?.runs?.count))次軌跡記錄")
+        }
+        
+        let keepRecordingBtn = UIAlertAction(title: "繼續", style:.default) { _ in
             self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
                 self.statusLabel.text = "記錄中"
                 self.eachSecond()
@@ -195,6 +207,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
         alert.addAction(keepRecordingBtn)
         alert.addAction(saveBtn)
+        alert.addAction(discardBtn)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -225,6 +238,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
                     assertionFailure("Unresolve error\(error)")
                 }
                 NSLog("RunName: \(String(describing: usersDataManager.runItem?.runname)),\n Duration: \(String(describing: usersDataManager.runItem?.duration)),\n Distance: \(String(describing: usersDataManager.runItem?.distance)),\n CreateDate: \(String(describing: usersDataManager.runItem?.timestamp))")
+                NSLog("\(String(describing: usersDataManager.userItem?.name))有\(String(describing: usersDataManager.userItem?.runs?.count))次軌跡記錄")
                 self.stopRec()
                 self.infoUpAndDown()
                 self.statusLabel.text = "已儲存"
@@ -236,6 +250,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     
     func stopRec() {
         // 狀態 與 UI 修正
+        addBtn.isEnabled = false
         isRecording = false
         timeLabel.text = "00:00:00"
         distanceLabel.text = "0.0"
@@ -426,7 +441,6 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                         return
                     }
                     do {
-                        // 需再測試
                         try usersDataManager.runItem?.managedObjectContext?.save()
                         try usersDataManager.userItem?.managedObjectContext?.save()
                     } catch {
@@ -489,8 +503,7 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
         calloutView.layer.cornerRadius = 10
         calloutView.layer.masksToBounds = true
         calloutView.cityLabel.text = customAnnotation.city
-        let bbb = customAnnotation.date!
-        calloutView.timestampLabel.text! = bbb
+        calloutView.timestampLabel.text = customAnnotation.date
         calloutView.imageView.image = customAnnotation.image
         calloutView.textLabel.text = customAnnotation.text
         calloutView.center = CGPoint(x: view.bounds.size.width, y: -calloutView.bounds.size.height*0.52)

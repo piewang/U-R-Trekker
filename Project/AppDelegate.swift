@@ -13,7 +13,7 @@ import GoogleSignIn
 import CoreLocation
 
 var locationsManager:LocationManager? = nil
-var cLLocations:CLLocationManager? = nil
+//var cLLocations:CLLocationManager? = nil
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         usersDataManager = UsersManager.shared
         
         locationsManager = LocationManager.shared
-        cLLocations = locationsManager?.showCLLocation()
+        //cLLocations = locationsManager?.showCLLocation()
 
         
         FirebaseApp.configure()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class InsertStopViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate  {
     //MARK: - Deinit
@@ -29,7 +30,8 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     var longitude:Double?
     let annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
     var photoImage: UIImage?
-
+    typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
+    
 // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
         } else {
             userImageView.image = UIImage(named:"userDefaultImage.png")
         }
+        showcity()
         userImageView.layer.cornerRadius = 25
         userImageView.layer.masksToBounds = true
         // 提示使用者可以增加照片
@@ -93,6 +96,8 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     @objc func tap(_ sender:Any) {
         self.view.endEditing(true)
     }
+    
+    
 }
 
 extension InsertStopViewController {
@@ -107,12 +112,25 @@ extension InsertStopViewController {
     }
     
     func addBarButtonItem() {
-        let okBtn = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(done))
+ 
+        let okBtn = UIBarButtonItem(title: "儲存", style: .plain, target: self, action: #selector(done))
         okBtn.tintColor = UIColor.white
         navigationItem.rightBarButtonItem? = okBtn
-        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        let cancelBtn = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancel))
         cancelBtn.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = cancelBtn
+    }
+    
+    func showcity(){
+        let geocoer = CLGeocoder()
+        geocoer.reverseGeocodeLocation(CLLocation.init(latitude: latitude!, longitude: longitude!)) { (placemarks, error) in
+            if error == nil {
+                let firstLocation = placemarks?[0]
+                if let state = firstLocation?.addressDictionary!["State"] as? NSString, let city = firstLocation?.addressDictionary!["City"] as? NSString {
+                    self.cityNameLabel.text = String((state as String) + (city as String))
+                }
+            }
+        }
     }
     
 }
@@ -197,6 +215,8 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
             })
         }
     }
+    
+    
 }
 
 // CoreData Annotation
