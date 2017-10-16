@@ -14,7 +14,7 @@ import CoreData
 class ViewController: UIViewController, UINavigationControllerDelegate{
     //MARK: - Deinit
     deinit {
-        // cLLocations?.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
     }
     
 // MARK: - IBOutlet
@@ -86,10 +86,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         // locationManger 初始定位
         locationManagerSetting()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        locationManager.stopUpdatingLocation()
-    }
-    
     // MARK: - IBActions
     @IBAction func userTrackingBtnPressed(_ sender: UIButton) {
         self.mapView.userTrackingMode = .followWithHeading
