@@ -83,13 +83,20 @@ class TrackTableViewController: UITableViewController {
 //        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.date?.text = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
-        cell.location?.text = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
+        if let cityName = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
+            cell.location?.text = "地點:\(cityName)"
+        }
      return cell
      }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc2 = storyboard?.instantiateViewController(withIdentifier: "MyRecordedViewController") as! MyRecordedViewController
-        vc2.city = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
+        if let cityLabel =  (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
+            vc2.city = cityLabel
+        }
+        //singleton
+//        let run = usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run
+//        usersDataManager.giveRunValue(toRunItem: run)
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         vc2.runDate = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
         //傳送Annotation

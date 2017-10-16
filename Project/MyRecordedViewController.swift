@@ -25,9 +25,7 @@ class MyRecordedViewController: UIViewController, MKMapViewDelegate,CLLocationMa
         super.viewDidLoad()
         loadMap()
         date.text = runDate
-        guard cityName.text == city else {
-            return
-        }
+        cityName.text = city
     }
     
     
