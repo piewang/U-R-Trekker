@@ -41,7 +41,7 @@ class TrackTableViewController: UITableViewController {
     var searchResult:[String]?
     var notes:[String]?
     let formatter = DateFormatter()
-    var annotation = [Annotation]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,8 @@ class TrackTableViewController: UITableViewController {
         vc2.city = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         vc2.runDate = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
-        
+        //傳送Annotation
+        var annotation = [Annotation]()
         guard let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.count else {
             return
         }
@@ -102,9 +103,7 @@ class TrackTableViewController: UITableViewController {
         let total = totals - 1
         for num in 0...total{
             if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
-                
                 let item = items[num] as! Annotation
-                
                 annotation.append(item)
             }
         }

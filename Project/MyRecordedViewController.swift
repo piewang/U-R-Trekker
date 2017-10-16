@@ -12,27 +12,23 @@ import CoreLocation
 
 class MyRecordedViewController: UIViewController{
 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var mapView2: MKMapView!
-    
-    var run: Run!
-    
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var cityName: UILabel!
     var runDate:String?
     var city:String?
     var annotation = [Annotation]()
-    var location = [CLLocationCoordinate2D]()
-    
-    let gesture = GestureRecognizer()
+    var location = [CLLocation]()
+    var run: Run!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         date.text = runDate
-        cityName.text = city
+        guard cityName.text == city else {
+            return
+        }
         // Do any additional setup after loading the view.
-        gesture.turnOnMenu(target: menuButton, VCtarget: self)
         print(annotation)
     }
     
@@ -45,7 +41,7 @@ class MyRecordedViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "EmbedView"){
             let vc2 = segue.destination as! MyRecordViewController
-            vc2.annotation = self.annotation
+            vc2.goodlist = self.annotation
         }
     }
     
@@ -78,5 +74,9 @@ class MyRecordedViewController: UIViewController{
         let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3,
                                     longitudeDelta: (maxLong - minLong) * 1.3)
         return MKCoordinateRegion(center: center, span: span)
+    }
+    
+    deinit {
+        print ("disappear")
     }
 }

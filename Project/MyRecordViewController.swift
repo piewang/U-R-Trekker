@@ -12,14 +12,13 @@ import CoreData
 class MyRecordViewController: UICollectionViewController {
     
     @IBOutlet weak var flowLayout: CollectionViewFlowLayout!
-    var annotation = [Annotation]()
+
     var goodlist = [Annotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        // Do any additional setup after loading the view, typically from a nib.
 //        makeGoodArray()
-        goodlist = annotation
         print(goodlist.count)
         flowLayout.goodlist = goodlist
         
