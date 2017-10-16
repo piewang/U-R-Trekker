@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 extension TrackTableViewController: UISearchResultsUpdating {
     
@@ -41,7 +41,7 @@ class TrackTableViewController: UITableViewController {
     var searchResult:[String]?
     var notes:[String]?
     let formatter = DateFormatter()
-    var annotation = [Annotation]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,16 +83,24 @@ class TrackTableViewController: UITableViewController {
 //        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.date?.text = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
-        cell.location?.text = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
+        if let cityName = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
+            cell.location?.text = "地點:\(cityName)"
+        }
      return cell
      }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc2 = storyboard?.instantiateViewController(withIdentifier: "MyRecordedViewController") as! MyRecordedViewController
-        vc2.city = String(describing: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city)
+        if let cityLabel =  (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
+            vc2.city = cityLabel
+        }
+        //singleton
+//        let run = usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run
+//        usersDataManager.giveRunValue(toRunItem: run)
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         vc2.runDate = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
-        
+        //傳送Annotation
+        var annotation = [Annotation]()
         guard let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.count else {
             return
         }
@@ -102,13 +110,13 @@ class TrackTableViewController: UITableViewController {
         let total = totals - 1
         for num in 0...total{
             if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
-                
                 let item = items[num] as! Annotation
-                
                 annotation.append(item)
             }
         }
         vc2.annotation = annotation
+        //傳送CLLocation
+        vc2.run = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run)
         navigationController?.pushViewController(vc2, animated: true)
     }
     /*

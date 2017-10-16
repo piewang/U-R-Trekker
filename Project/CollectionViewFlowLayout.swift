@@ -53,6 +53,7 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
                 picture = pic
             }
             
+            
             //建立一個attribute，用來做cell的layout
             let indexPath = IndexPath.init(item: index, section: 0)
             let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
