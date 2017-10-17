@@ -948,7 +948,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZJ-Ce-yim">
-                                <rect key="frame" x="119.5" y="180" width="61" height="841"/>
+                                <rect key="frame" x="119.5" y="583.5" width="61" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <size key="titleShadowOffset" width="2" height="-2"/>
                                 <state key="normal" title="登出">
@@ -982,7 +982,6 @@
                             <constraint firstItem="tEG-La-JVt" firstAttribute="height" secondItem="lMy-xH-kCP" secondAttribute="height" multiplier="0.15" id="6HJ-qD-04Y"/>
                             <constraint firstAttribute="trailing" secondItem="6El-7D-f0M" secondAttribute="trailing" id="9hM-ez-Lb1"/>
                             <constraint firstItem="6El-7D-f0M" firstAttribute="leading" secondItem="lMy-xH-kCP" secondAttribute="leading" id="DGT-fB-PXd"/>
-                            <constraint firstItem="JZJ-Ce-yim" firstAttribute="top" secondItem="vPT-v8-feC" secondAttribute="bottom" constant="2" id="Iea-ac-gG3"/>
                             <constraint firstItem="JZJ-Ce-yim" firstAttribute="centerX" secondItem="lMy-xH-kCP" secondAttribute="centerX" multiplier="0.8" id="SL0-bw-sn4"/>
                             <constraint firstItem="tEG-La-JVt" firstAttribute="top" secondItem="lMy-xH-kCP" secondAttribute="top" id="UDn-Om-kxD"/>
                             <constraint firstItem="g4V-8a-Bcq" firstAttribute="top" secondItem="6El-7D-f0M" secondAttribute="bottom" id="WZg-YM-5D8"/>
@@ -991,6 +990,7 @@
                             <constraint firstItem="6El-7D-f0M" firstAttribute="top" secondItem="tEG-La-JVt" secondAttribute="bottom" constant="75" id="ZWQ-jY-Knr"/>
                             <constraint firstItem="vPT-v8-feC" firstAttribute="top" secondItem="wON-2r-evo" secondAttribute="bottom" constant="2" id="fwl-dZ-4eh"/>
                             <constraint firstItem="wON-2r-evo" firstAttribute="top" secondItem="Hq8-lV-9W5" secondAttribute="bottom" constant="35" id="hMb-nu-tzB"/>
+                            <constraint firstItem="g4V-8a-Bcq" firstAttribute="top" secondItem="JZJ-Ce-yim" secondAttribute="bottom" constant="50" id="jrB-nn-43N"/>
                             <constraint firstItem="JZJ-Ce-yim" firstAttribute="centerY" secondItem="lMy-xH-kCP" secondAttribute="centerY" multiplier="1.8" id="khP-Tx-0hm"/>
                             <constraint firstItem="tEG-La-JVt" firstAttribute="leading" secondItem="lMy-xH-kCP" secondAttribute="leading" id="riC-V3-dXR"/>
                         </constraints>
