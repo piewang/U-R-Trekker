@@ -521,7 +521,6 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
         view.addSubview(calloutView)
         mapView.setCenter((view.annotation?.coordinate)!, animated: true)
     }
-    
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: MKAnnotationView.self) {
             for subView in view.subviews {
