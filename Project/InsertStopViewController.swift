@@ -70,8 +70,6 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     }
     // Done and Save
     @objc func done()  {
-        
-        
         editAnnotation(originalItem: nil) { (success, item) in
             guard success == true else {
                 return
