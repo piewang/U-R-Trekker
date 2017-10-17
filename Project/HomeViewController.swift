@@ -12,6 +12,8 @@ import GoogleSignIn
 
 class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate {
     
+    @IBOutlet weak var fakeLogoView: UIImageView!
+    @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var fakeView: UIView!
     @IBOutlet weak var logInLabel: UILabel!
     @IBOutlet weak var logInActiveView: UIActivityIndicatorView!
@@ -26,7 +28,10 @@ class HomeViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fakeLogoView.layer.cornerRadius = 7.5
+        fakeLogoView.layer.masksToBounds = true
+        logoView.layer.cornerRadius = 7.5
+        logoView.layer.masksToBounds = true
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         

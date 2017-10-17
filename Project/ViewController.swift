@@ -42,8 +42,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     // MainMenu
     let gesture = GestureRecognizer()
     // CoreData - runManager & locationCoreDataManager
-    let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
+    let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "runname")
     let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
+    var annotationManager:CoreDataManager? = nil
     private var second = 0
     var timer: Timer?
     private var distance = Measurement(value: 0.0, unit: UnitLength.meters)
@@ -192,6 +193,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         let discardBtn = UIAlertAction(title: "刪除", style: .destructive) {_ in
             usersDataManager.userItem?.removeFromRuns(usersDataManager.runItem!)
             self.stopRec()
+            self.infoUpAndDown()
+            self.statusLabel.text = "已刪除"
             NSLog("\(String(describing: usersDataManager.userItem?.name))有\(String(describing: usersDataManager.userItem?.runs?.count))次軌跡記錄")
         }
         
@@ -222,6 +225,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             } else {
                 self.finalRunName = alert.textFields?.first?.text
             }
+//            if usersDataManager.runItem?.annotations?.count == 0 {
+//                self.defaultAnnotationSetting()
+//            }
             self.editRun(originalItem: usersDataManager.runItem, completion: { (success, item) in
                 guard success == true else {
                     return
@@ -238,6 +244,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
                 self.stopRec()
                 self.infoUpAndDown()
                 self.statusLabel.text = "已儲存"
+                var times = [String]()
+                let runArray = usersDataManager.userItem?.runs?.allObjects as![Run]
+                guard runArray.count != 0 else {
+                    return
+                }
+                for aRun in runArray {
+                    if let time = aRun.duration {
+                        times.append(time)
+                    }
+                    NSLog("\(times)")
+                }
             })
         }
         alert.addAction(ok)
@@ -310,6 +327,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             }
         })
     }
+    
 //MARK: - CoreData functions
     typealias EditDoneHandler = (_ success:Bool,_ resultItem:Run?) -> Void
     
@@ -318,7 +336,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         if finalItem == nil {
             //把Run存在與Users同一個context里
             finalItem = runManager.createItemTo(target: usersDataManager.userItem!)
-            finalItem?.timestamp = NSDate() as Date
+            finalItem?.timestamp = Date()
             usersDataManager.userItem?.addToRuns(finalItem!)
         }
         if let runName = finalRunName {
@@ -386,9 +404,6 @@ extension ViewController {
         }
     }
 }
-
-
-
 // MARK: - CLLocationManagerDelegate, MKMapViewDelegate functions
 extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextViewDelegate  {
     

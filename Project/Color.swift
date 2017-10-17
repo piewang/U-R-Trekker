@@ -12,9 +12,9 @@ class Color: NSObject {
     
     func colorSetting(target:UIView){
         
-        let color1 = UIColor(red: 0, green: 0.83, blue: 0.61, alpha: 1)
-        let color3 = UIColor(red: 0.46, green: 0.92, blue: 0.62, alpha: 1)
-        let color4 = UIColor(red: 0.77, green: 0.97, blue: 0.68, alpha: 1)
+        let color4 = UIColor(red: 0.24, green: 0.73, blue: 0.56, alpha: 1)
+        let color3 = UIColor(red: 0.27, green: 0.86, blue: 0.65, alpha: 1)
+        let color1 = UIColor(red: 0.29, green: 0.92, blue: 0.70, alpha: 1)
         
         let gradient = CAGradientLayer()
         gradient.frame = target.frame
