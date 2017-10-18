@@ -12,8 +12,8 @@ import FBSDKCoreKit
 import GoogleSignIn
 import CoreLocation
 
-var locationsManager:LocationManager? = nil
-//var cLLocations:CLLocationManager? = nil
+//var locationsManager:LocationManager? = nil
+//var runManager: CoreDataManager<Run>?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,9 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userManager = UsersManager(momdFilename: "InfoModel", entityName: "Users", sortKey: "name")
         UsersManager.setAsSingleton(instance: userManager)
         usersDataManager = UsersManager.shared
-        
-        locationsManager = LocationManager.shared
-        //cLLocations = locationsManager?.showCLLocation()
+
+//        runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
+        //runDataManager = runCoreManager
+//        locationsManager = LocationManager.shared
+//        //cLLocations = locationsManager?.showCLLocation()
 
         
         FirebaseApp.configure()

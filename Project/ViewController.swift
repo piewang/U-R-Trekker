@@ -55,8 +55,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     var finalRunName:String? = nil
     let dateformatter = DateFormatter()
     
-    
-    
 // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -225,9 +223,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
             } else {
                 self.finalRunName = alert.textFields?.first?.text
             }
-//            if usersDataManager.runItem?.annotations?.count == 0 {
-//                self.defaultAnnotationSetting()
-//            }
+            
             self.editRun(originalItem: usersDataManager.runItem, completion: { (success, item) in
                 guard success == true else {
                     return
@@ -529,3 +525,9 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
         }
     }
 }
+
+
+
+
+
+

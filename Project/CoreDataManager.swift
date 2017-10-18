@@ -193,7 +193,7 @@ class CoreDataManager<T:NSManagedObject>: NSObject,NSFetchedResultsControllerDel
         
         return self.fetchedResultsController.object(at: indexPath) as? T
     }
-    
+ 
     func searchBy(keyword:String,field:String) -> [T]? {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
