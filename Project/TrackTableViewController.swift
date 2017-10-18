@@ -46,14 +46,6 @@ class TrackTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
-        searchController.searchResultsUpdater = self as! UISearchResultsUpdating
-        searchController.dimsBackgroundDuringPresentation = false
-        
-        var rect: CGRect = searchController.searchBar.frame
-        rect.size.height = 44.0
-        searchController.searchBar.frame = rect
-        searchController.searchBar.placeholder = "輸入關鍵字"
-        self.tableView.tableHeaderView = searchController.searchBar
         self.definesPresentationContext = true
         self.tableView.rowHeight = 128.0
         
@@ -103,12 +95,21 @@ class TrackTableViewController: UITableViewController {
             cell.imgView.image = UIImage(named:"defaultPhoto.png")
         }
         cell.runName?.text = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).runname
+        
 //        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.date?.text = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
+        
         if let cityName = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
             cell.location?.text = "地點:\(cityName)"
+            print(cityName)
         }
+        print(usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run ?? "nil")
+        let cellImg = ((usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.first as! Annotation).imageData!
+        
+        print(cellImg)
+        cell.imgView?.image = UIImage(data: cellImg)
+        
      return cell
      }
  

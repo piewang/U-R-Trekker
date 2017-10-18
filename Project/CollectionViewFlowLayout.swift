@@ -49,9 +49,14 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
                 let arrangeWidth = (pic?.size.width)! * ((pic?.size.height)!/(pic?.size.width)!)
                 let imageRef = pic?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: 167, height: 216))
                 picture = UIImage(cgImage: imageRef!)
+            } else if (pic?.size.height)!/(pic?.size.width)! == 1{
+                let arrangeWidth = (pic?.size.width)! * ((pic?.size.height)!/(pic?.size.width)!)
+                let imageRef = pic?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: 167, height: 167))
+                picture = UIImage(cgImage: imageRef!)
             } else {
                 picture = pic
             }
+            
             
             
             //建立一個attribute，用來做cell的layout

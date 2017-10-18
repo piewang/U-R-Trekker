@@ -17,39 +17,9 @@ class UploadTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-    
-    //    func loadData() -> [String]{
-    //        //取出CoreData裡所有runname
-    //        let coreDataRunArray = usersDataManager.userItem?.runs?.allObjects as! [Run]
-    //
-    //        var timestampArray = [String]()
-    //
-    //        for time in coreDataRunArray{
-    //            formatter.dateFormat = "yyyy-MM-dd HH:mm"
-    //            let date = formatter.string(from: time.timestamp!)
-    //            timestampArray.append(date)
-    //        }
-    //
-    //        self.firebaseTimeArray = timestampArray
-    //檢查firebase裡的資料與CoreData裡有無重複
-    //        let databaseRef = Database.database().reference().child("users").child(uuid!).child("record")
-    //
-    //        databaseRef.observe(.value, with: { (snapshot) in
-    //            if let uploadDict = snapshot.value as? [String:NSDictionary] {
-    //                for fireKeys in uploadDict.keys {
-    //                    for date in timestampArray {
-    //                        if fireKeys == date {
-    //                            //把重複的刪掉
-    //                            timestampArray.filter{$0 != date}
-    //                        }
-    //                    }
-    //                }
-    //                self.firebaseTimeArray = timestampArray
-    //            }
-    //        })
-    //        return firebaseTimeArray
-    //    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -98,19 +68,45 @@ class UploadTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let record = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run)
-        let annotationsRecord = record.annotations?.allObjects as! [Annotation]
-        let locationsRecord = record.locations?.allObjects as! [Location]
+        //要上傳的檔案
+        let record = usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run
+        let annotationsRecord = record.annotations?.allObjects
+        let locationsRecord = record.locations?.allObjects
+
+        //型別轉換
+        var annotationDict = ["imageData":"",
+                              "text":""]
+        var annotationArray = [NSDictionary]()
+        var locationArray = [NSDictionary]()
+        
+        //轉換annotation
+        guard let annotationTotals = annotationsRecord?.count else {
+            return nil
+        }
+        for num in 0..<annotationTotals {
+            if let items = annotationsRecord {
+                var item = items[num] as! Annotation
+                let imgPic = UIImage(data: item.imageData!)
+                let imgNSData = UIImageJPEGRepresentation(imgPic!, 0.9)
+                let imgString =  imgNSData?.base64EncodedString(options: .lineLength64Characters)
+                annotationDict["imageData"] = imgString
+                annotationDict["text"] = item.text
+                annotationArray.append(annotationDict as NSDictionary)
+            }
+        }
         
         //把coredata資料打包成JSON
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateString = formatter.string(from: record.timestamp!)
+        
         let parameters:[String:Any] = [
             "city":record.city,
             "distance":record.distance,
             "duration":record.duration,
             "runname":record.runname,
             "timestamp":dateString,
-            "annotations":annotationsRecord,
-            "locations":locationsRecord
+            "annotations":annotationArray,
+//            "locations":locationString
         ]
         
         guard let data = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else{
@@ -118,7 +114,7 @@ class UploadTableViewController: UITableViewController {
         }
         
         let upload = UITableViewRowAction(style: .normal, title: "上傳") { action, index in
-            let databaseRef = Database.database().reference().child("users").child(uuid!).child("record")
+            let databaseRef = Database.database().reference().child("users").child(uuid!).child("record").child(self.dateString!)
             let storageRef = Storage.storage().reference().child(uuid!).child(self.dateString!)
             let uploadtask = storageRef.putData(data, metadata: nil)
             uploadtask.observe(.success){(snapshot) in
@@ -129,6 +125,13 @@ class UploadTableViewController: UITableViewController {
                 if let dataURL = snapshot.metadata?.downloadURL()?.absoluteString{
                     let post: [String:Any] = ["data": dataURL]
                     databaseRef.setValue(post)
+                }
+                DispatchQueue.main.async {
+                    
+                    let alert = UIAlertController(title: "資料備份成功!", message: nil, preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(cancel)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
             
