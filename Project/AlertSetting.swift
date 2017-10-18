@@ -38,7 +38,7 @@ class AlertSetting: UIViewController {
         target.present(alertController, animated: true, completion: nil)
     }
     
-    func settingWithAct2(target:UIViewController,title:String,message:String?,BTNtitle:String){
+    func settingWithAct2(target:UIViewController,title:String,message:String?,BTNtitle:String,disappearView:UIView,disappearAction:UIActivityIndicatorView,disappearLabel:UILabel){
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -48,6 +48,9 @@ class AlertSetting: UIViewController {
                 return
             }
             target.present(vc, animated: true, completion: nil)
+            disappearView.isHidden = true
+            disappearAction.stopAnimating()
+            disappearLabel.isHidden = true
         }
         alertController.addAction(okAction)
         
