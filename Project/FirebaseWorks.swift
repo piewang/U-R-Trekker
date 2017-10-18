@@ -11,15 +11,6 @@ import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
 
-let firebaseWorks = FirebaseWorks()
-
-var usersDataManager:UsersManager!
-var uuid:String? = nil
-var userName:String? = nil
-var mail:String? = nil
-var photoUrl:String? = nil
-var CDpassword:String? = nil
-
 enum Result{
     case success
     case fail

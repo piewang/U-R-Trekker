@@ -107,54 +107,40 @@ class TrackTableViewController: UITableViewController {
             print(cityName)
         }
         print(usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run ?? "nil")
-        let cellImg = ((usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.first as! Annotation).imageData!
+//        let cellImg = ((usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.first as! Annotation).imageData!
         
-        print(cellImg)
-        cell.imgView?.image = UIImage(data: cellImg)
+//        print(cellImg)
+//        cell.imgView?.image = UIImage(data: cellImg)
         
      return cell
      }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc2 = storyboard?.instantiateViewController(withIdentifier: "MyRecordedViewController") as! MyRecordedViewController
-        if let cityLabel =  (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
+        let runItem = usersDataManager.userItem?.runs?.allObjects[indexPath.row] as!
+        Run
+        if let cityLabel =  runItem.city{
             vc2.city = cityLabel
         }
         //singleton
-//        let run = usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run
-//        usersDataManager.giveRunValue(toRunItem: run)
+        usersDataManager.giveRunValue(toRunItem: runItem)
+        
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        vc2.runDate = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
+        vc2.runDate = formatter.string(from: runItem.timestamp!)
         //傳送Annotation
         var annotation = [Annotation]()
-        if let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.count, totals != 0 {
+        if let totals = runItem.annotations?.count, totals != 0 {
             let total = totals - 1
             for num in 0...total{
-                if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
+                if let items = runItem.annotations?.allObjects {
                     let item = items[num] as! Annotation
                     annotation.append(item)
                 }
             }
-        } else {
-            
         }
-//        guard let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.count else {
-//            return
-//        }
-//        guard totals != 0 else {
-//            return
-//        }
-//        let total = totals - 1
-//        for num in 0...total{
-//            if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
-//                let item = items[num] as! Annotation
-//                annotation.append(item)
-//            }
-//        }
-//
         vc2.annotation = annotation
         //傳送CLLocation
-        vc2.run = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run)
+//        vc2.run = runItem
         navigationController?.pushViewController(vc2, animated: true)
     }
     /*
@@ -165,17 +151,31 @@ class TrackTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        let manageContext = usersDataManager.userItem?.managedObjectContext
+        
+        if let items = usersDataManager.userItem?.runs?.allObjects {
+         
+            let item = items[indexPath.row] as! Run
+            
+            manageContext?.delete(item)
+        }
+        do {
+            try manageContext?.save()
+            tableView.reloadData()
+        } catch {
+            print("error: cant save the usersDataManager.userItem")
+        }
+        
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      }
      }
-     */
+    
     
     /*
      // Override to support rearranging the table view.

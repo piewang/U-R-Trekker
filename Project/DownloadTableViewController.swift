@@ -13,6 +13,18 @@ class DownloadTableViewController: UITableViewController {
     
     var downloadData: [String:NSDictionary]?
     
+    var responseDict:NSDictionary? = nil
+    
+    var annotation:[NSDictionary]? = nil
+    
+    let alert = AlertSetting()
+    
+    let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
+    let annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
+    
+    var timeStamp:String? = nil
+    let dateFormatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,109 +91,53 @@ class DownloadTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let download = UITableViewRowAction(style: .normal, title: "下載") { action, index in
+            //下載中通知視窗
+            self.alert.displayActivityIndicator(target: self, title: "下載中\n")
+            
             if let dataDict = self.downloadData {
                 var keyArray = Array(dataDict.keys)
                 let dataURL = dataDict[keyArray[indexPath.row]]!["data"] as! String
                 print("下載位置====>\(dataURL)")
                 if let downloadUrl = URL(string: dataURL) {
                     
-                    URLSession.shared.dataTask(with: downloadUrl, completionHandler: { (data, response, error) in
+                    URLSession.shared.dataTask(with: downloadUrl, completionHandler: { [weak self](data, response, error) in
                         
                         if error != nil {
                             print("Download Image Task Fail: \(error!.localizedDescription)")
                         }
                         else if let downladData = data {
                             //解析下載回來的檔案
-                            DispatchQueue.main.async {
+                            DispatchQueue.main.sync {
                                 guard let response = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) else {
                                     return
                                 }
                                 
-                                let responseDict = response as! NSDictionary
-                                let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-                                let timeStamp = responseDict["timestamp"] as! String
+                                self?.responseDict = response as! NSDictionary
                                 
+                                self?.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                                self?.timeStamp = self?.responseDict!["timestamp"] as! String
                                 //存取下載回來的檔案
-                                typealias EditDoneHandler = (_ success:Bool,_ resultItem:Run?) -> Void
-                                let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
-                                
-                                func editRun(originalItem:Run?,completion:@escaping EditDoneHandler) {
-                                    var finalItem = originalItem
-                                    if finalItem == nil {
-                                        //把Run存在與Users同一個context里
-                                        finalItem = runManager.createItemTo(target: usersDataManager.userItem!)
-                                        finalItem?.timestamp = dateFormatter.date(from: timeStamp)
-                                        usersDataManager.userItem?.addToRuns(finalItem!)
-                                    }
-                                    if let runName = responseDict["runname"] {
-                                        finalItem?.runname = runName as! String
-                                    }
-                                    if let city = responseDict["city"] {
-                                        finalItem?.city = city as! String
-                                    }
-                                    if let duration = responseDict["duration"] {
-                                        finalItem?.duration = duration as! String
-                                    }
-                                    if let distance = responseDict["distance"] {
-                                        finalItem?.distance = distance as! String
-                                    }
-                                    completion(true,finalItem)
-                                }
-                                
-                                editRun(originalItem: usersDataManager.runItem, completion: { (success, item) in
+                                self?.editRun(originalItem: nil, completion: { (success, item) in
                                     guard success == true else {
                                         return
                                     }
                                     do {
-                                        
-                                        try usersDataManager.runItem?.managedObjectContext?.save()
                                         try usersDataManager.userItem?.managedObjectContext?.save()
-                                        usersDataManager.giveRunValue(toRunItem: item!)
                                     } catch {
                                         let error = error as NSError
                                         assertionFailure("Unresolve error\(error)")
                                     }
                                 })
                                 
-                                
-                                
-                                typealias EditAnnotationDoneHandler = (_ success:Bool, _ resultItem:Annotation?) -> Void
-                                
-                                let annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
-                                let annotation:[NSDictionary] = responseDict["annotations"] as! [NSDictionary]
-                                
                                 //存取annotation
-                                func editAnnotation(originalItem: Annotation?, index:Int, completion: EditAnnotationDoneHandler) {
-                                    var finalItem = originalItem
-                                    
-                                    if finalItem == nil {
-                                        finalItem = annotationManager.createItemTo(target: usersDataManager.runItem!)
-                                        finalItem?.timestamp = dateFormatter.date(from: timeStamp)
-                                        usersDataManager.runItem?.addToAnnotations(finalItem!)
-                                    }
-                                    
-                                    if let text = annotation[index]["text"] {
-                                        finalItem?.text = text as! String
-                                        print(finalItem?.text)
-                                    }
-                                    //解碼string轉換成data存入coredata
-                                    let imageString = annotation[index]["imageData"] as! String
-                                    let imgDecoded:Data = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters)!
-//                                    let imageToUIImage = UIImage(data: imgDecoded as Data)
-//                                    let imgSaved = UIImageJPEGRepresentation(imageToUIImage!, 1.0)
-                                    finalItem?.imageData = imgDecoded
-                                    usersDataManager.giveValue(toAnnotationItem: finalItem!)
-                                }
+                                self?.annotation = self!.responseDict!["annotations"] as! [NSDictionary]
                                 
-                                for i in 0...annotation.count-1 {
-                                    editAnnotation(originalItem: nil, index: i) { (success, item) in
+                                for i in 0...(self?.annotation?.count)!-1 {
+                                    self?.editAnnotation(originalItem: nil, index: i) { (success, item) in
                                         guard success == true else {
                                             return
                                         }
                                         do {
-                                            try usersDataManager.annotationItem?.managedObjectContext?.save()
-                                            try usersDataManager.runItem?.managedObjectContext?.save()
                                             try usersDataManager.userItem?.managedObjectContext?.save()
                                         } catch {
                                             let error = error as NSError
@@ -189,8 +145,8 @@ class DownloadTableViewController: UITableViewController {
                                         }
                                     }
                                 }
-                                
-                                
+                                alertController?.dismiss(animated: true, completion: nil)
+                                self?.alert.setting(target: self!, title: "", message: "下載完成", BTNtitle: "OK")
                                 
                             }
                             
@@ -202,6 +158,62 @@ class DownloadTableViewController: UITableViewController {
         }
         download.backgroundColor = UIColor.lightGray
         return [download]
+    }
+    
+    //MARK: - RunItemEdite
+    typealias EditDoneHandler = (_ success:Bool,_ resultItem:Run?) -> Void
+    
+    func editRun(originalItem:Run?,completion:@escaping EditDoneHandler) {
+        var finalItem = originalItem
+        if finalItem == nil {
+            //把Run存在與Users同一個context里
+            finalItem = runManager.createItemTo(target: usersDataManager.userItem!)
+            finalItem?.timestamp = dateFormatter.date(from: timeStamp!)
+            usersDataManager.userItem?.addToRuns(finalItem!)
+        }
+        if let runName = self.responseDict!["runname"] {
+            finalItem?.runname = runName as! String
+        }
+        if let city = self.responseDict!["city"] {
+            finalItem?.city = city as! String
+        }
+        if let duration = self.responseDict!["duration"] {
+            finalItem?.duration = duration as! String
+        }
+        if let distance = self.responseDict!["distance"] {
+            finalItem?.distance = distance as! String
+        }
+        
+        usersDataManager.giveRunValue(toRunItem: finalItem!)
+        completion(true,finalItem)
+    }
+    
+    //MARK: - AnnotationItem
+    typealias EditAnnotationDoneHandler = (_ success:Bool, _ resultItem:Annotation?) -> Void
+    
+    func editAnnotation(originalItem: Annotation?, index:Int, completion: EditAnnotationDoneHandler) {
+        var finalItem = originalItem
+        
+        if finalItem == nil {
+            finalItem = self.annotationManager.createItemTo(target: usersDataManager.runItem!)
+            finalItem?.timestamp = self.dateFormatter.date(from: (self.timeStamp)!)
+            usersDataManager.runItem?.addToAnnotations(finalItem!)
+        }
+        
+        if let text = self.annotation![index]["text"] {
+            finalItem?.text = text as! String
+            print(finalItem?.text)
+        }
+        //解碼string轉換成data存入coredata
+        let imageString = annotation![index]["imageData"] as! String
+        let imgDecoded:Data = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters)!
+        //                                    let imageToUIImage = UIImage(data: imgDecoded as Data)
+        //                                    let imgSaved = UIImageJPEGRepresentation(imageToUIImage!, 1.0)
+        finalItem?.imageData = imgDecoded
+        
+        usersDataManager.giveValue(toAnnotationItem: finalItem!)
+        
+        completion(true,finalItem)
     }
     
 }

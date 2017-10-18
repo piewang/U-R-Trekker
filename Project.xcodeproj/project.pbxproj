@@ -22,6 +22,7 @@
 		8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */; };
 		8EFECF9A1F90804100388A1D /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFECF991F90804100388A1D /* CustomAnnotation.swift */; };
 		D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D21F79E8D500B513DF /* UsersManager.swift */; };
+		D755381D1F9763FE00787CE6 /* GobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755381C1F9763FE00787CE6 /* GobalVariable.swift */; };
 		D7C951221F8C9C7500FCD770 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951201F8C9C6E00FCD770 /* signIn.png */; };
 		D7C951231F8C9C7900FCD770 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951211F8C9C7200FCD770 /* Login.png */; };
 		D7C951251F8C9F9A00FCD770 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951241F8C9F9800FCD770 /* reset.png */; };
@@ -99,6 +100,7 @@
 		8EFECF991F90804100388A1D /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		D70613D21F79E8D500B513DF /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		D755381C1F9763FE00787CE6 /* GobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobalVariable.swift; sourceTree = "<group>"; };
 		D7C951201F8C9C6E00FCD770 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signIn.png; sourceTree = "<group>"; };
 		D7C951211F8C9C7200FCD770 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
 		D7C951241F8C9F9800FCD770 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */,
 				8E703EF51F7F969500BEA612 /* LocationManager.swift */,
 				D70613D21F79E8D500B513DF /* UsersManager.swift */,
+				D755381C1F9763FE00787CE6 /* GobalVariable.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				EFF85BD31F90730B00AFA20C /* DownloadTableViewController.swift in Sources */,
 				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
+				D755381D1F9763FE00787CE6 /* GobalVariable.swift in Sources */,
 				8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */,
 				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,
 				65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */,

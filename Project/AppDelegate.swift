@@ -12,9 +12,6 @@ import FBSDKCoreKit
 import GoogleSignIn
 import CoreLocation
 
-//var locationsManager:LocationManager? = nil
-//var runManager: CoreDataManager<Run>?
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
