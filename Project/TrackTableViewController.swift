@@ -9,30 +9,6 @@
 import UIKit
 import CoreLocation
 
-extension TrackTableViewController: UISearchResultsUpdating {
-    
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        if searchController.isActive {
-            var searchString: String? = searchController.searchBar.text
-            if (searchString != nil){
-                //判斷裡面有沒有字
-//                var p = NSPredicate(format: "SELF CONTAINS[cd] %@", searchString!)
-//                //上面property增加陣列搜尋後的結果
-//                searchResult = notes?.filter({ (<#String#>) -> Bool in
-//                    <#code#>
-//                })
-            }
-            else {
-                searchResult = nil
-            }
-        }
-        else {
-            searchResult = nil
-        }
-        tableView.reloadData()
-    }
-}
 
 class TrackTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
@@ -46,14 +22,6 @@ class TrackTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        
-        var rect: CGRect = searchController.searchBar.frame
-        rect.size.height = 44.0
-        searchController.searchBar.frame = rect
-        searchController.searchBar.placeholder = "輸入關鍵字"
-        self.tableView.tableHeaderView = searchController.searchBar
         self.definesPresentationContext = true
         self.tableView.rowHeight = 128.0
     }
@@ -78,14 +46,22 @@ class TrackTableViewController: UITableViewController {
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrackTableViewCell
-        cell.imgView?.image = UIImage(data: ((usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.first as! Annotation).imageData!)
         cell.runName?.text = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).runname
+        
 //        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.date?.text = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
+        
         if let cityName = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).city{
             cell.location?.text = "地點:\(cityName)"
+            print(cityName)
         }
+        print(usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run ?? "nil")
+        let cellImg = ((usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.first as! Annotation).imageData!
+        
+        print(cellImg)
+        cell.imgView?.image = UIImage(data: cellImg)
+        
      return cell
      }
  

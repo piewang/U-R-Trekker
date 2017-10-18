@@ -177,7 +177,6 @@ class CoreDataManager<T:NSManagedObject>: NSObject,NSFetchedResultsControllerDel
     }
     
     func createItemTo(target:NSManagedObject) -> T {
-        
         let newManagedObject = NSEntityDescription.insertNewObject(forEntityName: self.entityName, into: target.managedObjectContext!)
         return newManagedObject as! T
         

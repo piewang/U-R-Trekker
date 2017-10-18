@@ -14,7 +14,7 @@ import CoreData
 class ViewController: UIViewController, UINavigationControllerDelegate{
     //MARK: - Deinit
     deinit {
-        // cLLocations?.stopUpdatingLocation()
+         locationManager.stopUpdatingLocation()
     }
     
 // MARK: - IBOutlet
