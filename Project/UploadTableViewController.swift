@@ -14,6 +14,7 @@ class UploadTableViewController: UITableViewController {
     var firebaseTimeArray = [String]()
     let formatter = DateFormatter()
     var dateString:String?
+    let alert = AlertSetting()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +115,8 @@ class UploadTableViewController: UITableViewController {
         }
         
         let upload = UITableViewRowAction(style: .normal, title: "上傳") { action, index in
+            //上傳中通知視窗
+            self.alert.displayActivityIndicator(target: self, title: "上傳中\n")
             let databaseRef = Database.database().reference().child("users").child(uuid!).child("record").child(self.dateString!)
             let storageRef = Storage.storage().reference().child(uuid!).child(self.dateString!)
             let uploadtask = storageRef.putData(data, metadata: nil)
@@ -121,18 +124,19 @@ class UploadTableViewController: UITableViewController {
                 guard let displayName = Auth.auth().currentUser?.displayName else{
                     return
                 }
+                
                 //database的參照
                 if let dataURL = snapshot.metadata?.downloadURL()?.absoluteString{
                     let post: [String:Any] = ["data": dataURL]
                     databaseRef.setValue(post)
                 }
-                DispatchQueue.main.async {
-                    
+                
+                    alertController?.dismiss(animated: true, completion: nil)
                     let alert = UIAlertController(title: "資料備份成功!", message: nil, preferredStyle: .alert)
                     let cancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alert.addAction(cancel)
                     self.present(alert, animated: true, completion: nil)
-                }
+                
             }
             
             

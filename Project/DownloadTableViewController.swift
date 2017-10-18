@@ -92,6 +92,7 @@ class DownloadTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let download = UITableViewRowAction(style: .normal, title: "下載") { action, index in
             //下載中通知視窗
+            self.alert.displayActivityIndicator(target: self, title: "下載中\n")
             
             if let dataDict = self.downloadData {
                 var keyArray = Array(dataDict.keys)
@@ -116,7 +117,7 @@ class DownloadTableViewController: UITableViewController {
                                 self?.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                                 self?.timeStamp = self?.responseDict!["timestamp"] as! String
                                 //存取下載回來的檔案
-                                self?.editRun(originalItem: usersDataManager.runItem, completion: { (success, item) in
+                                self?.editRun(originalItem: nil, completion: { (success, item) in
                                     guard success == true else {
                                         return
                                     }
@@ -144,8 +145,8 @@ class DownloadTableViewController: UITableViewController {
                                         }
                                     }
                                 }
-                                
-                                self?.alert.setting(target: self!, title: "通知", message: "下載完成", BTNtitle: "OK")
+                                alertController?.dismiss(animated: true, completion: nil)
+                                self?.alert.setting(target: self!, title: "", message: "下載完成", BTNtitle: "OK")
                                 
                             }
                             

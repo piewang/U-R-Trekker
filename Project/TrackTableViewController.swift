@@ -149,17 +149,31 @@ class TrackTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        let manageContext = usersDataManager.userItem?.managedObjectContext
+        
+        if let items = usersDataManager.userItem?.runs?.allObjects {
+         
+            let item = items[indexPath.row] as! Run
+            
+            manageContext?.delete(item)
+        }
+        do {
+            try manageContext?.save()
+            tableView.reloadData()
+        } catch {
+            print("error: cant save the usersDataManager.userItem")
+        }
+        
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      }
      }
-     */
+    
     
     /*
      // Override to support rearranging the table view.

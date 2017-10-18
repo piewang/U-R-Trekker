@@ -56,6 +56,21 @@ class AlertSetting: UIViewController {
         
         target.present(alertController, animated: true, completion: nil)
     }
+    //在警告視窗上加上轉圈圈
+    func displayActivityIndicator(target:UIViewController,title:String) {
+        // show the alert window box
+        alertController = UIAlertController(title: title, message:"\n" , preferredStyle: .alert)
+        
+        let activityIndicator = UIActivityIndicatorView(frame: (alertController?.view.bounds)!)
+        activityIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.startAnimating()
+        alertController?.view.addSubview(activityIndicator)
+        
+        target.present(alertController!, animated: true, completion: nil)
+        
+    }
     
 }
 
