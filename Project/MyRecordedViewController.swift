@@ -12,6 +12,13 @@ import CoreLocation
 
 class MyRecordedViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate {
 
+    deinit {
+        do {
+            try usersDataManager.runItem?.managedObjectContext?.save()
+        } catch  {
+            print("Save error")
+        }
+    }
     
     @IBOutlet weak var mapView2: MKMapView!
     @IBOutlet weak var date: UILabel!
@@ -19,7 +26,7 @@ class MyRecordedViewController: UIViewController, MKMapViewDelegate,CLLocationMa
     var runDate:String?
     var city:String?
     var annotation = [Annotation]()
-    var run: Run!
+//    var run: Run!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,21 +45,21 @@ class MyRecordedViewController: UIViewController, MKMapViewDelegate,CLLocationMa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "EmbedView"){
             let vc2 = segue.destination as! MyRecordViewController
-            vc2.goodlist = self.annotation
+            vc2.goodlist = annotation
         }
     }
     
 
     private func mapRegion() -> MKCoordinateRegion? {
         //調整顯示範圍
-        let initialLoc = run.locations?.allObjects.first as! Location
+        let initialLoc = usersDataManager.runItem?.locations?.allObjects.first as! Location
         
         var minLat = initialLoc.latitude
         var minLng = initialLoc.longitude
         var maxLat = minLat
         var maxLng = minLng
         
-        let locations = run.locations?.allObjects as! [Location]
+        let locations = usersDataManager.runItem?.locations?.allObjects as! [Location]
         
         for location in locations {
             minLat = min(minLat, location.latitude)
@@ -81,7 +88,7 @@ class MyRecordedViewController: UIViewController, MKMapViewDelegate,CLLocationMa
     
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
-        let locations = run.locations?.allObjects as! [Location]
+        let locations = usersDataManager.runItem?.locations?.allObjects as! [Location]
         for location in locations {
             coords.append(CLLocationCoordinate2D(latitude: location.latitude,
                                                  longitude: location.longitude))
@@ -91,7 +98,7 @@ class MyRecordedViewController: UIViewController, MKMapViewDelegate,CLLocationMa
     }
     
     func loadMap() {
-        let locations = run.locations?.allObjects as! [Location]
+        let locations = usersDataManager.runItem?.locations?.allObjects as! [Location]
         guard locations.count > 1 else{
             return
         }
