@@ -15,6 +15,7 @@ class DownloadTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let databaseRef = Database.database().reference().child("users").child(uuid!).child("record")
         databaseRef.observe(.value, with: { (snapshot) in
             if let downloadDict = snapshot.value as? [String:NSDictionary] {
