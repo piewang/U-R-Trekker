@@ -13,11 +13,29 @@ import GoogleSignIn
 
 class ContainerViewController: UIViewController {
 
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    
     let backGround = Color()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 顯示使用者名稱＆照片
+        let name = usersDataManager.userItem?.name
+        userNameLabel.text = name
+        if let userImgUserURLString = usersDataManager.userItem?.photo {
+            let userImgURL = URL(string:userImgUserURLString)
+            let userImgData = NSData(contentsOf: userImgURL! )
+            let userImage = UIImage(data: userImgData! as Data)
+            userImageView.image = userImage
+        } else {
+            userImageView.image = UIImage(named:"userDefaultImage.png")
+        }
+        userImageView.layer.cornerRadius = 50
+        userImageView.layer.masksToBounds = true
+        
         backGround.colorSetting(target: self.view)
         // Do any additional setup after loading the view.
     }

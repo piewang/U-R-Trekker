@@ -9,6 +9,30 @@
 import UIKit
 import CoreLocation
 
+extension TrackTableViewController: UISearchResultsUpdating {
+
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.isActive {
+            var searchString: String? = searchController.searchBar.text
+            if (searchString != nil){
+                //判斷裡面有沒有字
+//                var p = NSPredicate(format: "SELF CONTAINS[cd] %@", searchString!)
+//                //上面property增加陣列搜尋後的結果
+//                searchResult = notes?.filter({ (<#String#>) -> Bool in
+//                    <#code#>
+//                })
+            }
+            else {
+                searchResult = nil
+            }
+        }
+        else {
+            searchResult = nil
+        }
+        tableView.reloadData()
+    }
+}
 
 class TrackTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
@@ -24,6 +48,21 @@ class TrackTableViewController: UITableViewController {
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
         self.definesPresentationContext = true
         self.tableView.rowHeight = 128.0
+        
+        // 測試讀出 run 的排列方式
+        var runNames = [String]()
+        let runArray = usersDataManager.userItem?.runs?.allObjects as![Run]
+        guard runArray.count != 0 else {
+            return
+        }
+        for aRun in runArray {
+            if let runName = aRun.runname {
+                runNames.append(runName)
+            }
+            NSLog("\(runNames)")
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +85,15 @@ class TrackTableViewController: UITableViewController {
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrackTableViewCell
+        
+//        person.personToBook?.allObjects.sort({ $0.bookName < $1.bookName })
+        
+        let annotations = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.sorted(by: { ($0 as AnyObject).timestamp < ($1 as AnyObject).timestamp}) as! [Annotation]
+        if annotations.count != 0 {
+            cell.imgView.image = UIImage(data: (annotations.first?.imageData)!)
+        } else {
+            cell.imgView.image = UIImage(named:"defaultPhoto.png")
+        }
         cell.runName?.text = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).runname
         
 //        let formatter = DateFormatter()
@@ -77,19 +125,31 @@ class TrackTableViewController: UITableViewController {
         vc2.runDate = formatter.string(from: (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).timestamp!)
         //傳送Annotation
         var annotation = [Annotation]()
-        guard let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.count else {
-            return
-        }
-        guard totals != 0 else {
-            return
-        }
-        let total = totals - 1
-        for num in 0...total{
-            if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
-                let item = items[num] as! Annotation
-                annotation.append(item)
+        if let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.count, totals != 0 {
+            let total = totals - 1
+            for num in 0...total{
+                if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
+                    let item = items[num] as! Annotation
+                    annotation.append(item)
+                }
             }
+        } else {
+            
         }
+//        guard let totals = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.count else {
+//            return
+//        }
+//        guard totals != 0 else {
+//            return
+//        }
+//        let total = totals - 1
+//        for num in 0...total{
+//            if let items = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects {
+//                let item = items[num] as! Annotation
+//                annotation.append(item)
+//            }
+//        }
+//
         vc2.annotation = annotation
         //傳送CLLocation
         vc2.run = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run)

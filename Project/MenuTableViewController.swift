@@ -12,8 +12,17 @@ class MenuTableViewController: UITableViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var imageViewA: UIImageView!
+    
+    @IBOutlet weak var imageViewB: UIImageView!
+    
+    @IBOutlet weak var imageViewC: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageViewA.isHidden = true
+        imageViewB.isHidden = true
+        imageViewC.isHidden = true
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

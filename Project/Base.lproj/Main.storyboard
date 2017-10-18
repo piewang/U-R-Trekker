@@ -135,7 +135,7 @@
                                     <segue destination="zNN-6U-ujb" kind="presentation" id="rwu-Av-4MW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="wYZ-yJ-QdE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="wYZ-yJ-QdE">
                                 <rect key="frame" x="169" y="82" width="36" height="36"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URTrekker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnl-ju-EtT">
@@ -168,7 +168,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-OJ-Xvu">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-OJ-Xvu">
                                         <rect key="frame" x="153" y="63" width="36" height="36"/>
                                     </imageView>
                                 </subviews>
@@ -204,10 +204,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fakeLogoView" destination="IVH-OJ-Xvu" id="KVy-pe-mQp"/>
                         <outlet property="fakeView" destination="HwW-T8-Eme" id="WPc-Zd-pZw"/>
                         <outlet property="googleLogIn" destination="Xwq-jI-Xjb" id="540-f1-NdA"/>
                         <outlet property="logInActiveView" destination="1jI-NB-Oox" id="4tc-rg-KsK"/>
                         <outlet property="logInLabel" destination="9w6-pA-pvj" id="BC9-2t-BWt"/>
+                        <outlet property="logoView" destination="wYZ-yJ-QdE" id="AhF-GL-Ehb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vd-KG-XQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,11 +394,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group 2.png" width="36" height="36"/>
         <image name="Login.png" width="280" height="48"/>
         <image name="logInAcct.png" width="280" height="48"/>
         <image name="logInGoogle.png" width="280" height="48"/>
         <image name="loginFB.png" width="280" height="48"/>
+        <image name="logoSmall" width="36" height="36"/>
         <image name="reset.png" width="280" height="48"/>
         <image name="signIn.png" width="280" height="48"/>
     </resources>
