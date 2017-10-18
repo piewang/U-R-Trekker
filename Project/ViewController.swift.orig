@@ -12,6 +12,14 @@ import MapKit
 import CoreData
 
 class ViewController: UIViewController, UINavigationControllerDelegate{
+    //MARK: - Deinit
+    deinit {
+<<<<<<< HEAD
+         locationManager.stopUpdatingLocation()
+=======
+        locationManager.stopUpdatingLocation()
+>>>>>>> 7519e8342fa35ddc37af22024d1f057304c7d9fb
+    }
     
 // MARK: - IBOutlet
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -31,22 +39,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet weak var heightOfStatusView: NSLayoutConstraint!
     @IBOutlet weak var heightOfInfoView: NSLayoutConstraint!
     @IBOutlet weak var recBtn: UIButton!
+    @IBOutlet weak var addBtn: UIButton!
     
 // MARK: - Global Variables
+    let locationManager = CLLocationManager()
     // MainMenu
     let gesture = GestureRecognizer()
-    // locationManager Singleton
-    private let locationManager = LocationManager.shared
     // CoreData - runManager & locationCoreDataManager
-    let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
+    let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "runname")
     let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
-    
+    var annotationManager:CoreDataManager? = nil
     private var second = 0
-    private var timer: Timer?
+    var timer: Timer?
     private var distance = Measurement(value: 0.0, unit: UnitLength.meters)
     private var locationList = [CLLocation]()
-    // 判斷變數
     var isRecording = false
+    var finalTime:String? = nil
+    var finalDistance:String? = nil
+    var finalRunName:String? = nil
+    let dateformatter = DateFormatter()
+    
+    
     
 // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -54,33 +67,30 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         // 手勢滑動開啟 sideMenu
         gesture.turnOnMenu(target: menuButton, VCtarget: self)
 
-        // CoreData Singleton
-        usersDataManager = UsersManager.shared
-        
         // 剛進到畫面的 UI 設定
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         upAndDowBtn.setImage(UIImage(named:"up.png"), for: .normal)
         heightOfInfoView.constant = 0 // 80
         heightOfStatusView.constant = 0 // 30
         statusView.isHidden = true
         durationView.isHidden = true
         distanceView.isHidden = true
-
-        // locationManger 初始定位
-        self.locationManagerSetting()
-
+        addBtn.isEnabled = false
         // Prepare fog
         if let fullRadius = CLLocationDistance(exactly: MKMapRectWorld.size.height) {
             mapView.add(MKCircle(center: mapView.centerCoordinate, radius: fullRadius))
         }
         NotificationCenter.default.addObserver(self, selector: #selector(addAnnotation), name: NSNotification.Name(rawValue:"addAnnotation"), object: nil)
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        // locationManger 初始定位
+        locationManagerSetting()
+    }
     // MARK: - IBActions
     @IBAction func userTrackingBtnPressed(_ sender: UIButton) {
         self.mapView.userTrackingMode = .followWithHeading
@@ -96,41 +106,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }
     }
     @IBAction func addBtnPressed(_ sender: UIButton) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController
-        vc?.latitude = locationList.last?.coordinate.latitude
-        vc?.longitude = locationList.last?.coordinate.longitude
-        self.navigationController?.pushViewController(vc!, animated: true)
-        addAnnotation()
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "InsertStopViewController") as? InsertStopViewController else {
+            return
+        }
+        vc.latitude = locationManager.location?.coordinate.latitude
+        vc.longitude = locationManager.location?.coordinate.longitude
+        NSLog("\(vc.latitude ?? 0.0), \(vc.longitude ?? 0.0)")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func upAndDownBtnPressed(_ sender: UIButton) {
-        if heightOfInfoView.constant == 0 {
-            heightOfInfoView.constant = 80
-            UIView.animate(withDuration: 0.5, animations: {
-                self.infoView.frame.origin.y += 80
-                self.infoView.layoutIfNeeded()
-            }, completion: { _ in
-                self.durationView.isHidden = false
-                self.distanceView.isHidden = false
-                self.timeLabel.isHidden = false
-                self.distanceLabel.isHidden = false
-                
-            })
-            upAndDowBtn.setImage(UIImage(named:"up.png"), for: .normal)
-        } else if heightOfInfoView.constant == 80 {
-            durationView.isHidden = true
-            distanceView.isHidden = true
-            timeLabel.isHidden = true
-            distanceLabel.isHidden = true
-            self.heightOfInfoView.constant = 0
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-                self.infoView.frame.origin.y -= 40
-                self.infoView.layoutIfNeeded()
-            }, completion: nil)
-            upAndDowBtn.setImage(UIImage(named:"down.png"), for: .normal)
-        }
+        infoUpAndDown()
     }
     
-// MARK: functions
     // locationManager 初始設定
     func locationManagerSetting() {
         //locationManager.requestAlwaysAuthorization()
@@ -141,21 +128,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         locationManager.activityType = .automotiveNavigation
         locationManager.startUpdatingLocation()
         mapView.userTrackingMode = .followWithHeading
-<<<<<<< HEAD
-        guard locationManager.location != nil else {
-            return
-        }
-        showCity(currentLocation: locationManager.location!)
-=======
         guard let location = locationManager.location else {
             return
         }
         showCity(currentLocation: location)
->>>>>>> master
     }
-    // start Record
-    private func startRec() {
+        
+    func startRec() {
         // 新增 RunItem 所以 originalItem: nil
+        addBtn.isEnabled = true
         editRun(originalItem: nil) { (success, item) in
             guard success == true else {
                 return
@@ -167,6 +148,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         statusLabel.text = "記錄中"
         // status 動畫
         statusView.isHidden = false
+        navigationItem.leftBarButtonItem?.isEnabled = false
         heightOfStatusView.constant = 30
         UIView.animate(withDuration: 0.5, animations: {
             self.statusView.layoutIfNeeded()
@@ -174,17 +156,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         }) { _ in
             self.statusView.isHidden = false
         }
-        // info 動畫
-        self.infoView.isHidden = false
-        self.heightOfInfoView.constant = 80
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveLinear, animations: {
-            self.infoView.layoutIfNeeded()
-            self.infoView.frame.origin.y += 74
-        }) { _ in
-            self.infoView.isHidden = false
-            self.durationView.isHidden = false
-            self.distanceView.isHidden = false
-        }
+        infoUpAndDown()
         // 設定 計時器 與 計算距離長度
         second = 0
         distance = Measurement(value: 0.0, unit: UnitLength.meters)
@@ -205,97 +177,148 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         let formattedTime = FormatDisplay.time(second)
         distanceLabel.text = formattedDistance
         timeLabel.text = formattedTime
+        finalTime = formattedTime
+        finalDistance = formattedDistance
     }
     // 暫停記錄
     private func pauseRec() {
         timer?.invalidate()
-        // 暫停警告視窗
         statusLabel.text = "暫停記錄"
-        let alert = UIAlertController(title: "暫停記錄", message: "您可選擇「繼續」、「刪除」或「儲存」", preferredStyle: .alert)
-        let saveBtn = UIAlertAction(title: "儲存", style: .default, handler: {_ in
-            /// 儲存 軌跡資料
-            /// 儲存 UI 畫面
-            // 儲存軌跡資料
-//            self.editRun(originalItem: nil, completion: { (success, item) in
-//                guard success == true else {
-//                    return
-//                }
-//                do{
-//                    try usersDataManager.userItem?.managedObjectContext?.save()
-//                } catch {
-//                    let nserror = error as NSError
-//
-//                    assertionFailure("Unresolved error \(nserror), \(nserror.userInfo)")
-//                }
-//            })
-            // 終止記錄軌跡
+        updateDisplay()
+        pauseAlert()
+        NSLog("Time: \(String(describing: timeLabel.text)), Distance: \(String(describing: distanceLabel.text))")
+    }
+    
+    func pauseAlert() {
+        let alert = UIAlertController(title: "暫停記錄", message: "您可選擇「繼續」、「儲存」或「刪除」", preferredStyle: .alert)
+        let saveBtn = UIAlertAction(title: "儲存", style: .default) { _ in
+            self.editRunNameAlert()
+        }
+        let discardBtn = UIAlertAction(title: "刪除", style: .destructive) {_ in
+            usersDataManager.userItem?.removeFromRuns(usersDataManager.runItem!)
             self.stopRec()
-        })
-        let discard = UIAlertAction(title: "刪除", style: .default, handler: { _ in
-            /// delete this Run 的資料
-
-            /// 再 清空 UI
-            // 清空 locationList 與 mapView 上的記號
-            self.locationList.removeAll()
-            
-            if self.mapView.overlays.count > 1 {
-                for i in self.mapView.overlays {
-                    if i is MKPolyline {
-                        self.mapView.remove(i)
-                    }
-                }
-            }
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            // 終止記錄軌跡
-            self.stopRec()
-        })
-        let cancelBtn = UIAlertAction(title: "繼續", style: .cancel, handler: {_ in
-            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {_ in
+            self.infoUpAndDown()
+            self.statusLabel.text = "已刪除"
+            NSLog("\(String(describing: usersDataManager.userItem?.name))有\(String(describing: usersDataManager.userItem?.runs?.count))次軌跡記錄")
+        }
+        
+        let keepRecordingBtn = UIAlertAction(title: "繼續", style:.default) { _ in
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
                 self.statusLabel.text = "記錄中"
                 self.eachSecond()
             })
-        })
-        alert.addAction(cancelBtn)
-        alert.addAction(discard)
+        }
+        alert.addAction(keepRecordingBtn)
         alert.addAction(saveBtn)
-        present(alert, animated: true, completion: nil)
+        alert.addAction(discardBtn)
+        self.present(alert, animated: true, completion: nil)
     }
-    // 停止記錄
-    private func stopRec() {
+    
+    func editRunNameAlert() {
+        let alert = UIAlertController(title: "記錄命名", message: "您可以為本次記錄新增名稱，或直接以記錄日期命名", preferredStyle: .alert)
+        alert.addTextField { (tf) in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            tf.placeholder = dateFormatter.string(from: (usersDataManager.runItem?.timestamp)!)
+        }
+        let ok = UIAlertAction(title: "確定", style: .default) { _ in
+            if alert.textFields?.first?.text?.isEmpty == true {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                self.finalRunName = dateFormatter.string(from: (usersDataManager.runItem?.timestamp)!)
+            } else {
+                self.finalRunName = alert.textFields?.first?.text
+            }
+//            if usersDataManager.runItem?.annotations?.count == 0 {
+//                self.defaultAnnotationSetting()
+//            }
+            self.editRun(originalItem: usersDataManager.runItem, completion: { (success, item) in
+                guard success == true else {
+                    return
+                }
+                do {
+                    try usersDataManager.runItem?.managedObjectContext?.save()
+                    try usersDataManager.userItem?.managedObjectContext?.save()
+                } catch {
+                    let error = error as NSError
+                    assertionFailure("Unresolve error\(error)")
+                }
+                NSLog("RunName: \(String(describing: usersDataManager.runItem?.runname)),\n Duration: \(String(describing: usersDataManager.runItem?.duration)),\n Distance: \(String(describing: usersDataManager.runItem?.distance)),\n CreateDate: \(String(describing: usersDataManager.runItem?.timestamp))")
+                NSLog("\(String(describing: usersDataManager.userItem?.name))有\(String(describing: usersDataManager.userItem?.runs?.count))次軌跡記錄")
+                self.stopRec()
+                self.infoUpAndDown()
+                self.statusLabel.text = "已儲存"
+                var times = [String]()
+                let runArray = usersDataManager.userItem?.runs?.allObjects as![Run]
+                guard runArray.count != 0 else {
+                    return
+                }
+                for aRun in runArray {
+                    if let time = aRun.duration {
+                        times.append(time)
+                    }
+                    NSLog("\(times)")
+                }
+            })
+        }
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func stopRec() {
         // 狀態 與 UI 修正
+        addBtn.isEnabled = false
         isRecording = false
         timeLabel.text = "00:00:00"
         distanceLabel.text = "0.0"
         recBtn.setImage(UIImage(named:"start.png"), for: .normal)
+        navigationItem.leftBarButtonItem?.isEnabled = true
         timer?.invalidate()
-        //locationManager.stopUpdatingLocation()
+        if self.mapView.annotations.count > 0{
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+        if self.mapView.overlays.count > 1 {
+            for i in self.mapView.overlays {
+                if i is MKPolyline {
+                    self.mapView.remove(i)
+                }
+            }
+        }
+        
         locationManagerSetting()
     }
-    
+
     @objc private func addAnnotation() {
+        
         if usersDataManager.runItem?.annotations?.count != 0 {
+            
             let annotationLati = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).latitude
             let annotationLongi = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).longitude
             let annotationCoordinate = CLLocationCoordinate2D(latitude: annotationLati, longitude: annotationLongi)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = annotationCoordinate
-            annotation.title = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).text
-            annotation.subtitle = "真好吃"
-            mapView.addAnnotation(annotation)
+            print(annotationLati,annotationLongi)
+            
+            let customAnnotation = CustomAnnotation(coordinate: annotationCoordinate)
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(CLLocation.init(latitude: annotationLati, longitude: annotationLongi), completionHandler: { (placemarks, error) in
+                if error == nil {
+                    let firstLocation = placemarks?[0]
+                    if let state = firstLocation?.addressDictionary!["State"] as? NSString, let city = firstLocation?.addressDictionary!["City"] as? NSString {
+                        customAnnotation.city = String((state as String) + (city as String))
+                    }
+                }
+            })
+            
+            dateformatter.dateFormat = "yyyy-MM-dd HH:mm"
+            customAnnotation.date = dateformatter.string(from: (usersDataManager.runItem!.annotations!.allObjects.last as! Annotation).timestamp!)
+            customAnnotation.text = (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).text
+            customAnnotation.image = UIImage(data: (usersDataManager.runItem?.annotations?.allObjects.last as! Annotation).imageData!)
+            mapView.addAnnotation(customAnnotation)
         }
-    }
-    // 儲存方法
-    private func saveRec() {
-        // 對 Run 儲存
-        
-            // 對 Location 儲存
-
-        
     }
     // 取得目前位置的地址
     typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
     
-    private func showCity(currentLocation:CLLocation) {
+    func showCity(currentLocation:CLLocation) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(currentLocation, completionHandler: { (placemarks, error) in
             if error == nil {
@@ -303,15 +326,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
                 print(firstLocation?.addressDictionary as Any)
                 if let state = firstLocation?.addressDictionary!["State"] as? NSString, let city = firstLocation?.addressDictionary!["City"] as? NSString
                 {
-                    self.cityLabel.text = (state as String) + (city as String)
+                    self.cityLabel.text = String((state as String) + (city as String))
                 }
             }
         })
     }
     
-    
-    
-    //MARK: - EditRun
+//MARK: - CoreData functions
     typealias EditDoneHandler = (_ success:Bool,_ resultItem:Run?) -> Void
     
     func editRun(originalItem:Run?,completion:@escaping EditDoneHandler) {
@@ -319,26 +340,23 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         if finalItem == nil {
             //把Run存在與Users同一個context里
             finalItem = runManager.createItemTo(target: usersDataManager.userItem!)
-            finalItem?.timestamp = NSDate() as Date
+            finalItem?.timestamp = Date()
             usersDataManager.userItem?.addToRuns(finalItem!)
         }
-        if let runName = cityLabel.text {
+        if let runName = finalRunName {
             finalItem?.runname = runName
         }
         if let city = cityLabel.text {
             finalItem?.city = city
         }
-        
-        if let duration = Int(timeLabel.text!) {
-            finalItem?.duration = Int16(duration)
+        if let duration = finalTime {
+            finalItem?.duration = duration
         }
-        if let distance = Double(distanceLabel.text!) {
+        if let distance = finalDistance {
             finalItem?.distance = distance
         }
         completion(true,finalItem)
     }
-    
-    
     typealias EditLocationDoneHandler = (_ success:Bool,_ resultItem:Location?) -> Void
     func editLocation(originalItem:Location?,completion:@escaping EditLocationDoneHandler) {
         var finalItem = originalItem
@@ -361,11 +379,38 @@ class ViewController: UIViewController, UINavigationControllerDelegate{
         completion(true, finalItem)
     }
 }
-
-
+// MARK: - UI method
+extension ViewController {
+    func infoUpAndDown() {
+        if heightOfInfoView.constant == 0 {
+            heightOfInfoView.constant = 80
+            UIView.animate(withDuration: 0.5, animations: {
+                self.infoView.frame.origin.y += 90
+                self.infoView.layoutIfNeeded()
+            }, completion: { _ in
+                self.durationView.isHidden = false
+                self.distanceView.isHidden = false
+                self.timeLabel.isHidden = false
+                self.distanceLabel.isHidden = false
+            })
+            upAndDowBtn.setImage(UIImage(named:"up.png"), for: .normal)
+        } else if heightOfInfoView.constant == 80 {
+            durationView.isHidden = true
+            distanceView.isHidden = true
+            timeLabel.isHidden = true
+            distanceLabel.isHidden = true
+            self.heightOfInfoView.constant = 0
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+                self.infoView.frame.origin.y -= 40
+                self.infoView.layoutIfNeeded()
+            }, completion: nil)
+            upAndDowBtn.setImage(UIImage(named:"down.png"), for: .normal)
+        }
+    }
+}
+// MARK: - CLLocationManagerDelegate, MKMapViewDelegate functions
 extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextViewDelegate  {
     
-    // MARK: - CLLocationManagerDelegate Method
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if isRecording == false {
             guard let currentLocation = locations.last else {
@@ -405,15 +450,12 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                 locationList.append(newLocation)
                 print(locationList.count)
                 showCity(currentLocation: locationList.last!)
-                
-                
-                /// editLocation
+                // 儲存 locaiton
                 editLocation(originalItem: nil, completion: { (success, item) in
                     guard success == true else {
                         return
                     }
                     do {
-                        // 需再測試
                         try usersDataManager.runItem?.managedObjectContext?.save()
                         try usersDataManager.userItem?.managedObjectContext?.save()
                     } catch {
@@ -423,13 +465,10 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
                     
                 })
                 print(usersDataManager.runItem?.locations?.count as Any)
-                
             }
         }
     }
     
-    
-    // MARK: - MKMapViewDelegate Method
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         if overlay is MKCircle {
@@ -457,29 +496,40 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate, UITextVi
         }else{
             result?.annotation = annotation
         }
-        result?.canShowCallout = true
-        let image = UIImage(named:"Annotation.png")
+        result?.canShowCallout = false
+        let image = UIImage(named:"code.png")
         result?.image = image
-        
-        
-        // 針對 callOut 作格式調整
-        let imageView = UIImageView(image:image)
-        result?.leftCalloutAccessoryView = imageView
-        
-        // Prepare RightCalloutAccessoryView
-        let button = UIButton(type: .detailDisclosure)
-        button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
-        result?.rightCalloutAccessoryView = button
+        //configureDetailView(annotationView: result!)
         return result
     }
-    @objc func buttonTapped(sender:Any) {
-        NSLog("buttonTapped!")
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard usersDataManager.runItem?.annotations?.count != 0 else {
+            return
+        }
+        if view.annotation is MKUserLocation {
+            return
+        }
+        
+        let customAnnotation = view.annotation as! CustomAnnotation
+        let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: nil, options: nil)
+        let calloutView = views?[0] as! CustomCalloutView
+        
+        calloutView.layer.cornerRadius = 10
+        calloutView.layer.masksToBounds = true
+        calloutView.cityLabel.text = customAnnotation.city
+        calloutView.timestampLabel.text = customAnnotation.date
+        calloutView.imageView.image = customAnnotation.image
+        calloutView.textLabel.text = customAnnotation.text
+        calloutView.center = CGPoint(x: view.bounds.size.width, y: -calloutView.bounds.size.height*0.52)
+        view.addSubview(calloutView)
+        mapView.setCenter((view.annotation?.coordinate)!, animated: true)
     }
-    
-    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if view.isKind(of: MKAnnotationView.self) {
+            for subView in view.subviews {
+                subView.removeFromSuperview()
+            }
+        }
+    }
 }
-
-
-
-
-

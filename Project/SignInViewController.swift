@@ -16,6 +16,10 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordTextField2: UITextField!
+    //設置處理中的頁面
+    @IBOutlet weak var displaylabel: UILabel!
+    @IBOutlet weak var action: UIActivityIndicatorView!
+    @IBOutlet weak var fakeView: UIView!
     
     let alert = AlertSetting()
     
@@ -24,6 +28,10 @@ class SignInViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         self.view.addGestureRecognizer(tapGesture)
+        
+        fakeView.isHidden = true
+        action.isHidden = true
+        displaylabel.isHidden = true
         
     }
     
@@ -55,10 +63,14 @@ class SignInViewController: UIViewController {
             alert.setting(target: self, title: "Error", message: "請輸入你的email與密碼", BTNtitle: "OK")
             
         } else {
-        
             if passwordTextField.text == passwordTextField2.text {
                 //註冊到firebase裡
-                firebaseWorks.registerFirebaseByEmail(name: "", email: emailTextField.text!, password: passwordTextField.text!, alertTarget: self)
+                firebaseWorks.registerFirebaseByEmail(name: "", email: emailTextField.text!, password: passwordTextField.text!, alertTarget: self, disappearView: fakeView, disappearAction: action, disappearLabel: displaylabel)
+                //開啟處理畫面
+                fakeView.isHidden = false
+                action.startAnimating()
+                displaylabel.isHidden = false
+                
                 
             }else {
                 alert.setting(target: self, title: "Error", message: "密碼不一致，請重新輸入", BTNtitle: "OK")

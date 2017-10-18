@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 
+
 class InsertStopViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate  {
     //MARK: - Deinit
     deinit {
@@ -147,7 +148,7 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.mediaTypes = ["public.image","public.movie"]
-        picker.allowsEditing = true
+//        picker.allowsEditing = true
         picker.delegate = self
         self.present(picker, animated: true, completion: nil
         )
@@ -171,6 +172,7 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         imageView.layer.masksToBounds = true
         picker.dismiss(animated: true, completion: nil)
     }
+    
     func addPhotoAlert() {
         let alert = UIAlertController(title: "新增照片", message: nil, preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "相機", style: .default) {_ in
@@ -238,7 +240,7 @@ extension InsertStopViewController {
             finalItem?.text = "無留言"
         }
         if let image = imageView.image, imageView.image != nil {
-            finalItem?.imageData = UIImagePNGRepresentation(image)
+            finalItem?.imageData = UIImageJPEGRepresentation(image, 0.9)
         } else {
             finalItem?.imageData = UIImagePNGRepresentation(UIImage(named: "defaultPhoto.png")!)
         }
@@ -251,19 +253,3 @@ extension InsertStopViewController {
         completion(true, finalItem)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

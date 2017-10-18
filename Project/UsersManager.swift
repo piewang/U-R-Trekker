@@ -12,11 +12,16 @@ class UsersManager:CoreDataManager<Users> {
     
     private(set) var userItem:Users?
     private(set) var runItem:Run?
+    private(set) var annotationItem:Annotation?
     
     static private(set) var shared:UsersManager?
     
     class func setAsSingleton(instance:UsersManager){
         shared = instance
+    }
+    
+    func giveValue(toAnnotationItem:Annotation) {
+        annotationItem = toAnnotationItem
     }
     
     func giveValue(toUserItem:Users) {

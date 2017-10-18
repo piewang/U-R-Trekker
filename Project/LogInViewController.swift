@@ -15,6 +15,10 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var action: UIActivityIndicatorView!
+    @IBOutlet weak var fakeView: UIView!
+    
     let alert = AlertSetting()
     let fireBase = FirebaseWorks()
     
@@ -23,6 +27,10 @@ class LogInViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         self.view.addGestureRecognizer(tapGesture)
         
+        //設定登入中的頁面
+        fakeView.isHidden = true
+        action.isHidden = true
+        displayLabel.isHidden = true
     }
     
     @objc func tap() {
@@ -54,6 +62,10 @@ class LogInViewController: UIViewController {
                     if let user = Auth.auth().currentUser {
                         //是否通過email驗證
                         if user.isEmailVerified {
+                            
+                            self?.fakeView.isHidden = false
+                            self?.action.startAnimating()
+                            self?.displayLabel.isHidden = false
                             
                             //Go to the HomeViewController if the login is sucessful
                             let storyboard = UIStoryboard(name: "Work", bundle: nil)
