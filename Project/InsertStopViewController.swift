@@ -28,7 +28,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     // Global Varible
     var latitude:Double?
     var longitude:Double?
-    let annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
+    var annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
     var photoImage: UIImage?
     typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
     
@@ -167,6 +167,8 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         if let selectedImg = selectedImageFromPicker{
             imageView.image = selectedImg
         }
+        imageView.contentMode = .scaleToFill
+        imageView.layer.masksToBounds = true
         picker.dismiss(animated: true, completion: nil)
     }
     func addPhotoAlert() {
@@ -177,9 +179,8 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         let library = UIAlertAction(title: "相簿", style: .default) {_ in
             self.launchImagePicker(sourceType: .photoLibrary)
         }
-        let cancel = UIAlertAction(title: "取消", style: .cancel) {_ in
-            self.boxViewAnimate()
-        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
         alert.addAction(camera)
         alert.addAction(library)
         alert.addAction(cancel)
@@ -231,11 +232,15 @@ extension InsertStopViewController {
             finalItem?.timestamp = Date()
             usersDataManager.runItem?.addToAnnotations(finalItem!)
         }
-        if let text = textView.text {
+        if let text = textView.text, text != "" {
             finalItem?.text = text
+        } else {
+            finalItem?.text = "無留言"
         }
-        if let image = imageView.image {
+        if let image = imageView.image, imageView.image != nil {
             finalItem?.imageData = UIImagePNGRepresentation(image)
+        } else {
+            finalItem?.imageData = UIImagePNGRepresentation(UIImage(named: "defaultPhoto.png")!)
         }
         if let lati = latitude {
             finalItem?.latitude = lati
