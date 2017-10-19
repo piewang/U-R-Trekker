@@ -32,6 +32,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     var annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
     var photoImage: UIImage?
     typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
+    var getImageFromCamera = false
     
     
 // MARK: - viewDidLoad
@@ -72,7 +73,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     }
     // Done and Save
     @objc func done()  {
-        if let image = self.imageView.image {
+        if let image = self.imageView.image, getImageFromCamera == true {
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
         editAnnotation(originalItem: nil) { (success, item) in
@@ -90,6 +91,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
         navigationController?.popViewController(animated: true)
         print(usersDataManager.runItem?.annotations?.count as Any)
         NotificationCenter.default.post(name: Notification.Name(rawValue:"addAnnotation"), object: nil)
+        getImageFromCamera = false
     }
     // cancel
     @objc func cancel() {
@@ -181,6 +183,7 @@ extension InsertStopViewController: UIImagePickerControllerDelegate {
         let alert = UIAlertController(title: "新增照片", message: nil, preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "相機", style: .default) {_ in
             self.launchImagePicker(sourceType: .camera)
+            self.getImageFromCamera = true
         }
         let library = UIAlertAction(title: "相簿", style: .default) {_ in
             self.launchImagePicker(sourceType: .photoLibrary)
