@@ -16,11 +16,13 @@
 		8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E34178C1F698B90000D943D /* Assets.xcassets */; };
 		8E9EA7211F663A7100A76A80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7201F663A7100A76A80 /* CoreLocation.framework */; };
 		8E9EA7231F663A7A00A76A80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EA7221F663A7A00A76A80 /* MapKit.framework */; };
-		8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */; };
 		8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */; };
 		8EAE8B0D1F8793BA0049C8F5 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */; };
-		8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2965C1F67B2E8004A493B /* Keyboard.swift */; };
+		8EFECF941F9077ED00388A1D /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EFECF931F9077ED00388A1D /* CustomCalloutView.xib */; };
+		8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */; };
+		8EFECF9A1F90804100388A1D /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFECF991F90804100388A1D /* CustomAnnotation.swift */; };
 		D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70613D21F79E8D500B513DF /* UsersManager.swift */; };
+		D755381D1F9763FE00787CE6 /* GobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755381C1F9763FE00787CE6 /* GobalVariable.swift */; };
 		D7C951221F8C9C7500FCD770 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951201F8C9C6E00FCD770 /* signIn.png */; };
 		D7C951231F8C9C7900FCD770 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951211F8C9C7200FCD770 /* Login.png */; };
 		D7C951251F8C9F9A00FCD770 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C951241F8C9F9800FCD770 /* reset.png */; };
@@ -44,7 +46,6 @@
 		D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */; };
 		D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DAF1F5E726D00E803CA /* Work.storyboard */; };
 		D7FA7DB91F5E884100E803CA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */; };
-		D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */; };
 		D7FA7DBE1F5E933C00E803CA /* MyRecordedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */; };
 		D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */; };
 		D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC31F5EA35B00E803CA /* settings.png */; };
@@ -52,7 +53,10 @@
 		D7FA7DC81F5EA35B00E803CA /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7FA7DC51F5EA35B00E803CA /* footprint.png */; };
 		D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA7DC91F5EA3CA00E803CA /* Color.swift */; };
 		DB2C61477314F1B015EAADAF /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B95F97DE0618E757218977 /* Pods_Project.framework */; };
+		EF1675191F8F892C00D986E8 /* TrackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */; };
+		EF16751B1F8F898D00D986E8 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */; };
 		EF16E1521F821A6F007625C5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16E1511F821A6F007625C5 /* DetailViewController.swift */; };
+		EF4FFF1E1F8FA96300E9EE95 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */; };
 		EFC1CBB11F66AF12008D0E1A /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB911F66AF12008D0E1A /* MKAnnotationView+WebCache.m */; };
 		EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB931F66AF12008D0E1A /* NSData+ImageContentType.m */; };
 		EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CB951F66AF12008D0E1A /* SDImageCache.m */; };
@@ -73,6 +77,8 @@
 		EFC1CBC51F66AF35008D0E1A /* CollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */; };
 		EFC1CBC61F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */; };
 		EFC1CBCA1F66AF55008D0E1A /* MyRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */; };
+		EFF85BCD1F906F3200AFA20C /* UploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85BCC1F906F3200AFA20C /* UploadTableViewController.swift */; };
+		EFF85BD31F90730B00AFA20C /* DownloadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85BD21F90730B00AFA20C /* DownloadTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,12 +93,14 @@
 		8E703EF51F7F969500BEA612 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E9EA7201F663A7100A76A80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E9EA7221F663A7A00A76A80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoAndTextViewController.swift; sourceTree = "<group>"; };
 		8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
-		8EE2965C1F67B2E8004A493B /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		8EFECF931F9077ED00388A1D /* CustomCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
+		8EFECF991F90804100388A1D /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		98DD6F039EB6706E378E297B /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		D70613D21F79E8D500B513DF /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		D755381C1F9763FE00787CE6 /* GobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobalVariable.swift; sourceTree = "<group>"; };
 		D7C951201F8C9C6E00FCD770 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signIn.png; sourceTree = "<group>"; };
 		D7C951211F8C9C7200FCD770 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
 		D7C951241F8C9F9800FCD770 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
@@ -120,14 +128,16 @@
 		D7FA7DB61F5E884100E803CA /* Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		D7FA7DB71F5E884100E803CA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D7FA7DB81F5E884100E803CA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecordedViewController.swift; sourceTree = "<group>"; };
 		D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizer.swift; sourceTree = "<group>"; };
 		D7FA7DC31F5EA35B00E803CA /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		D7FA7DC41F5EA35B00E803CA /* explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explore.png; sourceTree = "<group>"; };
 		D7FA7DC51F5EA35B00E803CA /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
 		D7FA7DC91F5EA3CA00E803CA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewController.swift; sourceTree = "<group>"; };
+		EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		EF16E1511F821A6F007625C5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		EFC1CB901F66AF12008D0E1A /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		EFC1CB911F66AF12008D0E1A /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		EFC1CB921F66AF12008D0E1A /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -165,6 +175,8 @@
 		EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbNailCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecordViewController.swift; sourceTree = "<group>"; };
+		EFF85BCC1F906F3200AFA20C /* UploadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTableViewController.swift; sourceTree = "<group>"; };
+		EFF85BD21F90730B00AFA20C /* DownloadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +252,7 @@
 				D7FA7DC11F5E940000E803CA /* Methods */,
 				D7FA7D971F5E71AC00E803CA /* Main.storyboard */,
 				D7FA7DAF1F5E726D00E803CA /* Work.storyboard */,
+				8EFECF931F9077ED00388A1D /* CustomCalloutView.xib */,
 				8E34178C1F698B90000D943D /* Assets.xcassets */,
 				D7FA7DC21F5EA34B00E803CA /* IMG */,
 				D7FA7D9C1F5E71AC00E803CA /* LaunchScreen.storyboard */,
@@ -258,6 +271,7 @@
 				65E2561B1F7122DC003EFFDC /* CoreDataManager.swift */,
 				8E703EF51F7F969500BEA612 /* LocationManager.swift */,
 				D70613D21F79E8D500B513DF /* UsersManager.swift */,
+				D755381C1F9763FE00787CE6 /* GobalVariable.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -269,13 +283,16 @@
 				D7ECC6231F7D0AD800C558CE /* ContainerViewController.swift */,
 				D7FA7DAA1F5E71E700E803CA /* MenuTableViewController.swift */,
 				D7FA7D951F5E71AB00E803CA /* ViewController.swift */,
-				8E9EA72C1F669EE200A76A80 /* AddPhotoAndTextViewController.swift */,
 				D7FA7DBD1F5E933C00E803CA /* MyRecordedViewController.swift */,
 				EFC1CBC91F66AF55008D0E1A /* MyRecordViewController.swift */,
 				EF16E1511F821A6F007625C5 /* DetailViewController.swift */,
-				D7FA7DBB1F5E932500E803CA /* SettingViewController.swift */,
 				EFC1CBC31F66AF35008D0E1A /* CollectionViewFlowLayout.swift */,
 				EFC1CBC41F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift */,
+				EF1675181F8F892C00D986E8 /* TrackTableViewController.swift */,
+				EF16751A1F8F898D00D986E8 /* TrackTableViewCell.swift */,
+				EF4FFF1D1F8FA96300E9EE95 /* SettingTableViewController.swift */,
+				EFF85BCC1F906F3200AFA20C /* UploadTableViewController.swift */,
+				EFF85BD21F90730B00AFA20C /* DownloadTableViewController.swift */,
 				D7ED1C781F67862100207950 /* SignIn */,
 			);
 			name = Controller;
@@ -293,15 +310,16 @@
 		D7FA7DC11F5E940000E803CA /* Methods */ = {
 			isa = PBXGroup;
 			children = (
+				8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */,
 				8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */,
 				D7ED1C701F677E6000207950 /* FirebaseWorks.swift */,
+				8EFECF991F90804100388A1D /* CustomAnnotation.swift */,
 				D7ED1C711F677E6000207950 /* AlertSetting.swift */,
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E703EF11F7F963900BEA612 /* UnitExtension.swift */,
 				8E703EF31F7F967700BEA612 /* FormatDisplay.swift */,
 				8E9EA72E1F66A10F00A76A80 /* DispatchQueue+Once.swift */,
 				D7FA7DBF1F5E93F400E803CA /* GestureRecognizer.swift */,
-				8EE2965C1F67B2E8004A493B /* Keyboard.swift */,
 			);
 			name = Methods;
 			sourceTree = "<group>";
@@ -399,11 +417,7 @@
 				TargetAttributes = {
 					D7FA7D8F1F5E71AB00E803CA = {
 						CreatedOnToolsVersion = 8.3.3;
-<<<<<<< HEAD
 						DevelopmentTeam = 7588T3DZY6;
-=======
-						DevelopmentTeam = XM7PE2ATP2;
->>>>>>> 62ac1e15b67ad84d4211423197875c3fa699b62b
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -447,6 +461,7 @@
 				8E7670FC1F6B6CF2006813E3 /* Assets.xcassets in Resources */,
 				D7ED1C821F67B4AD00207950 /* Group 2.png in Resources */,
 				EFC1CBC21F66AF20008D0E1A /* 1.plist in Resources */,
+				8EFECF941F9077ED00388A1D /* CustomCalloutView.xib in Resources */,
 				D7FA7DC61F5EA35B00E803CA /* settings.png in Resources */,
 				D7FA7DB01F5E726D00E803CA /* Work.storyboard in Resources */,
 				D7CA65471F6BDB300032D541 /* logInGoogle.png in Resources */,
@@ -512,37 +527,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4FFF1E1F8FA96300E9EE95 /* SettingTableViewController.swift in Sources */,
 				D7FA7D961F5E71AB00E803CA /* ViewController.swift in Sources */,
 				EFC1CBC51F66AF35008D0E1A /* CollectionViewFlowLayout.swift in Sources */,
 				EFC1CBBD1F66AF12008D0E1A /* UIImage+WebP.m in Sources */,
 				D7FA7DAC1F5E71E700E803CA /* MenuTableViewController.swift in Sources */,
 				EFC1CBBA1F66AF12008D0E1A /* UIButton+WebCache.m in Sources */,
+				EF1675191F8F892C00D986E8 /* TrackTableViewController.swift in Sources */,
 				EFC1CBB71F66AF12008D0E1A /* SDWebImageDownloaderOperation.m in Sources */,
-				8E9EA72D1F669EE200A76A80 /* AddPhotoAndTextViewController.swift in Sources */,
+				EFF85BD31F90730B00AFA20C /* DownloadTableViewController.swift in Sources */,
 				D7ED1C7E1F678E6E00207950 /* LogInViewController.swift in Sources */,
 				D7ED1C721F677E6000207950 /* FirebaseWorks.swift in Sources */,
+				D755381D1F9763FE00787CE6 /* GobalVariable.swift in Sources */,
+				8EFECF961F907C8B00388A1D /* CustomCalloutView.swift in Sources */,
 				D7ED1C7A1F6789E800207950 /* HomeViewController.swift in Sources */,
 				65E2561D1F7122DC003EFFDC /* CoreDataManager.swift in Sources */,
 				EFC1CBB31F66AF12008D0E1A /* SDImageCache.m in Sources */,
 				8E08E7451F8283F200AB9131 /* InsertStopViewController.swift in Sources */,
 				EFC1CBB21F66AF12008D0E1A /* NSData+ImageContentType.m in Sources */,
 				D7FA7DCA1F5EA3CA00E803CA /* Color.swift in Sources */,
-				8EE2965D1F67B2E8004A493B /* Keyboard.swift in Sources */,
 				D70613D31F79E8D500B513DF /* UsersManager.swift in Sources */,
 				EFC1CBB51F66AF12008D0E1A /* SDWebImageDecoder.m in Sources */,
 				D7ECC6241F7D0AD800C558CE /* ContainerViewController.swift in Sources */,
 				D7FA7D941F5E71AB00E803CA /* AppDelegate.swift in Sources */,
 				D7ED1C801F678EEB00207950 /* ResetPasswordViewController.swift in Sources */,
+				EFF85BCD1F906F3200AFA20C /* UploadTableViewController.swift in Sources */,
 				EFC1CBBE1F66AF12008D0E1A /* UIImageView+HighlightedWebCache.m in Sources */,
+				EF16751B1F8F898D00D986E8 /* TrackTableViewCell.swift in Sources */,
 				EFC1CBC61F66AF35008D0E1A /* ThumbNailCollectionViewCell.swift in Sources */,
 				EFC1CBB61F66AF12008D0E1A /* SDWebImageDownloader.m in Sources */,
 				EFC1CBB41F66AF12008D0E1A /* SDWebImageCompat.m in Sources */,
-				D7FA7DBC1F5E932500E803CA /* SettingViewController.swift in Sources */,
 				EFC1CBBB1F66AF12008D0E1A /* UIImage+GIF.m in Sources */,
 				EF16E1521F821A6F007625C5 /* DetailViewController.swift in Sources */,
 				EFC1CBBC1F66AF12008D0E1A /* UIImage+MultiFormat.m in Sources */,
 				8E9EA72F1F66A10F00A76A80 /* DispatchQueue+Once.swift in Sources */,
 				8E703EF21F7F963900BEA612 /* UnitExtension.swift in Sources */,
+				8EFECF9A1F90804100388A1D /* CustomAnnotation.swift in Sources */,
 				EFC1CBB91F66AF12008D0E1A /* SDWebImagePrefetcher.m in Sources */,
 				D7FA7DC01F5E93F400E803CA /* GestureRecognizer.swift in Sources */,
 				D7ED1C7C1F678D4A00207950 /* SignInViewController.swift in Sources */,
@@ -694,11 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 7588T3DZY6;
-=======
-				DEVELOPMENT_TEAM = XM7PE2ATP2;
->>>>>>> 62ac1e15b67ad84d4211423197875c3fa699b62b
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -718,11 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = 7588T3DZY6;
-=======
-				DEVELOPMENT_TEAM = XM7PE2ATP2;
->>>>>>> 62ac1e15b67ad84d4211423197875c3fa699b62b
+				DEVELOPMENT_TEAM = QTJ3HA9CQD;
 				INFOPLIST_FILE = Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

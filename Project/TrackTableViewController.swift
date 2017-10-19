@@ -87,6 +87,8 @@ class TrackTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrackTableViewCell
         
 //        person.personToBook?.allObjects.sort({ $0.bookName < $1.bookName })
+        //undoManager?.fetchItemAt(index: indexPath.row)
+        
         
         let annotations = (usersDataManager.userItem?.runs?.allObjects[indexPath.row] as! Run).annotations?.allObjects.sorted(by: { ($0 as AnyObject).timestamp < ($1 as AnyObject).timestamp}) as! [Annotation]
         if annotations.count != 0 {
