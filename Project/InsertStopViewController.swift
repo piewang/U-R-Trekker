@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class InsertStopViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate  {
+class InsertStopViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate {
     //MARK: - Deinit
     deinit {
     }
@@ -32,6 +32,7 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
     var annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
     var photoImage: UIImage?
     typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
+    
     
 // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -65,12 +66,15 @@ class InsertStopViewController: UIViewController, UINavigationControllerDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func addPhotoBtnPressed(_ sender: Any) {
         addPhotoAlert()
     }
     // Done and Save
     @objc func done()  {
+        if let image = self.imageView.image {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
         editAnnotation(originalItem: nil) { (success, item) in
             guard success == true else {
                 return
@@ -253,3 +257,5 @@ extension InsertStopViewController {
         completion(true, finalItem)
     }
 }
+
+

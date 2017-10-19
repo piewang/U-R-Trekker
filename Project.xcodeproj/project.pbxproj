@@ -310,10 +310,10 @@
 		D7FA7DC11F5E940000E803CA /* Methods */ = {
 			isa = PBXGroup;
 			children = (
+				8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */,
 				8EAE8B0C1F8793BA0049C8F5 /* UITextViewPlaceholder.swift */,
 				D7ED1C701F677E6000207950 /* FirebaseWorks.swift */,
 				8EFECF991F90804100388A1D /* CustomAnnotation.swift */,
-				8EFECF951F907C8B00388A1D /* CustomCalloutView.swift */,
 				D7ED1C711F677E6000207950 /* AlertSetting.swift */,
 				D7FA7DC91F5EA3CA00E803CA /* Color.swift */,
 				8E703EF11F7F963900BEA612 /* UnitExtension.swift */,

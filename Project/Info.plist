@@ -58,6 +58,8 @@
 	<string>Your location will display on map and use for tracking your loctaions</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Access microphone to take video</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save into user's album</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access photo library to pick a Photo</string>
 	<key>UIBackgroundModes</key>
@@ -78,7 +80,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>加照片啦幹</string>
 </dict>
 </plist>
