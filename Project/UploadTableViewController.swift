@@ -78,6 +78,8 @@ class UploadTableViewController: UITableViewController {
         var annotationDict = ["imageData":"",
                               "text":""]
         var annotationArray = [NSDictionary]()
+        var locationDict = ["latitude":Double(),
+                            "longtitude":Double()]
         var locationArray = [NSDictionary]()
         
         //轉換annotation
@@ -95,6 +97,17 @@ class UploadTableViewController: UITableViewController {
                 annotationArray.append(annotationDict as NSDictionary)
             }
         }
+        guard let locationsTotal = locationsRecord?.count else {
+            return nil
+        }
+        for locationNum in 0..<locationsTotal {
+            if let items = locationsRecord {
+                var item = items[locationNum] as! Location
+                locationDict["latitude"] = item.latitude
+                locationDict["longtitude"] = item.longitude
+                locationArray.append(locationDict as NSDictionary)
+            }
+        }
         
         //把coredata資料打包成JSON
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -107,7 +120,7 @@ class UploadTableViewController: UITableViewController {
             "runname":record.runname,
             "timestamp":dateString,
             "annotations":annotationArray,
-//            "locations":locationString
+            "locations":locationArray
         ]
         
         guard let data = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else{
