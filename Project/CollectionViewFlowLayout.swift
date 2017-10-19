@@ -45,14 +45,15 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
             var picture:UIImage?
             
             //判斷長寬比，若長比寬短則裁切圖片
-            if (pic?.size.height)!/(pic?.size.width)! < 1 {
-                let arrangeWidth = (pic?.size.width)! * ((pic?.size.height)!/(pic?.size.width)!)
-                let imageRef = pic?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: 167, height: 216))
-                picture = UIImage(cgImage: imageRef!)
-            } else if (pic?.size.height)!/(pic?.size.width)! == 1{
+            if (pic?.size.height)!/(pic?.size.width)! <= 1 {
                 let arrangeWidth = (pic?.size.width)! * ((pic?.size.height)!/(pic?.size.width)!)
                 let imageRef = pic?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: 167, height: 167))
                 picture = UIImage(cgImage: imageRef!)
+            } else if  (pic?.size.height)!/(pic?.size.width)! > 1 {
+                let arrangeWidth = (pic?.size.width)! * ((pic?.size.height)!/(pic?.size.width)!)
+                let imageRef = pic?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: 167, height: 250))
+                picture = UIImage(cgImage: imageRef!)
+                
             } else {
                 picture = pic
             }
