@@ -12,15 +12,15 @@ import Firebase
 class DownloadTableViewController: UITableViewController {
     
     var downloadData: [String:NSDictionary]?
-    
     var responseDict:NSDictionary? = nil
-    
     var annotation:[NSDictionary]? = nil
+    var location:[NSDictionary]? = nil
     
     let alert = AlertSetting()
     
     let runManager = CoreDataManager<Run>(momdFilename: "InfoModel", entityName: "Run", sortKey: "timestamp")
     let annotationManager = CoreDataManager<Annotation>(momdFilename: "InfoModel", entityName: "Annotation", sortKey: "timestamp")
+    let locationCoreDataManager = CoreDataManager<Location>(momdFilename: "InfoModel", entityName: "Location", sortKey: "timestamp")
     
     var timeStamp:String? = nil
     let dateFormatter = DateFormatter()
@@ -145,6 +145,25 @@ class DownloadTableViewController: UITableViewController {
                                         }
                                     }
                                 }
+                                
+                                
+                                //存取location
+                                self?.location = self!.responseDict!["locations"] as! [NSDictionary]
+                                for ii in 0..<(self?.location?.count)! {
+                                    self?.editLocation(originalItem: nil, index: ii, completion: { (success, item) in
+                                        guard success == true else {
+                                            return
+                                        }
+                                        do {
+                                            try usersDataManager.userItem?.managedObjectContext?.save()
+                                        } catch {
+                                            let error = error as NSError
+                                            assertionFailure("Unresolve error\(error)")
+                                        }
+                                    })
+                                }
+                                
+                                
                                 alertController?.dismiss(animated: true, completion: nil)
                                 self?.alert.setting(target: self!, title: "", message: "下載完成", BTNtitle: "OK")
                                 
@@ -214,6 +233,26 @@ class DownloadTableViewController: UITableViewController {
         usersDataManager.giveValue(toAnnotationItem: finalItem!)
         
         completion(true,finalItem)
+    }
+    
+    //MARK: -LocationItem
+    typealias EditLocationDoneHandler = (_ success:Bool,_ resultItem:Location?) -> Void
+    func editLocation(originalItem:Location?, index: Int,completion:@escaping EditLocationDoneHandler) {
+        var finalItem = originalItem
+        if finalItem == nil {
+            finalItem = locationCoreDataManager.createItemTo(target: usersDataManager.runItem!)
+            finalItem?.timestamp = self.dateFormatter.date(from: (self.timeStamp)!)
+            usersDataManager.runItem?.addToLocations(finalItem!)
+        }
+        
+        if let longtitude = self.location![index]["longtitude"]{
+            finalItem?.longitude = longtitude as! Double
+        }
+        if let latitude = self.location![index]["latitude"]{
+            finalItem?.latitude = latitude as! Double
+        }
+        
+        completion(true, finalItem)
     }
     
 }
